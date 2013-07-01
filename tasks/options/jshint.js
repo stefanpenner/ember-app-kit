@@ -2,7 +2,7 @@ module.exports = {
   all: {
     src: [
       'Gruntfile.js',
-      'tmp/transpiled/**/*.js'
+      'app/**/*.js'
     ]
   },
   options: {
