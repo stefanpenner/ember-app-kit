@@ -21,6 +21,7 @@ which will hopefully lead to some great additions and contributions.
 - jshint
  
 ## What does it clearly need to still do
+- **** reduce the hacks needed to make this work ****
 - remove rubygems sass dependency
 - use the new es6 module syntax
 - es6 aware jshint
