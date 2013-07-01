@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App Kit</title>
+  <link rel="stylesheet" href="/assets/vendor.css" media="all">
+  <link rel="stylesheet" href="/assets/app.css"    media="all">
+  <link rel="stylesheet" href="vendor/qunit.css"   media="all">
+
+  <script src="/assets/vendor.js"></script>
+  <script src="/assets/app.js"></script>
+
+  <script src="/tests/vendor/qunit.js"></script>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="/tests/test_helper.js"></script>
+  <script src="/tests/tests.js"></script>
+
+  <script>
+    // TODO: load based on params
+    Ember.keys(define.registry).filter(function(key) {
+      return /\_test/.test(key);
+    }).forEach(requireModule);
+  </script>
+</body>
+</html>
