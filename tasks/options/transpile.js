@@ -1,28 +1,28 @@
 var grunt = require('grunt');
 
 module.exports = {
-  test: {
+  "tests": {
     type: 'amd',
     moduleName: function(path) {
       return grunt.config.process('<%= pkg.namespace %>/tests/') + path;
     },
     files: [{
       expand: true,
-      cwd: 'tests/',
-      src: ['**/*.js', '!vendor/**/*.js'],
-      dest: 'tmp/transpiled/tests'
+      cwd: 'tmp/javascript/tests/',
+      src: '**/*.js',
+      dest: 'tmp/transpiled/tests/'
     }]
   },
-  app: {
+  "app": {
     type: 'amd',
     moduleName: function(path) {
       return grunt.config.process('<%= pkg.namespace %>/') + path;
     },
     files: [{
       expand: true,
-      cwd: 'app/',
+      cwd: 'tmp/javascript/app/',
       src: '**/*.js',
-      dest: 'tmp/transpiled/app'
+      dest: 'tmp/transpiled/app/'
     }]
   }
 };
