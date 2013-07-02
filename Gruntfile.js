@@ -42,6 +42,7 @@ module.exports = function(grunt) {
                      'useminPrepare',
                      'build',
                      'uglify',
+                     'rev',
                      'usemin' ]);
 
   grunt.registerTask('test',    ['build:debug', 'connect', 'qunit']);
