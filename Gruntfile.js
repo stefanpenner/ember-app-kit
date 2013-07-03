@@ -34,6 +34,18 @@ module.exports = function(grunt) {
                      'concat',
                      'unlock' ]);
 
-  grunt.registerTask('test',    ['build', 'connect', 'qunit']);
-  grunt.registerTask('server',  ['build', 'connect', 'watch']);
+  grunt.registerTask('build:debug', [
+                     'copy:vendor',
+                     'build' ]);
+
+  grunt.registerTask('build:dist', [
+                     'useminPrepare',
+                     'build',
+                     'uglify',
+                     'rev',
+                     'usemin' ]);
+
+  grunt.registerTask('test',    ['build:debug', 'connect', 'qunit']);
+  grunt.registerTask('server',  ['build:debug', 'connect', 'watch']);
+  grunt.registerTask('server:dist',  ['build:dist', 'connect:server:keepalive']);
 }; 
