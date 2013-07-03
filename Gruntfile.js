@@ -29,7 +29,7 @@ module.exports = function(grunt) {
                      'transpile',
                      'jshint',
                      'copy',
-                     'ember_handlebars:compile',
+                     'ember_templates:compile',
                      'sass:app',
                      'concat',
                      'unlock' ]);

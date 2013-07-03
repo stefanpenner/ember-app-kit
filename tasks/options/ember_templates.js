@@ -1,7 +1,7 @@
 module.exports = {
   compile: {
     options: {
-      processName: function(filename) {
+      templateName: function(filename) {
         return filename.replace(/app\/templates\//,'').replace(/\.hbs/,'');
       }
     },
