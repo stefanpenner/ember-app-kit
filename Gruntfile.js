@@ -1,4 +1,4 @@
-function loadFrom(path, config) {
+function loadConfig(path) {
   var string = require('string');
   var glob = require('glob');
   var object = {};
@@ -7,8 +7,10 @@ function loadFrom(path, config) {
   glob.sync('*', {cwd: path}).forEach(function(option) {
     key = option.replace(/\.js$/,'');
     key = string(key).camelize().s;
-    config[key] = require(path + option);
+    object[key] = require(path + option);
   });
+
+  return object;
 }
 
 module.exports = function(grunt) {
@@ -18,7 +20,7 @@ module.exports = function(grunt) {
     clean: ['tmp']
   };
 
-  loadFrom('./tasks/options/', config);
+  grunt.util._.extend(config, loadConfig('./tasks/options/'));
 
   grunt.initConfig(config);
 
