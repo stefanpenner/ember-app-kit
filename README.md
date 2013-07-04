@@ -19,6 +19,7 @@ which will hopefully lead to some great additions and contributions.
 - browser test
 - headless tests
 - jshint
+- optionally, CoffeeScript compilation. See `Gruntfile.js` to enable this.
  
 ## What does it clearly need to still do
 - **** reduce the hacks needed to make this work ****
