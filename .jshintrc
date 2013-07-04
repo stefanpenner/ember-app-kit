@@ -1,5 +1,9 @@
 {
   "predef": [
+    "document",
+    "window",
+    "location",
+    "setTimeout",
     "Ember",
     "$",
     "define",
@@ -30,7 +34,7 @@
     "find"
   ],
   "node" : false,
-  "browser" : true,
+  "browser" : false,
   "boss" : true,
   "curly": false,
   "debug": false,
