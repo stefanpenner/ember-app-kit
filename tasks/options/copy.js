@@ -24,7 +24,7 @@ module.exports = {
     files: [{
       expand: true,
       cwd: 'tests/',
-      src: ['index.html', 'test_helper.js', 'vendor/**/*'],
+      src: ['index.html', 'test_helper.js', 'test_loader.js', 'vendor/**/*'],
       dest: 'tmp/public/tests/'
     },
     {
