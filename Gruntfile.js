@@ -54,7 +54,6 @@ module.exports = function(grunt) {
                      'rev',
                      'usemin' ]);
 
-  grunt.registerTask('test',    ['build:debug', 'connect', 'qunit']);
   grunt.registerTask('server',  ['build:debug', 'connect', 'watch']);
   grunt.registerTask('server:dist',  ['build:dist', 'connect:server:keepalive']);
 };
