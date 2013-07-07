@@ -10,7 +10,7 @@
   "scripts": {
     "start": "grunt server",
     "build": "grunt build:debug",
-    "test":  "grunt build:debug && ./node_modules/.bin/karma run"
+    "test":  "grunt build:debug && ./node_modules/.bin/karma start --single-run"
   },
   "repository": {
     "type": "git",
