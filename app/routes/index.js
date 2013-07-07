@@ -4,4 +4,4 @@ var IndexRoute = Ember.Route.extend({
   }
 });
 
-export = IndexRoute;
+export default IndexRoute;

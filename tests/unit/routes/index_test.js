@@ -1,5 +1,5 @@
-import 'appkit/routes/index' as Index;
-import 'appkit/app' as App;
+import Index from 'appkit/routes/index';
+import App from 'appkit/app';
 
 var route;
 

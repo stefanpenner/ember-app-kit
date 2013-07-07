@@ -1,4 +1,4 @@
-import 'resolver' as Resolver;
+import Resolver from 'resolver';
 
 var App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true,
@@ -7,7 +7,7 @@ var App = Ember.Application.create({
   resolver: Resolver
 });
 
-import 'appkit/routes' as routes;
+import routes from 'appkit/routes';
 App.Router.map(routes); // TODO: just resolve the router
 
-export = App;
+export default App;
