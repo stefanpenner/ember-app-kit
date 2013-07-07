@@ -28,11 +28,11 @@ module.exports = function(grunt) {
                      'concat',
                      'unlock' ]);
 
-  grunt.registerTask('build:debug', [
+  grunt.registerTask('build:debug', "build a development friendly version of your app", [
                      'build',
                      'copy:vendor' ]);
 
-  grunt.registerTask('build:dist', [
+  grunt.registerTask('build:dist', "build a production ready version of your app", [
                      'useminPrepare',
                      'build',
                      'uglify',
