@@ -21,12 +21,6 @@
   <div id="qunit-fixture"></div>
   <script src="/tests/test_helper.js"></script>
   <script src="/tests/tests.js"></script>
-
-  <script>
-    // TODO: load based on params
-    Ember.keys(define.registry).filter(function(key) {
-      return /\_test/.test(key);
-    }).forEach(requireModule);
-  </script>
+  <script src="/tests/test_loader.js"></script>
 </body>
 </html>
