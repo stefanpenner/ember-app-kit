@@ -6,7 +6,7 @@ module.exports = {
       }
     },
     files: {
-      "tmp/public/assets/templates.js": "app/templates/*.hbs"
+      "tmp/public/assets/templates.js": "app/templates/**/*.hbs"
     }
   }
 };
