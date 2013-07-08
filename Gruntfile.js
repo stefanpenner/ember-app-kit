@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                      'jshint',
                      'copy:stage',
                      'emberTemplates:compile',
-                     // 'sass:app',
+                     // 'sass:compile',
                      'concat',
                      'unlock' ]);
 

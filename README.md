@@ -44,9 +44,8 @@ I am not sure, make and issue, and lets have a great commuity discussion
 1. Install node.js from http://nodejs.org
 2. Run `npm install` inside the project directory
 3. Install `grunt-cli` globally: `npm -g install grunt-cli`
-4. Install sass: `gem install sass` (hopefully you already have Ruby and Rubygems installed)
-5. Run `grunt server` to get a local development server running
-6. The app will be running at http://0.0.0.0:8000
+4. Run `grunt server` to get a local development server running
+5. The app will be running at http://0.0.0.0:8000
 
 ## Running headless tests
 1. follow 1 through 4 of the "running an app" guide
