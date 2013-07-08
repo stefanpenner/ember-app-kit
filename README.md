@@ -50,7 +50,7 @@ I am not sure, make and issue, and lets have a great commuity discussion
 
 ## Running headless tests
 1. follow 1 through 4 of the "running an app" guide
-2. grunt test
+2. npm test
 
 ## Running browser tests
 1. follow 1 through 5 of the "running an app" guide
