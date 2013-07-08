@@ -1,5 +1,5 @@
 module.exports = {
-  app: {
+  compile: {
     files: {
       'tmp/public/assets/app.css': 'app/styles/**/*.scss'
     }
