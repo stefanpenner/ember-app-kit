@@ -16,16 +16,16 @@ module.exports = function(grunt) {
   grunt.registerTask('build',   [
                      'lock',
                      'clean',
-                     // Uncomment this line for CoffeeScript support. See `tasks/options/coffee.js`.
+                     // Uncomment this line  & `npm install --save-dev grunt-contrib-coffee` for CoffeeScript support.
                      // 'coffee',
                      'copy:prepare',
                      'transpile',
                      'jshint',
                      'copy:stage',
                      'emberTemplates:compile',
-                     // Uncomment this line for SASS support. See `tasks/options/sass.js`.
+                     // Uncomment this line & `npm install --save-dev grunt-sass` for SASS support.
                      // 'sass:compile',
-                     // Uncomment this line for LESS support. See `tasks/options.less.js`.
+                     // Uncomment this line & `npm install --save-dev grunt-contrib-less` for LESS support.
                      // 'less:compile'
                      'concat',
                      'unlock' ]);
