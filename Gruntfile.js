@@ -39,7 +39,20 @@ module.exports = function(grunt) {
                      'rev',
                      'usemin' ]);
 
-  grunt.registerTask('server',  ['build:debug', 'connect', 'watch']);
+  grunt.registerTask('test', "test your app", [
+                     'karma:test' ]);
+
+  grunt.registerTask('test:ci', "test your app in continuous integration mode", [
+                     'karma:ci' ]);
+
+  grunt.registerTask('test:server', "start a test server", [
+                     'karma:server' ]);
+
+  grunt.registerTask('test:run', "run tests using test server", [
+                     'karma:server:run' ]);
+
+
+  grunt.registerTask('server',  ['build:debug', 'test:server', 'connect', 'watch']);
   grunt.registerTask('server:dist',  ['build:dist', 'connect:server:keepalive']);
 };
 

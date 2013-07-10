@@ -1,6 +1,7 @@
 module.exports = {
   options: {
     configFile: 'karma.conf.js',
+    reporters: 'dots',
     browsers: ['Chrome']
   },
   ci: {
@@ -8,11 +9,12 @@ module.exports = {
     browsers: ['PhantomJS']
   },
   test: {
-    reporters: 'dots',
-    browsers: ['Chrome'],
+    singleRun: true,
+  },
+  server: {
+    background: true
   },
   browsers: {
-    reporters: 'dots',
     singleRun: true,
     browsers: ['Chrome', 'ChromeCanary', 'Safari', 'Firefox', 'PhantomJS']
   }  
