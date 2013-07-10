@@ -11,7 +11,11 @@ module.exports = {
     singleRun: true,
   },
   server: {
-    background: true
+    background: true,
+    coverageReporter: {
+      type : ['html'],
+      dir : 'coverage/'
+    }
   },
   browsers: {
     singleRun: true,
