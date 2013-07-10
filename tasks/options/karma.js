@@ -1,7 +1,6 @@
 module.exports = {
   options: {
     configFile: 'karma.conf.js',
-    reporters: 'dots',
     browsers: ['Chrome']
   },
   ci: {

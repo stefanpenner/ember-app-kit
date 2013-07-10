@@ -21,6 +21,9 @@ files = [
   'tests/test_loader.js'
 ];
 
+preprocessors = {
+  'assets/*.js': 'coverage'
+};
 
 // list of files to exclude
 exclude = [
@@ -30,8 +33,12 @@ exclude = [
 
 // test results reporter to use
 // possible values: 'dots', 'progress', 'junit'
-reporters = ['progress'];
+reporters = 'coverage';
 
+coverageReporter = {
+  type : ['text'],
+  dir : 'coverage/'
+}
 
 // web server port
 port = 9876;
