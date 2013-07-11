@@ -1,56 +1,23 @@
-# App Kit
+# Ember App Kit
 
-## Goal
-To lay the foundation for all your ambitious apps.
+Ember App Kit is a foundation for your ambitious web applications built in Ember. It's intended to be used either on its own or as the base scaffolding for generators built on for Ember applications, including [Ember Tools](https://github.com/rpflorence/ember-tools), [generator-ember](https://github.com/yeoman/generator-ember), and a hypothetical official executable at some point in the future.
 
-The plan is for ember to provide a executable that allows for some project generation, this project
-will be used to flush out what this default structure and tooling will be. This executable may end
-up being [charcoal], [ember-tools], or even more likely hybrid of both. 
+For usage information, please see the [getting started guide](https://github.com/stefanpenner/ember-app-kit/wiki/Getting-Started).
 
-The primary goal thought is to solve todays developers needs, spark some good real-world discussion, 
-which will hopefully lead to some great additions and contributions.
+## Features
 
-## What does it do today:
-
-- relatively sane project structure
-- es6-modules
-- module system aware resolver (no more imports, just wonderful convention over configuration magic)
-- simple ember-testing example
-- browser test
-- headless tests
-- jshint
-- optionally, CoffeeScript compilation. See `Gruntfile.js` to enable this.
+- (relatively) Sane project structure
+- ES6 module transpiler support (easy, future-proof modules)
+- Module system-aware resolver
+- Simple ember-testing example
+- Testing via QUnit, Ember Testing, and Karma
+- Project compilation & minification for easy deploys
+- Optional CoffeeScript, SASS, and LESS support
  
-## What does it clearly need to still do
-- **** reduce the hacks needed to make this work ****
-- remove rubygems sass dependency
-- use the new es6 module syntax
-- es6 aware jshint
-- project compilation and minification
-- source maps
-- many small hacks and inconsistencies
-- test should optionally require only specific modules via param (e.g ?module=user_package)
-- simpler for generators to use (templitify the namespace name)
+## Future goals
 
-Please note Several ember shortcomings will also need to be addressed mostly just that the container needs
-to be flushed through the framework. 
+- ES6-aware JSHint
+- Source maps for transpiled modules
+- Better support for usage in generators
 
-## what else does it need to do
-
-I am not sure, make and issue, and lets have a great commuity discussion
-
-## Running an app
-
-1. Install node.js from http://nodejs.org
-2. Run `npm install` inside the project directory
-3. Install `grunt-cli` globally: `npm -g install grunt-cli`
-4. Run `grunt server` to get a local development server running
-5. The app will be running at http://0.0.0.0:8000
-
-## Running headless tests
-1. follow 1 through 4 of the "running an app" guide
-2. npm test
-
-## Running browser tests
-1. follow 1 through 5 of the "running an app" guide
-2. the tests will be running at http://0.0.0.0:8000/tests
+Think anything else is missing? Feel free to open an issue (or, even better, a PR)! Discussion and feedback is always appreciated.
