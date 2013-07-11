@@ -1,18 +1,24 @@
 module.exports = {
   options: {
     configFile: 'karma.conf.js',
-    browsers: ['Chrome']
+    browsers: ['Chrome'],
+    reporters: ['coverage', 'dots']
   },
   ci: {
     singleRun: true,
     browsers: ['PhantomJS']
   },
   test: {
-    reporters: 'dots',
-    browsers: ['Chrome'],
+    singleRun: true,
+  },
+  server: {
+    background: true,
+    coverageReporter: {
+      type : ['html'],
+      dir : 'coverage/'
+    }
   },
   browsers: {
-    reporters: 'dots',
     singleRun: true,
     browsers: ['Chrome', 'ChromeCanary', 'Safari', 'Firefox', 'PhantomJS']
   }  
