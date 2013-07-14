@@ -35,7 +35,7 @@ module.exports = {
     }]
   },
   "vendor": {
-    src: ['vendor/loader.js', 'vendor/jquery-*.js', 'vendor/handlebars.js', 'vendor/**/*.js'],
+    src: ['vendor/**/*.js'],
     dest: 'tmp/public/'
   },
 };
