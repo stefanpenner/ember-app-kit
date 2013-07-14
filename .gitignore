@@ -18,3 +18,8 @@
 
 /node_modules
 /.sass-cache
+
+/vendor/ember/
+/vendor/handlebars/
+/vendor/jquery/
+

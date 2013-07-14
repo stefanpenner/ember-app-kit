@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "ember": "~1.0.0-rc.6",
+    "handlebars": "~1.0.0",
+    "jquery": "~1.9.1"
+  }
+}
