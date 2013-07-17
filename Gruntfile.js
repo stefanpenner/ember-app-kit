@@ -2,7 +2,6 @@ module.exports = function(grunt) {
   var config = {
     pkg: grunt.file.readJSON('package.json'),
     env: process.env,
-    clean: ['tmp']
   };
 
   grunt.util._.extend(config, loadConfig('./tasks/options/'));
@@ -15,7 +14,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['build:debug', 'test']);
   grunt.registerTask('build',   [
                      'lock',
-                     'clean',
+                     'clean:build',
                      // Uncomment this line  & `npm install --save-dev grunt-contrib-coffee` for CoffeeScript support.
                      // 'coffee',
                      'copy:prepare',
@@ -38,6 +37,7 @@ module.exports = function(grunt) {
                      'useminPrepare',
                      'build',
                      'uglify',
+                     'copy:dist',
                      'rev',
                      'usemin' ]);
 

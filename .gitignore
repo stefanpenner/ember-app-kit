@@ -12,7 +12,6 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/tmp
 /bin
 /bundle
 
@@ -23,3 +22,6 @@
 /vendor/handlebars/
 /vendor/jquery/
 
+# Ignore build directories
+/tmp
+/dist

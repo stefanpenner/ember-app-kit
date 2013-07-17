@@ -38,4 +38,12 @@ module.exports = {
     src: ['vendor/**/*.js'],
     dest: 'tmp/public/'
   },
+  "dist": {
+    files: [{
+      expand: true,
+      cwd: 'tmp/public',
+      src: ['**', '!coverage'],
+      dest: 'dist/'
+    }]
+  },
 };
