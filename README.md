@@ -13,6 +13,7 @@ For usage information, please see the [getting started guide](https://github.com
 - Testing via QUnit, Ember Testing, and Karma
 - Project compilation & minification for easy deploys
 - Optional CoffeeScript, SASS, and LESS support
+- Optional support for package management via [bower](https://github.com/bower/bower)
  
 ## Future goals
 
