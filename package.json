@@ -34,7 +34,11 @@
     "grunt-rev": "~0.1.0",
     "grunt-ember-templates": "0.4.9",
     "string": "~1.4.0",
-    "karma": "~0.8.6",
-    "grunt-karma": "~0.4.5"
+    "karma": "~0.9.4",
+    "grunt-karma": "~0.5",
+    "karma-qunit": "~0.0.3",
+    "karma-coverage": "~0.0.3",
+    "karma-phantomjs-launcher": "~0.0.2",
+    "karma-safari-launcher": "~0.0.3"
   }
 }
