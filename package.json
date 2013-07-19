@@ -39,6 +39,7 @@
     "karma-qunit": "~0.0.3",
     "karma-coverage": "~0.0.3",
     "karma-phantomjs-launcher": "~0.0.2",
-    "karma-safari-launcher": "~0.0.3"
+    "karma-safari-launcher": "~0.0.3",
+    "lockfile": "~>0.3.0"
   }
 }

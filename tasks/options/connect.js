@@ -1,3 +1,5 @@
+var lockFile = require('lockfile')
+
 module.exports = {
   server: {
     options: {
@@ -12,7 +14,7 @@ module.exports = {
 // works with tasks/locking.js
 function lock(req, res, next) {
   (function retry() {
-    process.isLocked ? setTimeout(retry, 100) : next();
+    lockFile.checkSync('connect.lock') ? retry() : next()
   }());
 }
 
