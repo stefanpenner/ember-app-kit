@@ -27,6 +27,8 @@ module.exports = function(grunt) {
                      // 'sass:compile',
                      // Uncomment this line & `npm install --save-dev grunt-contrib-less` for LESS support.
                      // 'less:compile'
+                     // Uncomment this line & `npm install --save-dev grunt-contrib-stylus` for stylus/nib support.
+                     // 'stylus:compile'
                      'concat',
                      'unlock' ]);
 
