@@ -9,7 +9,7 @@ module.exports = {
     browsers: ['PhantomJS']
   },
   test: {
-    singleRun: true,
+    singleRun: true
   },
   server: {
     background: true,
@@ -21,5 +21,5 @@ module.exports = {
   browsers: {
     singleRun: true,
     browsers: ['Chrome', 'ChromeCanary', 'Safari', 'Firefox', 'PhantomJS']
-  }  
-}
+  }
+};
