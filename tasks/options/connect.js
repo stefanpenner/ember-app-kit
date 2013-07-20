@@ -14,7 +14,11 @@ module.exports = {
 // works with tasks/locking.js
 function lock(req, res, next) {
   (function retry() {
-    lockFile.checkSync('connect.lock') ? retry() : setTimeout(next, 30)
+    if (lockFile.checkSync('connect.lock')) {
+      setTimeout(retry, 30);
+    } else {
+      next();
+    }
   }());
 }
 
