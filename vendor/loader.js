@@ -53,15 +53,6 @@ define("resolver",
    *  2) is able provide injections to classes that implement `extend`
    *     (as is typical with Ember).
    */
-  var typeMap = {
-    view: 'views',
-    util: 'utils',
-    route: 'routes',
-    action: 'actions',
-    service: 'services',
-    behaviour: 'behaviour',
-    controller: 'controllers'
-  };
 
   function classFactory(klass) {
     return {
@@ -81,7 +72,7 @@ define("resolver",
     var prefix = this.namespace.modulePrefix;
     Ember.assert('module prefix must be defined', prefix);
 
-    var pluralizedType = typeMap[parsedName.type] || parsedName.type;
+    var pluralizedType = parsedName.type + 's';
     var name = parsedName.fullNameWithoutType;
 
     var moduleName = prefix + '/' +  pluralizedType + '/' + underscore(name);
