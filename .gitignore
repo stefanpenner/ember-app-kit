@@ -19,6 +19,9 @@
 /node_modules
 /.sass-cache
 
+/connect.lock
+/libpeerconnection.log
+
 /vendor/ember/
 /vendor/handlebars/
 /vendor/jquery/
