@@ -1,6 +1,24 @@
 var define, requireModule;
 
 (function() {
+  var emberLookup = function (name) {
+    return App.__container__.lookupFactory(name);
+  };
+
+  models = function (name) {
+    return emberLookup('model:' + name);
+  };
+
+  views = function (name) {
+    return emberLookup('view:' + name);
+  };
+
+  controllers = function (name) {
+    return emberLookup('controller:' + name);
+  };
+})();
+
+(function() {
   var registry = {}, seen = {};
 
   define = function(name, deps, callback) {
