@@ -13,7 +13,7 @@ module.exports = {
     {
       expand: true,
       cwd: 'tests/',
-      src: ['**/*.js', '!vendor/**/*.js'],
+      src: ['**/*.js', '!test_helper.js', '!test_loader.js', '!vendor/**/*.js'],
       dest: 'tmp/javascript/tests/'
     }]
   },
