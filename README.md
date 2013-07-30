@@ -11,13 +11,13 @@ For usage information, please see the [getting started guide](https://github.com
 - Module system-aware resolver
 - Simple ember-testing example
 - Testing via QUnit, Ember Testing, and Karma
+- Linting source via JSHint (including module syntax)
 - Project compilation & minification for easy deploys
 - Optional CoffeeScript, SASS, and LESS support
 - Optional support for package management via [bower](https://github.com/bower/bower)
- 
+
 ## Future goals
 
-- ES6-aware JSHint
 - Source maps for transpiled modules
 - Better support for usage in generators
 
