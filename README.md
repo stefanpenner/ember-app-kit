@@ -22,3 +22,10 @@ For usage information, please see the [getting started guide](https://github.com
 - Better support for usage in generators
 
 Think anything else is missing? Feel free to open an issue (or, even better, a PR)! Discussion and feedback is always appreciated.
+
+
+## Special Thanks
+
+Some ideas in ember-app-kit originated in work by Yapp Labs (@yapplabs) with McGraw-Hill Education Labs (@mhelabs)
+on [yapplabs/glazier](https://github.com/yapplabs/glazier).
+Thanks to Yapp and MHE for supporting the Ember ecosystem!
