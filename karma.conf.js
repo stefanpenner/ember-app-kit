@@ -12,7 +12,7 @@ module.exports = function(config) {
       'vendor/loader.js',
       'vendor/jquery/jquery.js',
       'vendor/handlebars/handlebars.js',
-      'vendor/ember/ember.js',
+      'vendor/ember/index.js',
       'assets/templates.js',
       'assets/app.js',
       'tests/test_helper.js',
