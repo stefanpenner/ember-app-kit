@@ -1,8 +1,8 @@
 {
   "name": "ember-app-kit",
   "dependencies": {
-    "ember": "~1.0.0-rc.6",
-    "handlebars": "~1.0.0",
+    "ember": "~1.0.0-rc.6.1",
+    "handlebars": "~1.0.0-rc.4",
     "jquery": "~1.9.1"
   }
 }
