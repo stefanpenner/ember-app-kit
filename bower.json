@@ -4,5 +4,6 @@
     "ember": "http://builds.emberjs.com/ember-1.0.0-rc.6.1.js",
     "handlebars": "1.0.0-rc.4",
     "jquery": "~1.9.1"
+    "qunit": "~1.12.0"
   }
 }
