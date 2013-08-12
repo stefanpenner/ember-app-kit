@@ -21,9 +21,7 @@
 /connect.lock
 /libpeerconnection.log
 
-/vendor/ember/
-/vendor/handlebars/
-/vendor/jquery/
+/vendor/
 
 # Ignore build directories
 /tmp
