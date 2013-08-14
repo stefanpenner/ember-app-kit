@@ -39,7 +39,8 @@
     "karma-qunit": "~0.0.3",
     "karma-coverage": "~0.0.3",
     "karma-phantomjs-launcher": "~0.0.2",
-    "lockfile": "~>0.3.0"
+    "lockfile": "~>0.3.0",
+    "grunt-cli": "~0.1.9"
   },
   "dependencies": {
     "loom": "~2.0.0",
