@@ -1,5 +1,4 @@
-# Ember App Kit
-
+# Ember App Kit [![Build Status](https://travis-ci.org/stefanpenner/ember-app-kit.png?branch=master)](https://travis-ci.org/stefanpenner/ember-app-kit)
 Ember App Kit is a foundation for your ambitious web applications built in Ember. It's intended to be used either on its own or as the base scaffolding for generators built on for Ember applications, including [Ember Tools](https://github.com/rpflorence/ember-tools), [generator-ember](https://github.com/yeoman/generator-ember), and a hypothetical official executable at some point in the future.
 
 For usage information, please see the [getting started guide](https://github.com/stefanpenner/ember-app-kit/wiki/Getting-Started).
