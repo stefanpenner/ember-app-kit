@@ -41,5 +41,9 @@
     "karma-phantomjs-launcher": "~0.0.2",
     "karma-safari-launcher": "~0.0.3",
     "lockfile": "~>0.3.0"
+  },
+  "dependencies": {
+    "loom": "~2.0.0",
+    "loom-generators-ember": "0.0.1"
   }
 }
