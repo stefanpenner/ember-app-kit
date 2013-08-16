@@ -1,43 +1,3 @@
-var define, requireModule;
-
-(function() {
-  var registry = {}, seen = {};
-
-  define = function(name, deps, callback) {
-    registry[name] = { deps: deps, callback: callback };
-  };
-
-  requireModule = function(name) {
-    if (seen[name]) { return seen[name]; }
-    seen[name] = {};
-
-    var mod = registry[name];
-
-    if (!mod) {
-      throw new Error("Module: '" + name + "' not found.");
-    }
-
-    var deps = mod.deps,
-        callback = mod.callback,
-        reified = [],
-        exports;
-
-    for (var i=0, l=deps.length; i<l; i++) {
-      if (deps[i] === 'exports') {
-        reified.push(exports = {});
-      } else {
-        reified.push(requireModule(deps[i]));
-      }
-    }
-
-    var value = callback.apply(this, reified);
-    return seen[name] = exports || value;
-  };
-
-  define.registry = registry;
-  define.seen = seen;
-})();
-
 define("resolver",
   [],
   function() {
@@ -78,8 +38,8 @@ define("resolver",
     var moduleName = prefix + '/' +  pluralizedType + '/' + underscore(name);
     var module;
 
-    if (define.registry[moduleName]) {
-      module = requireModule(moduleName);
+    try {
+      module = require(moduleName);
 
       if (typeof module.create !== 'function') {
         module = classFactory(module);
@@ -90,7 +50,7 @@ define("resolver",
       }
 
       return module;
-    } else  {
+    } catch (e) {
       if (Ember.ENV.LOG_MODULE_RESOLVER){
         Ember.Logger.info('miss', moduleName);
       }
