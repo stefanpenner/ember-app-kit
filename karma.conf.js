@@ -9,7 +9,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'vendor/loader.js',
+      'vendor/almond/almond.js',
+      'vendor/resolver.js',
       'vendor/jquery/jquery.js',
       'vendor/handlebars/handlebars.js',
       'vendor/ember/index.js',

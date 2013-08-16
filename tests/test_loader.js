@@ -1,4 +1,3 @@
-// TODO: load based on params
-Ember.keys(define.registry).filter(function(key) {
+Ember.keys(requirejs._defined).filter(function(key) {
   return (/\_test/).test(key);
-}).forEach(requireModule);
+}).forEach(require);
