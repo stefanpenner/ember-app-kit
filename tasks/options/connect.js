@@ -8,6 +8,14 @@ module.exports = {
       base: 'tmp/public',
       middleware: middleware
     }
+  },
+  dist: {
+    options: {
+      port: process.env.PORT || 8000,
+      hostname: '0.0.0.0',
+      base: 'dist/',
+      middleware: middleware
+    }
   }
 };
 
