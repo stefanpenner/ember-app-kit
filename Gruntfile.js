@@ -38,6 +38,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
                      'useminPrepare',
                      'build',
+                     'concat',
                      'uglify',
                      'copy:dist',
                      'rev',
