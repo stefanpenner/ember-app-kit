@@ -26,4 +26,4 @@ function startApp(attrs) {
   return App;
 }
 
-export default startApp;
+export default = startApp;
