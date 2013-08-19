@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                      'karma:ci' ]);
 
   grunt.registerTask('test:server', "Start a Karma test server. Automatically reruns your tests when files change and logs the results to the terminal.", [
-                     'build:debug', 'karma:server', 'connect', 'watch:test']);
+                     'build:debug', 'karma:server', 'connect:server', 'watch:test']);
 
   grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.",
                      ['build:debug', 'connect:server', 'watch:main']);
