@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                      // 'less:compile'
                      // Uncomment this line & `npm install --save-dev grunt-contrib-stylus` for stylus/nib support.
                      // 'stylus:compile'
-                     'concat',
+                     'concat_sourcemap',
                      'unlock' ]);
 
   grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
@@ -68,7 +68,6 @@ function loadConfig(path) {
 
   glob.sync('*', {cwd: path}).forEach(function(option) {
     key = option.replace(/\.js$/,'');
-    key = string(key).camelize().s;
     object[key] = require(path + option);
   });
 
