@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig(config);
 
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('load-grunt-tasks')(grunt);
   grunt.loadTasks('tasks');
 
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['build:debug', 'test']);
