@@ -15,9 +15,9 @@ module.exports = function(config) {
       'vendor/ember/index.js',
       'assets/templates.js',
       'assets/app.js',
-      'tests/test_helper.js',
       'tests/tests.js',
-      'tests/test_loader.js'
+      'tests/test_loader.js',
+      'tests/test_helper.js',
     ],
 
     frameworks: ['qunit'],

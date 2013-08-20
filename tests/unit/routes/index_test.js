@@ -5,7 +5,7 @@ var route;
 
 module("Unit - IndexRoute", {
   setup: function(){
-    route = App.__container__.lookup('route:index');
+    route = routeFor('index');
   }
 });
 
