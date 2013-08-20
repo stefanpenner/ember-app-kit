@@ -12,6 +12,7 @@ For usage information, please see the [getting started guide](https://github.com
 - Testing via QUnit, Ember Testing, and Karma
 - Linting source via JSHint (including module syntax)
 - Project compilation & minification for easy deploys
+- Catch-all index.html for easy reloading of pushState router apps
 - Optional CoffeeScript, SASS, and LESS support
 - Optional support for package management via [bower](https://github.com/bower/bower)
 
