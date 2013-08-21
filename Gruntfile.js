@@ -62,7 +62,6 @@ module.exports = function(grunt) {
 
 // TODO: extract this out
 function loadConfig(path) {
-  var string = require('string');
   var glob = require('glob');
   var object = {};
   var key;
