@@ -2,7 +2,7 @@ var grunt = require('grunt');
 
 module.exports = {
   "tests": {
-    type: 'amd',
+    type: 'cjs',
     moduleName: function(path) {
       return grunt.config.process('<%= pkg.namespace %>/tests/') + path;
     },
@@ -14,7 +14,7 @@ module.exports = {
     }]
   },
   "app": {
-    type: 'amd',
+    type: 'cjs',
     moduleName: function(path) {
       return grunt.config.process('<%= pkg.namespace %>/') + path;
     },

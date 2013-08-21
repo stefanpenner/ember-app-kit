@@ -3,7 +3,7 @@
   "dependencies": {
     "ember": "http://builds.emberjs.com.s3.amazonaws.com/ember-451cf2b8b241cbf67b6491532520e83b80b5df7a.js",
     "ember-prod": "http://builds.emberjs.com/latest/ember.prod.js",
-    "handlebars": "1.0.0",
+    "handlebars": "https://github.com/wycats/handlebars.js.git#master",
     "jquery": "~1.9.1",
     "qunit": "~1.12.0"
   }

@@ -1,3 +1,6 @@
+var loom = require('loom');
+var fs = require('fs');
+
 module.exports = function(grunt) {
   var config = {
     pkg: grunt.file.readJSON('package.json'),
@@ -15,12 +18,14 @@ module.exports = function(grunt) {
   grunt.registerTask('build',   [
                      'clean:build',
                      'lock',
+                     'loom',
                      // Uncomment this line  & `npm install --save-dev grunt-contrib-coffee` for CoffeeScript support.
                      // 'coffee',
                      'copy:prepare',
                      'transpile',
                      'jshint',
                      'copy:stage',
+                     'cleanup-index',
                      'emberTemplates:compile',
                      // Uncomment this line & `npm install --save-dev grunt-sass` for SASS support.
                      // 'sass:compile',
@@ -28,7 +33,7 @@ module.exports = function(grunt) {
                      // 'less:compile'
                      // Uncomment this line & `npm install --save-dev grunt-contrib-stylus` for stylus/nib support.
                      // 'stylus:compile'
-                     'concat_sourcemap',
+                     'browserify',
                      'unlock' ]);
 
   grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
@@ -61,6 +66,14 @@ module.exports = function(grunt) {
                      ['build:debug', 'connect:server', 'watch:main']);
   grunt.registerTask('server:dist', "Build and preview production (minified) assets.",
                      ['build:dist', 'connect:dist:keepalive']);
+
+  grunt.registerTask('loom', 'Builds application modules index file', function() {
+    loom('index');
+  });
+
+  grunt.registerTask('cleanup-index', 'removes the application modules index file', function() {
+    fs.unlinkSync('app/index.js');
+  });
 };
 
 

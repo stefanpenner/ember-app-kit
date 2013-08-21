@@ -1,8 +1,8 @@
-function Routes() {
+function routes() {
   // // routes/resources
   // this.resource('posts', function() {
   //   this.route('new');
   // });
 }
 
-export default Routes;
+export default routes;

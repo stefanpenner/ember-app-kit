@@ -40,10 +40,12 @@
     "karma-phantomjs-launcher": "~0.0.2",
     "lockfile": "~>0.3.0",
     "grunt-concat-sourcemap": "~0.3.0",
-    "grunt-dom-munger": "~2.0.1"
+    "grunt-dom-munger": "~2.0.1",
+    "grunt-browserify": "~1.2.3"
   },
   "dependencies": {
     "loom": "~2.0.0",
-    "loom-generators-ember": "0.0.1"
+    "loom-generators-ember": "0.0.2",
+    "browserify": "~2.29.0"
   }
 }
