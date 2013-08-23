@@ -66,7 +66,14 @@ define("resolver",
     };
   }
 
-  var underscore = Ember.String.underscore;
+    //This is like Ember.String.underscore but inserts forward slashes
+    var slasherize = function(str) {
+      //These are ripped from ember runtime module.. Used for the underscore function
+      var STRING_UNDERSCORE_REGEXP_1 = (/([a-z\d])([A-Z]+)/g);
+      var STRING_UNDERSCORE_REGEXP_2 = (/\-|\s+/g);
+      return str.replace(STRING_UNDERSCORE_REGEXP_1, '$1/$2').
+        replace(STRING_UNDERSCORE_REGEXP_2, '/').toLowerCase();
+    };
 
   function resolveOther(parsedName) {
     var prefix = this.namespace.modulePrefix;
@@ -75,7 +82,7 @@ define("resolver",
     var pluralizedType = parsedName.type + 's';
     var name = parsedName.fullNameWithoutType;
 
-    var moduleName = prefix + '/' +  pluralizedType + '/' + underscore(name);
+    var moduleName = prefix + '/' +  pluralizedType + '/' + slasherize(name);
     var module;
 
     if (define.registry[moduleName]) {
