@@ -67,6 +67,25 @@ define("resolver",
   }
 
   var underscore = Ember.String.underscore;
+  var classify = Ember.String.classify;;
+  var get = Ember.get;
+
+  function parseName(fullName) {
+    var nameParts = fullName.split(":"),
+        type = nameParts[0], fullNameWithoutType = nameParts[1],
+        name = fullNameWithoutType,
+        namespace = get(this, 'namespace'),
+        root = namespace;
+
+    return {
+      fullName: fullName,
+      type: type,
+      fullNameWithoutType: fullNameWithoutType,
+      name: name,
+      root: root,
+      resolveMethodName: "resolve" + classify(type)
+    };
+  }
 
   function resolveOther(parsedName) {
     var prefix = this.namespace.modulePrefix;
@@ -75,7 +94,7 @@ define("resolver",
     var pluralizedType = parsedName.type + 's';
     var name = parsedName.fullNameWithoutType;
 
-    var moduleName = prefix + '/' +  pluralizedType + '/' + underscore(name);
+    var moduleName = prefix + '/' +  pluralizedType + '/' + name.replace(/\./, '/');
     var module;
 
     if (define.registry[moduleName]) {
@@ -102,7 +121,11 @@ define("resolver",
   // Ember.DefaultResolver docs:
   //   https://github.com/emberjs/ember.js/blob/master/packages/ember-application/lib/system/resolver.js
   var Resolver = Ember.DefaultResolver.extend({
-    resolveOther: resolveOther
+    resolveOther: resolveOther,
+    parseName: parseName,
+    normalize: function(fullName) {
+      return fullName;
+    }
   });
 
   return Resolver;

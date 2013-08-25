@@ -1,7 +1,7 @@
 {
   "name": "ember-app-kit",
   "dependencies": {
-    "ember": "http://builds.emberjs.com/ember-1.0.0-rc.7.js",
+    "ember": "http://builds.emberjs.com.s3.amazonaws.com/ember-451cf2b8b241cbf67b6491532520e83b80b5df7a.js",
     "handlebars": "1.0.0",
     "jquery": "~1.9.1",
     "qunit": "~1.12.0"
