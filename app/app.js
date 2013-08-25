@@ -4,7 +4,7 @@ var App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true,
   LOG_VIEW_LOOKUPS: true,
   modulePrefix: 'appkit', // TODO: loaded via config
-  resolver: Resolver
+  Resolver: Resolver
 });
 
 import routes from 'appkit/routes';
