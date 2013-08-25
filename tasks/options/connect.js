@@ -27,7 +27,7 @@ module.exports = {
 // works with tasks/locking.js
 function lock(req, res, next) {
   (function retry() {
-    if (lockFile.checkSync('connect.lock')) {
+    if (lockFile.checkSync('tmp/connect.lock')) {
       setTimeout(retry, 30);
     } else {
       next();

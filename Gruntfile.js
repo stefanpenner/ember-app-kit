@@ -13,8 +13,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['build:debug', 'test']);
   grunt.registerTask('build',   [
-                     'lock',
                      'clean:build',
+                     'lock',
                      // Uncomment this line  & `npm install --save-dev grunt-contrib-coffee` for CoffeeScript support.
                      // 'coffee',
                      'copy:prepare',
