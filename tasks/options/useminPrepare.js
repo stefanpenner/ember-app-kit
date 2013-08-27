@@ -1,5 +1,5 @@
 module.exports = {
-  html: 'public/index.html',
+  html: 'tmp/public/index.html',
   options: {
     dest: 'dist/'
   }
