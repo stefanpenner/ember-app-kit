@@ -35,9 +35,18 @@ function lock(req, res, next) {
   }());
 }
 
+function wildcardResponseIsValid(request) {
+  var urlSegments = request.url.split('.'),
+      extension   = urlSegments[urlSegments.length-1];
+  return (
+    ['GET', 'HEAD'].indexOf(request.method.toUpperCase()) > -1 &&
+    (urlSegments.length == 1 || extension.indexOf('htm') == 0 || extension.length > 5)
+  )
+}
+
 function buildWildcardMiddleware(options) {
-  return function(req, res, next) {
-    if ('GET' != req.method.toUpperCase() && 'HEAD' != req.method.toUpperCase()) { return next();  }
+  return function(request, response, next) {
+    if (!wildcardResponseIsValid(request)) { return next(); }
 
     var wildcard     = (options.wildcard || 'index.html'),
         wildcardPath = options.base + "/" + wildcard;
@@ -45,8 +54,8 @@ function buildWildcardMiddleware(options) {
     fs.readFile(wildcardPath, function(err, data){
       if (err) { return next('ENOENT' == err.code ? null : err); }
 
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end(data);
+      response.writeHead(200, { 'Content-Type': 'text/html' });
+      response.end(data);
     });
   }
 }
