@@ -20,6 +20,10 @@ module.exports = {
   },
   browsers: {
     singleRun: true,
-    browsers: ['Chrome', 'ChromeCanary', 'Safari', 'Firefox', 'PhantomJS']
+    browsers: ['Chrome',
+               'ChromeCanary',
+               'Firefox',
+               // 'Safari',  // enable plugin in karma.conf.js to use
+               'PhantomJS']
   }
 };
