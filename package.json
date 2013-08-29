@@ -10,7 +10,7 @@
   "scripts": {
     "start": "grunt server",
     "build": "grunt build:debug",
-    "test": "grunt build:debug test:ci"
+    "test": "grunt test:ci"
   },
   "repository": {
     "type": "git",
