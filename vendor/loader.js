@@ -124,7 +124,11 @@ define("resolver",
     resolveOther: resolveOther,
     parseName: parseName,
     normalize: function(fullName) {
-      return fullName;
+      // replace `.` with `/` in order to make nested controllers work in the following cases
+      // 1. `needs: ['posts/post']`
+      // 2. `{{render "posts/post"}}`
+      // 3. `this.render('posts/post')` from Route
+      return fullName.replace(/\./, '/');
     }
   });
 
