@@ -11,7 +11,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('tasks');
 
-  grunt.registerTask('default', "Build (in debug mode) & test your application.", ['build:debug', 'test']);
+  grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
   grunt.registerTask('build',   [
                      'clean:build',
                      'lock',
@@ -46,10 +46,13 @@ module.exports = function(grunt) {
                      'usemin' ]);
 
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/public/coverage.", [
-                     'karma:test' ]);
+                     'build:debug', 'karma:test' ]);
 
   grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
-                     'karma:ci' ]);
+                     'build:debug', 'karma:ci' ]);
+
+  grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/karma.js for configuration).", [
+                     'build:debug', 'karma:browsers' ]);
 
   grunt.registerTask('test:server', "Start a Karma test server. Automatically reruns your tests when files change and logs the results to the terminal.", [
                      'build:debug', 'karma:server', 'connect:server', 'watch:test']);
