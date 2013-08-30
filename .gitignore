@@ -13,4 +13,4 @@
 /.sass-cache
 /connect.lock
 /libpeerconnection.log
-.DS_Store
+**/.DS_Store
