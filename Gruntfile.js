@@ -36,6 +36,7 @@ module.exports = function(grunt) {
                      'copy:vendor' ]);
 
   grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
+                     'clean:release',
                      'build',
                      'dom_munger:distDependencies',
                      'useminPrepare',
@@ -44,6 +45,10 @@ module.exports = function(grunt) {
                      'copy:dist',
                      'rev',
                      'usemin' ]);
+
+  grunt.registerTask('deploy', "Generate assets with build:dist and deploy to S3.", [
+                     'build:dist',
+                     's3' ]);
 
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/public/coverage.", [
                      'build:debug', 'karma:test' ]);
