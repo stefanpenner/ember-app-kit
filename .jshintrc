@@ -5,6 +5,7 @@
     "location",
     "setTimeout",
     "Ember",
+    "Em",
     "$",
     "define",
     "console",
