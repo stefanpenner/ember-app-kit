@@ -32,7 +32,7 @@
     "grunt-usemin": "~0.1.12",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-rev": "~0.1.0",
-    "grunt-ember-templates": "~>0.4.12",
+    "grunt-ember-templates": "~>0.4.13",
     "karma": "~0.9.4",
     "grunt-karma": "~0.5",
     "karma-qunit": "~0.0.3",

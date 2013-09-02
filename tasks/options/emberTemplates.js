@@ -1,11 +1,20 @@
 module.exports = {
-  compile: {
+  options: {
+    templateBasePath: /app\/templates\//,
+    templateFileExtensions: /\.(hbs|hjs|handlebars)/
+  },
+  debug: {
     options: {
-      templateBasePath: /app\/templates\//,
-      templateFileExtensions: /\.(hbs|hjs|handlebars)/
+      precompile: false
     },
-    files: {
-      "tmp/public/assets/templates.js": "app/templates/**/*.{hbs,hjs,handlebars}"
-    }
+    src: "app/templates/**/*.{hbs,hjs,handlebars}",
+    dest: "tmp/public/assets/templates.js"
+  },
+  dist: {
+    options: {
+      precompile: true
+    },
+    src: "<%= emberTemplates.debug.src %>",
+    dest: "<%= emberTemplates.debug.dest %>"
   }
 };
