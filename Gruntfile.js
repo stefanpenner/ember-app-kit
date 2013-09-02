@@ -21,7 +21,6 @@ module.exports = function(grunt) {
                      'transpile',
                      'jshint',
                      'copy:stage',
-                     'emberTemplates:compile',
                      // Uncomment this line & `npm install --save-dev grunt-sass` for SASS support.
                      // 'sass:compile',
                      // Uncomment this line & `npm install --save-dev grunt-contrib-less` for LESS support.
@@ -33,12 +32,15 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
                      'build',
+                     'emberTemplates:debug',
                      'copy:vendor' ]);
 
   grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
                      'build',
                      'clean:release',
-                     'dom_munger:distDependencies',
+                     'emberTemplates:dist',
+                     'dom_munger:distEmber',
+                     'dom_munger:distHandlebars',
                      'useminPrepare',
                      'concat',
                      'uglify',
