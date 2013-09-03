@@ -67,7 +67,7 @@ define("resolver",
   }
 
   var underscore = Ember.String.underscore;
-  var classify = Ember.String.classify;;
+  var classify = Ember.String.classify;
   var get = Ember.get;
 
   function parseName(fullName) {
