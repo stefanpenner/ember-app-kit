@@ -94,7 +94,7 @@ define("resolver",
     var pluralizedType = parsedName.type + 's';
     var name = parsedName.fullNameWithoutType;
 
-    var moduleName = prefix + '/' +  pluralizedType + '/' + name.replace(/\./, '/');
+    var moduleName = prefix + '/' +  pluralizedType + '/' + name.replace(/\./g, '/');
     var module;
 
     if (define.registry[moduleName]) {
