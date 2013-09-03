@@ -94,7 +94,7 @@ define("resolver",
     var pluralizedType = parsedName.type + 's';
     var name = parsedName.fullNameWithoutType;
 
-    var moduleName = prefix + '/' +  pluralizedType + '/' + name.replace(/\./, '/');
+    var moduleName = prefix + '/' +  pluralizedType + '/' + name;
     var module;
 
     if (define.registry[moduleName]) {
@@ -128,7 +128,7 @@ define("resolver",
       // 1. `needs: ['posts/post']`
       // 2. `{{render "posts/post"}}`
       // 3. `this.render('posts/post')` from Route
-      return fullName.replace(/\./, '/');
+      return fullName.replace(/\./g, '/');
     }
   });
 
