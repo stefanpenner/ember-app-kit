@@ -11,9 +11,6 @@ module.exports = {
     dest: "tmp/public/assets/templates.js"
   },
   dist: {
-    options: {
-      precompile: true
-    },
     src: "<%= emberTemplates.debug.src %>",
     dest: "<%= emberTemplates.debug.dest %>"
   }
