@@ -21,7 +21,8 @@ module.exports = function(grunt) {
                      'transpile',
                      'jshint',
                      'copy:stage',
-                     // Uncomment this line & `npm install --save-dev grunt-sass` for SASS support.
+                     // Uncomment line below & `npm install --save-dev grunt-sass` for SASS (SCSS only) support.
+                     // or run `npm install --save-dev grunt-contrib-sass` for SCSS/SASS support (may be slower).
                      // 'sass:compile',
                      // Uncomment this line & `npm install --save-dev grunt-contrib-less` for LESS support.
                      // 'less:compile'
