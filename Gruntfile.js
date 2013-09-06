@@ -44,6 +44,14 @@ module.exports = function(grunt) {
                      whenAvailable('sass:compile'),
                      whenAvailable('less:compile'),
                      whenAvailable('stylus:compile'),
+                     'concat_css',
+                     // Uncomment line below & `npm install --save-dev grunt-sass` for SASS (SCSS only) support.
+                     // or run `npm install --save-dev grunt-contrib-sass` for SCSS/SASS support (may be slower).
+                     // 'sass:compile',
+                     // Uncomment this line & `npm install --save-dev grunt-contrib-less` for LESS support.
+                     // 'less:compile'
+                     // Uncomment this line & `npm install --save-dev grunt-contrib-stylus` for stylus/nib support.
+                     // 'stylus:compile'
                      'concat_sourcemap',
                      'unlock' ]));
 
