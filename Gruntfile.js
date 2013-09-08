@@ -21,6 +21,13 @@ module.exports = function(grunt) {
                      'transpile',
                      'jshint',
                      'copy:stage',
+                     //For emblem.js:
+                     //1. run 'npm install --save-dev grunt-emblem`
+                     //2. Install emblem.js in vendor dir (available at https://github.com/machty/emblem.js)
+                     //3. Refer to dir you installed emblem.js in tasks/options/emblem.js dependencies section
+                     //4. Remove emberTemplates lines in build:debug and build:dist tasks
+                     //5. uncomment line below
+                     //'emblem:compile',
                      // Uncomment line below & `npm install --save-dev grunt-sass` for SASS (SCSS only) support.
                      // or run `npm install --save-dev grunt-contrib-sass` for SCSS/SASS support (may be slower).
                      // 'sass:compile',
