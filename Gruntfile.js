@@ -1,35 +1,43 @@
 module.exports = function(grunt) {
-  var config = {
-    pkg: grunt.file.readJSON('package.json'),
-    env: process.env,
-  };
+  // To support Coffeescript, SASS, LESS and others, just install 
+  // the appropriate grunt package and it will be automatically included 
+  // in the build process:
+  // 
+  // * for Coffeescript, run `npm install --save-dev grunt-contrib-coffee`
+  // * for SASS (SCSS only), run `npm install --save-dev grunt-sass`
+  // * for SCSS/SASS support (may be slower), run
+  //   `npm install --save-dev grunt-contrib-sass`
+  // * for LESS, run `npm install --save-dev grunt-contrib-less` 
+  // * for Stylus/Nib, `npm install --save-dev grunt-contrib-stylus`
+  // 
+  // If you use SASS, LESS or Stylus, don't forget to delete 
+  // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
-  grunt.util._.extend(config, loadConfig('./tasks/options/'));
+  var Helpers = require('./tasks/helpers'),
+      config = Helpers.defaultConfig,
+      whenAvailable = Helpers.whenTaskIsAvailable,
+      _ = grunt.util._;
 
+  config = _.extend(config, Helpers.loadConfig('./tasks/options/'));
   grunt.initConfig(config);
 
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('tasks');
 
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
-  grunt.registerTask('build',   [
+  grunt.registerTask('build', _.compact([
                      'clean:build',
                      'lock',
-                     // Uncomment this line  & `npm install --save-dev grunt-contrib-coffee` for CoffeeScript support.
-                     // 'coffee',
+                     whenAvailable('coffee'),
                      'copy:prepare',
                      'transpile',
                      'jshint',
                      'copy:stage',
-                     // Uncomment line below & `npm install --save-dev grunt-sass` for SASS (SCSS only) support.
-                     // or run `npm install --save-dev grunt-contrib-sass` for SCSS/SASS support (may be slower).
-                     // 'sass:compile',
-                     // Uncomment this line & `npm install --save-dev grunt-contrib-less` for LESS support.
-                     // 'less:compile'
-                     // Uncomment this line & `npm install --save-dev grunt-contrib-stylus` for stylus/nib support.
-                     // 'stylus:compile'
+                     whenAvailable('sass:compile'),
+                     whenAvailable('less:compile'),
+                     whenAvailable('stylus:compile'),
                      'concat_sourcemap',
-                     'unlock' ]);
+                     'unlock' ]));
 
   grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
                      'build',
@@ -66,19 +74,3 @@ module.exports = function(grunt) {
   grunt.registerTask('server:dist', "Build and preview production (minified) assets.",
                      ['build:dist', 'connect:dist:keepalive']);
 };
-
-
-// TODO: extract this out
-function loadConfig(path) {
-  var glob = require('glob');
-  var object = {};
-  var key;
-
-  glob.sync('*', {cwd: path}).forEach(function(option) {
-    key = option.replace(/\.js$/,'');
-    object[key] = require(path + option);
-  });
-
-  return object;
-}
-
