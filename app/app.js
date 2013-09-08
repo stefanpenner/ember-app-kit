@@ -1,13 +1,14 @@
 import Resolver from 'resolver';
+import router from 'appkit/router';
 
 var App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true,
   LOG_VIEW_LOOKUPS: true,
   modulePrefix: 'appkit', // TODO: loaded via config
-  Resolver: Resolver
+  Resolver: Resolver,
+  Router: Ember.Router.extend({
+    router: router
+  })
 });
-
-import routes from 'appkit/routes';
-App.Router.map(routes); // TODO: just resolve the router
 
 export default App;

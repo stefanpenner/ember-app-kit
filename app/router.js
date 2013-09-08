@@ -1,8 +1,7 @@
-function Routes() {
-  // // routes/resources
+var router = Ember.Router.map(function(){
   // this.resource('posts', function() {
   //   this.route('new');
   // });
-}
+});
 
-export default Routes;
+export default router;
