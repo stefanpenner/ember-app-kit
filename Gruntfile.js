@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       whenAvailable = Helpers.whenTaskIsAvailable,
       _ = grunt.util._;
 
-  config = _.extend(config, loadConfig('./tasks/options/'));
+  config = _.extend(config, Helpers.loadConfig('./tasks/options/'));
   grunt.initConfig(config);
 
   require('load-grunt-tasks')(grunt);
@@ -74,19 +74,3 @@ module.exports = function(grunt) {
   grunt.registerTask('server:dist', "Build and preview production (minified) assets.",
                      ['build:dist', 'connect:dist:keepalive']);
 };
-
-
-// TODO: extract this out
-function loadConfig(path) {
-  var glob = require('glob');
-  var object = {};
-  var key;
-
-  glob.sync('*', {cwd: path}).forEach(function(option) {
-    key = option.replace(/\.js$/,'');
-    object[key] = require(path + option);
-  });
-
-  return object;
-}
-
