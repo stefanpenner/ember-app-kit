@@ -9,7 +9,9 @@ module.exports = function(grunt) {
   //   `npm install --save-dev grunt-contrib-sass`
   // * for LESS, run `npm install --save-dev grunt-contrib-less` 
   // * for Stylus/Nib, `npm install --save-dev grunt-contrib-stylus`
-  // 
+  // * for Compass, run `npm install --save-dev grunt-contrib-compass`
+  //   You should not install SASS if you have installed Compass.
+  //   
   // If you use SASS, LESS or Stylus, don't forget to delete 
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
@@ -33,6 +35,7 @@ module.exports = function(grunt) {
                      'transpile',
                      'jshint',
                      'copy:stage',
+                     whenAvailable('compass:compile'),
                      whenAvailable('sass:compile'),
                      whenAvailable('less:compile'),
                      whenAvailable('stylus:compile'),

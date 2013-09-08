@@ -10,6 +10,7 @@ Helpers.defaultConfig = {
 
 var taskRequirements = {
   'coffee': ['grunt-contrib-coffee'],
+  'compass': ['grunt-contrib-compass'],
   'sass': ['grunt-sass', 'grunt-contrib-sass'],
   'less': ['grunt-contrib-less'],
   'stylus': ['grunt-contrib-stylus']
