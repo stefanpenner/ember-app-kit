@@ -13,7 +13,9 @@ var taskRequirements = {
   'compass': ['grunt-contrib-compass'],
   'sass': ['grunt-sass', 'grunt-contrib-sass'],
   'less': ['grunt-contrib-less'],
-  'stylus': ['grunt-contrib-stylus']
+  'stylus': ['grunt-contrib-stylus'],
+  'emberTemplates': ['grunt-ember-templates'],
+  'emblem': ['grunt-emblem']
 };
 
 Helpers.whenTaskIsAvailable = function(taskName) {

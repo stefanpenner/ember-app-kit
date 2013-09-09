@@ -11,7 +11,11 @@ module.exports = function(grunt) {
   // * for Stylus/Nib, `npm install --save-dev grunt-contrib-stylus`
   // * for Compass, run `npm install --save-dev grunt-contrib-compass`
   //   You should not install SASS if you have installed Compass.
-  //   
+  // * for Emblem, run the following commands: 
+  //   `npm uninstall --save-dev grunt-ember-templates`
+  //   `npm install --save-dev grunt-emblem`
+  //   `bower install emblem.js --save`
+  // 
   // If you use SASS, LESS or Stylus, don't forget to delete 
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
@@ -35,6 +39,7 @@ module.exports = function(grunt) {
                      'transpile',
                      'jshint',
                      'copy:stage',
+                     whenAvailable('emblem:compile'),
                      whenAvailable('compass:compile'),
                      whenAvailable('sass:compile'),
                      whenAvailable('less:compile'),
@@ -42,15 +47,15 @@ module.exports = function(grunt) {
                      'concat_sourcemap',
                      'unlock' ]));
 
-  grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
+  grunt.registerTask('build:debug', "Build a development-friendly version of your app.", _.compact([
                      'build',
-                     'emberTemplates:debug',
-                     'copy:vendor' ]);
+                     whenAvailable('emberTemplates:debug'),
+                     'copy:vendor' ]));
 
-  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
+  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", _.compact([
                      'build',
                      'clean:release',
-                     'emberTemplates:dist',
+                     whenAvailable('emberTemplates:dist'),
                      'dom_munger:distEmber',
                      'dom_munger:distHandlebars',
                      'useminPrepare',
@@ -58,7 +63,7 @@ module.exports = function(grunt) {
                      'uglify',
                      'copy:dist',
                      'rev',
-                     'usemin' ]);
+                     'usemin' ]));
 
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/public/coverage.", [
                      'build:debug', 'karma:test' ]);
