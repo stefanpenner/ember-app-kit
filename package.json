@@ -40,8 +40,9 @@
     "karma-phantomjs-launcher": "~0.0.2",
     "lockfile": "~>0.3.0",
     "grunt-concat-sourcemap": "~0.3.0",
-    "grunt-dom-munger": "~2.0.1",
-    "grunt-contrib-cssmin": "~0.6.1"
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-concurrent": "~0.3.1",
+    "grunt-dom-munger": "~2.0.1"
   },
   "dependencies": {
     "loom": "~2.0.0",

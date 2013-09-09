@@ -40,32 +40,55 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
-  grunt.registerTask('build', _.compact([
+
+  // All tasks except build:before and build:after are run concurrently
+  grunt.registerTask('build:before', [
                      'clean:build',
-                     'lock',
+                     'clean:release',
+                     'lock'
+                     ]);
+
+  grunt.registerTask('build:before:debug', [
+                     'clean:build',
+                     'lock'
+                     ]);
+
+  grunt.registerTask('build:templates', _.compact([
+                     whenAvailable('emblem:compile'),
+                     whenAvailable('emberTemplates:dist')
+                     ]));
+
+  grunt.registerTask('build:templates:debug', _.compact([
+                     whenAvailable('emblem:compile'),
+                     whenAvailable('emberTemplates:debug')
+                     ]));
+
+  grunt.registerTask('build:scripts', _.compact([
                      whenAvailable('coffee'),
                      'copy:prepare',
                      'transpile',
                      'jshint',
                      'copy:stage',
-                     whenAvailable('emblem:compile'),
+                     'concat_sourcemap'
+                     ]));
+
+  grunt.registerTask('build:styles', _.compact([
                      whenAvailable('compass:compile'),
                      whenAvailable('sass:compile'),
                      whenAvailable('less:compile'),
                      whenAvailable('stylus:compile'),
                      'cssmin',
                      'concat_sourcemap',
-                     'unlock' ]));
+                     'unlock'
+                     ]));
 
-  grunt.registerTask('build:debug', "Build a development-friendly version of your app.", _.compact([
-                     'build',
-                     whenAvailable('emberTemplates:debug'),
-                     'copy:vendor' ]));
+  grunt.registerTask('build:other', _.compact([
+                     'copy:vendor'
+                     ]));
 
-  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", _.compact([
-                     'build',
-                     'clean:release',
-                     whenAvailable('emberTemplates:dist'),
+  grunt.registerTask('build:after', _.compact([
+                     'copy:stage',
+                     'unlock',
                      'dom_munger:distEmber',
                      'dom_munger:distHandlebars',
                      'useminPrepare',
@@ -73,7 +96,25 @@ module.exports = function(grunt) {
                      'uglify',
                      'copy:dist',
                      'rev',
-                     'usemin' ]));
+                     'usemin'
+                     ]));
+
+  grunt.registerTask('build:after:debug', _.compact([
+                     'copy:stage',
+                     'unlock' 
+                     ]));
+
+  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
+                     'build:before',
+                     'concurrent:dist',
+                     'build:after'
+                     ]);
+
+  grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
+                     'build:before:debug',
+                     'concurrent:debug',
+                     'build:after:debug'
+                     ]);
 
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/public/coverage.", [
                      'build:debug', 'karma:test' ]);
