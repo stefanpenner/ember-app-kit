@@ -41,7 +41,7 @@
     "lockfile": "~>0.3.0",
     "grunt-concat-sourcemap": "~0.3.0",
     "grunt-dom-munger": "~2.0.1",
-    "grunt-concat-css": "~0.1.0"
+    "grunt-contrib-cssmin": "~0.6.1"
   },
   "dependencies": {
     "loom": "~2.0.0",

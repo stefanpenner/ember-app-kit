@@ -53,7 +53,7 @@ module.exports = function(grunt) {
                      whenAvailable('sass:compile'),
                      whenAvailable('less:compile'),
                      whenAvailable('stylus:compile'),
-                     'concat_css',
+                     'cssmin',
                      'concat_sourcemap',
                      'unlock' ]));
 
