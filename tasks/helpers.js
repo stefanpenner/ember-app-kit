@@ -27,7 +27,7 @@ Helpers.whenTaskIsAvailable = function(taskName) {
 };
 
 Helpers.isPackageAvailable = function(pkgNames) {
-  if ('array' !== typeof pkgNames) {
+  if (!_.isArray(pkgNames)) {
     pkgNames = [pkgNames];
   }
   return _.every(pkgNames, function(pkgName){
