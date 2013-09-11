@@ -1,22 +1,29 @@
 module.exports = function(grunt) {
-  // To support Coffeescript, SASS, LESS and others, just install 
-  // the appropriate grunt package and it will be automatically included 
+  // To support Coffeescript, SASS, LESS and others, just install
+  // the appropriate grunt package and it will be automatically included
   // in the build process:
-  // 
+  //
   // * for Coffeescript, run `npm install --save-dev grunt-contrib-coffee`
+  //
   // * for SASS (SCSS only), run `npm install --save-dev grunt-sass`
   // * for SCSS/SASS support (may be slower), run
   //   `npm install --save-dev grunt-contrib-sass`
-  // * for LESS, run `npm install --save-dev grunt-contrib-less` 
+  //   this depends on the ruby sass gem, which can be installed with
+  //   `gem install sass`
+  //
+  // * for LESS, run `npm install --save-dev grunt-contrib-less`
+  //
   // * for Stylus/Nib, `npm install --save-dev grunt-contrib-stylus`
+  //
   // * for Compass, run `npm install --save-dev grunt-contrib-compass`
   //   You should not install SASS if you have installed Compass.
-  // * for Emblem, run the following commands: 
+  //
+  // * for Emblem, run the following commands:
   //   `npm uninstall --save-dev grunt-ember-templates`
   //   `npm install --save-dev grunt-emblem`
   //   `bower install emblem.js --save`
-  // 
-  // If you use SASS, LESS or Stylus, don't forget to delete 
+  //
+  // If you use SASS, LESS or Stylus, don't forget to delete
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
   var Helpers = require('./tasks/helpers'),
@@ -43,15 +50,8 @@ module.exports = function(grunt) {
                      whenAvailable('compass:compile'),
                      whenAvailable('sass:compile'),
                      whenAvailable('less:compile'),
-                     whenAvailable('stylus:compile'),
+                     whenAvailable('stylus:compile')
                      'concat_css',
-                     // Uncomment line below & `npm install --save-dev grunt-sass` for SASS (SCSS only) support.
-                     // or run `npm install --save-dev grunt-contrib-sass` for SCSS/SASS support (may be slower).
-                     // 'sass:compile',
-                     // Uncomment this line & `npm install --save-dev grunt-contrib-less` for LESS support.
-                     // 'less:compile'
-                     // Uncomment this line & `npm install --save-dev grunt-contrib-stylus` for stylus/nib support.
-                     // 'stylus:compile'
                      'concat_sourcemap',
                      'unlock' ]));
 
