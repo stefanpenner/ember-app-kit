@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                      whenAvailable('compass:compile'),
                      whenAvailable('sass:compile'),
                      whenAvailable('less:compile'),
-                     whenAvailable('stylus:compile')
+                     whenAvailable('stylus:compile'),
                      'concat_css',
                      'concat_sourcemap',
                      'unlock' ]));
