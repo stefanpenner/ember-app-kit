@@ -8,7 +8,7 @@ module.exports = function(grunt) {
   // * for SASS (SCSS only), run `npm install --save-dev grunt-sass`
   // * for SCSS/SASS support (may be slower), run
   //   `npm install --save-dev grunt-contrib-sass`
-  //   this depends on the ruby sass gem, which can be installed with
+  //   This depends on the ruby sass gem, which can be installed with
   //   `gem install sass`
   //
   // * for LESS, run `npm install --save-dev grunt-contrib-less`
@@ -16,6 +16,8 @@ module.exports = function(grunt) {
   // * for Stylus/Nib, `npm install --save-dev grunt-contrib-stylus`
   //
   // * for Compass, run `npm install --save-dev grunt-contrib-compass`
+  //   This depends on the ruby compass gem, which can be installed with
+  //   `gem install compass`
   //   You should not install SASS if you have installed Compass.
   //
   // * for Emblem, run the following commands:
