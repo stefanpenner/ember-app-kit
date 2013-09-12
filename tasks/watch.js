@@ -121,12 +121,6 @@ Watch.deleteFile = function(path){
   };
 };
 
-// Instead of running clean task once globally, each task cleans up 
-// after itself individually. 
-Watch.cleanAfterTask = function(task, target){
-  grunt.task.run(clean);
-}
-
 // Sets given filter function for the task config
 Watch.setFilterForTask = function(task, target, filter){
   var config = Watch.filteredConfigForTask(task, target, filter);
