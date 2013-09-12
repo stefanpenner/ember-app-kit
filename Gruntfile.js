@@ -29,7 +29,7 @@ module.exports = function(grunt) {
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
   var Helpers = require('./tasks/helpers'),
-      config = Helpers.defaultConfig,
+      config = Helpers.config,
       filterAvailable = Helpers.filterAvailableTasks,
       _ = grunt.util._;
 

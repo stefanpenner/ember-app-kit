@@ -4,7 +4,7 @@ var pathUtils = require('path'),
     Helpers = {};
 
 // Grunt configuration. Object is expected to be mutated in Gruntfile.
-Helpers.defaultConfig = {
+Helpers.config = {
   pkg: grunt.file.readJSON('./package.json'),
   env: process.env
 };
@@ -43,7 +43,7 @@ Helpers.isPackageAvailable = function(pkgNames) {
     pkgNames = [pkgNames];
   }
   return _.every(pkgNames, function(pkgName){
-    return !!Helpers.defaultConfig.pkg.devDependencies[pkgName];
+    return !!Helpers.config.pkg.devDependencies[pkgName];
   });
 };
 
