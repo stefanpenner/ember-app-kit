@@ -21,7 +21,7 @@
   "devDependencies": {
     "grunt-contrib-connect": "~0.3.0",
     "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-watch": "~0.5.0",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-es6-module-transpiler": "~0.4.1",
     "glob": "~3.2.1",

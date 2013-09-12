@@ -58,6 +58,17 @@ Helpers.loadConfig = function(path) {
   });
 
   return object;
-}
+};
+
+// Naive implementation; retrieves top-level keys from task config
+// except 'options'
+Helpers.getTargetsForTask = function(taskName){
+  var keys, config = grunt.config(taskName);
+  config = config ? config : {};
+  keys = Object.keys(config);
+  return keys.filter(function(key){ 
+    return key !== 'options'; 
+  });
+};
 
 module.exports = Helpers;
