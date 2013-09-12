@@ -4,7 +4,7 @@ var grunt = require('grunt'),
     fs = require('fs'),
     Watch = {};
 
-Watch.debugFlag = false;
+Watch._debugFlag = false;
 
 // @see #Watch.subscribeToFileModificationEvents
 Watch.subscribeTasksToFileModificationEvents = function(tasks){
@@ -12,16 +12,21 @@ Watch.subscribeTasksToFileModificationEvents = function(tasks){
   return tasks;
 }
 
-// Subscribing task to file modifications means that every
+// Subscribing task to file modifications events means that every
 // time a relevant file changes, that task will be run. (Relevant
-// file is a file amongs source (src) files for this task.)
+// file is a file amongst source (src) files for that task.)
 // 
 // If a file is deleted, the destination (dest) for the task will be
-// automatically cleaned.
+// automatically removed before the task is executed.
 // 
-// Futhermore, if you set task.options.shouldFilterModifiedFile 
+// Futhermore, if you set `task.options.shouldFilterModifiedFile`
 // to true, the scope of the task will be narrowed down only 
 // to the modified file (with grunt filter function).
+// 
+// Initial file modifications events are fired by grunt-contrib-watch.
+// Succeeding events are fired after a particular task modifies its
+// destination path. This results in reactive chaining of tasks
+// inferred from their source / destination paths.
 Watch.subscribeToFileModificationEvents = function(task){
   var taskDesc;
   if (Helpers.config.shouldCompileIncrementally) { 
@@ -47,7 +52,7 @@ grunt.registerTask('file_did_change', function(){
   grunt.config('file_did_change.options.eventQueue', []);
   Watch.fileDidChangeTaskIsScheduled = false;
 
-  if (Watch.debugFlag) {
+  if (Watch._debugFlag) {
     grunt.log.writeln("Emitting:");
     grunt.log.writeln(eventQueue);
   }
@@ -71,7 +76,7 @@ Watch.runFilteredTask = function(task, target, action, filepath){
   var source, destination, file, shouldFilterPath;
 
   file = Watch.doesTaskWatchFilepath(filepath, action, task, target);
-  if (Watch.debugFlag) {
+  if (Watch._debugFlag) {
     grunt.log.writeln("Receiving " + [task, target, filepath, file].join(' '));
   }
   if (!file) { return; }
@@ -178,7 +183,8 @@ Watch.taskAndTargetsFromFullTaskName = function(args){
   return { name: args[0], targets: targets };
 };
 
-Watch.filesForTasks = {}
+// @see Watch.memoizeFilesForTask
+Watch._filesForTasks = {}
 
 // @see grunt docs for `grunt.task.normalizeMultiTaskFiles`
 // Following Grunt nomenclature, 'files' are `{ src: Array, dest: String }` 
@@ -188,7 +194,7 @@ Watch.memoizeFilesForTask = function(task, target){
   // Remove filter from task config to memoize the full spectrum of files
   config = Watch.filteredConfigForTask(task, target, undefined);
   files = grunt.task.normalizeMultiTaskFiles(config);
-  Watch.filesForTasks[identifier] = files;
+  Watch._filesForTasks[identifier] = files;
   return files;
 }
 
@@ -197,14 +203,11 @@ Watch.memoizeFilesForTask = function(task, target){
 // @see grunt docs for `grunt.task.normalizeMultiTaskFiles`
 Watch.doesTaskWatchFilepath = function(filepath, action, task, target){
   var files, file;
-  files = Watch.filesForTasks[task + ":" + target];
+  files = Watch._filesForTasks[task + ":" + target];
   // If a new file is created, it's not yet included in the memoized 
   // 'files' and we'll have to recompute them again.
   if (!files || action == 'added') {
     files = Watch.memoizeFilesForTask(task, target);
-    // var a =Watch.doesTaskWatchFilepath(filepath, '', task, target)
-    // console.log("--" + task + target);
-    // console.log(a);
   }
   return _.find(files, function(file){ 
     return _.contains(file.src, filepath);
