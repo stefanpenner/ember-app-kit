@@ -3,11 +3,13 @@ var pathUtils = require('path'),
     _ = grunt.util._,
     Helpers = {};
 
+// Grunt configuration. Object is expected to be mutated in Gruntfile.
 Helpers.defaultConfig = {
   pkg: grunt.file.readJSON('./package.json'),
   env: process.env
 };
 
+// List of package requisits for tasks
 var taskRequirements = {
   'coffee': ['grunt-contrib-coffee'],
   'compass': ['grunt-contrib-compass'],
@@ -18,15 +20,25 @@ var taskRequirements = {
   'emblem': ['grunt-emblem']
 };
 
+Helpers.filterAvailableTasks = function(tasks){
+  tasks = tasks.filter(Helpers.whenTaskIsAvailable);
+  return _.compact(tasks);
+};
+
+// @returns taskName if given task is available, undefined otherwise
 Helpers.whenTaskIsAvailable = function(taskName) {
+  var baseName, reqs, isAvailable;
   // baseName of 'coffee:compile' is 'coffee'
-  var baseName = taskName.split(':')[0];
-  var reqs = taskRequirements[baseName];
-  var isAvailable = Helpers.isPackageAvailable(reqs);
+  baseName = taskName.split(':')[0];
+  reqs = taskRequirements[baseName];
+  isAvailable = Helpers.isPackageAvailable(reqs);
   return isAvailable ? taskName : undefined; 
 };
 
 Helpers.isPackageAvailable = function(pkgNames) {
+  if (!pkgNames) {
+    pkgNames = [];
+  }
   if (!_.isArray(pkgNames)) {
     pkgNames = [pkgNames];
   }
