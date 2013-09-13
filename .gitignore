@@ -1,0 +1,4 @@
+# ignore EAK's ignored output so we can be lazy when switching branches :)
+node_modules/
+tmp/
+vendor/
