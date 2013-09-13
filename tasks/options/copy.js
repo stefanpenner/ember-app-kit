@@ -46,4 +46,7 @@ module.exports = {
       dest: 'dist/'
     }]
   },
+  options: {
+    shouldFilterModifiedFile: true
+  },
 };

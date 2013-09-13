@@ -29,9 +29,18 @@ module.exports = function(grunt) {
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
   var Helpers = require('./tasks/helpers'),
+      Watch = require('./tasks/watch'),
       config = Helpers.config,
       filterAvailable = Helpers.filterAvailableTasks,
+      compileIncrementally = Watch.subscribeTasksToFileModificationEvents,
       _ = grunt.util._;
+
+  config = _.extend(config, {
+    // With incremental compilation enabled, we'll watch individual files
+    // for changes and dynamically configure Coffeescript, JSHint and other
+    // tasks to process only the changed files.
+    shouldCompileIncrementally: false
+  });
 
   config = _.extend(config, Helpers.loadConfig('./tasks/options/'));
   grunt.initConfig(config);
@@ -63,13 +72,13 @@ module.exports = function(grunt) {
                      'emberTemplates:debug'
                      ]));
 
-  grunt.registerTask('build:scripts', filterAvailable([
+  grunt.registerTask('build:scripts', compileIncrementally( filterAvailable([
                      'coffee',
                      'copy:prepare',
                      'transpile',
                      'jshint',
                      'concat_sourcemap'
-                     ]));
+                     ])));
 
   grunt.registerTask('build:styles', filterAvailable([
                      'compass:compile',

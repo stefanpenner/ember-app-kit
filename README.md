@@ -18,6 +18,7 @@ See the [getting started guide](https://github.com/stefanpenner/ember-app-kit/wi
 - Transparent project compilation & minification for easy deploys via [Grunt](http://gruntjs.com/)
 - Package management via [Bower](https://github.com/bower/bower)
 - Optional support for CoffeeScript, SASS, LESS or Stylus
+- Option to watch and compile only changed files (supports most tasks)
 - Testing via QUnit, Ember Testing and Karma (with examples)
 - Linting via JSHint (including module syntax)
 - Catch-all `index.html` for easy reloading of pushState router apps

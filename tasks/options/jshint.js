@@ -8,6 +8,7 @@ module.exports = {
   },
   options: {
     jshintrc: '.jshintrc',
-    force: true
+    force: true,
+    shouldFilterModifiedFile: true
   }
 };

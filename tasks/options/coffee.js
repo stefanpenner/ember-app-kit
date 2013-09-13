@@ -16,9 +16,6 @@
 
 module.exports = {
   "test": {
-    options: {
-      bare: true
-    },
     files: [{
       expand: true,
       cwd: 'tests/',
@@ -28,9 +25,6 @@ module.exports = {
     }]
   },
   "app": {
-    options: {
-      bare: true
-    },
     files: [{
       expand: true,
       cwd: 'app/',
@@ -38,5 +32,9 @@ module.exports = {
       dest: 'tmp/javascript/app',
       ext: '.js'
     }]
+  },
+  options: {
+    bare: true,
+    shouldFilterModifiedFile: true
   }
 };
