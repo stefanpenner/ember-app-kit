@@ -100,6 +100,10 @@ define("resolver",
     if (define.registry[moduleName]) {
       module = requireModule(moduleName);
 
+      if (module === undefined) {
+        throw new Error("Module: '" + name + "' was found but returned undefined. Did you forget to `export default`?");
+      }
+
       if (typeof module.create !== 'function') {
         module = classFactory(module);
       }
