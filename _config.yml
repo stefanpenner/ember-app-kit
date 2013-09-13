@@ -1,0 +1,17 @@
+guides:
+  - name: "Overview"
+    page: "/"
+  - name: "Getting Started"
+    page: "/guides/getting-started.html"
+  - name: "Using Modules &amp; the Resolver"
+    page: "/guides/using-modules.html"
+  - name: "Asset Compilation"
+    page: "/guides/asset-compilation.html"
+  - name: "Managing Dependencies"
+    page: "/guides/dependencies.html"
+  - name: "Testing with Karma"
+    page: "/guides/testing.html"
+  - name: "Deployment Strategies"
+    page: "/guides/deployment.html"
+
+exclude: [node_modules, vendor, tmp]

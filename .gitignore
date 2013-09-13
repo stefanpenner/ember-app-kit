@@ -2,3 +2,6 @@
 node_modules/
 tmp/
 vendor/
+
+# jekyll output
+_site/
