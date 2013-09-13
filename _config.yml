@@ -1,3 +1,5 @@
+baseurl: /ember-app-kit
+
 guides:
   - name: "Overview"
     page: "/"

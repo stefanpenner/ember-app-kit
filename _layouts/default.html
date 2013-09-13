@@ -5,8 +5,8 @@
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/styles/slate.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/styles/eak.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ site.baseurl }}/assets/styles/slate.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ site.baseurl }}/assets/styles/eak.css">
 
     <title>{{page.title}}</title>
   </head>
@@ -40,9 +40,9 @@
           {% for guide in site.guides %}
             <li>
               {% if guide.page == page.url or (guide.page == "/" and page.url == "/index.html") %}
-                <a class="current" href="{{guide.page}}">{{guide.name}}</a>
+                <a class="current" href="{{ site.baseurl }}{{guide.page}}">{{guide.name}}</a>
               {% else %}
-                <a href="{{guide.page}}">{{guide.name}}</a>
+                <a href="{{ site.baseurl }}{{guide.page}}">{{guide.name}}</a>
               {% endif %}
             </li>
           {% endfor %}
