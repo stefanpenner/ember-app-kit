@@ -68,7 +68,6 @@ module.exports = function(grunt) {
                      'copy:prepare',
                      'transpile',
                      'jshint',
-                     'copy:stage',
                      'concat_sourcemap'
                      ]));
 
@@ -77,9 +76,7 @@ module.exports = function(grunt) {
                      'sass:compile',
                      'less:compile',
                      'stylus:compile',
-                     'cssmin',
-                     'concat_sourcemap',
-                     'unlock'
+                     'cssmin'
                      ]));
 
   grunt.registerTask('build:other', filterAvailable([
