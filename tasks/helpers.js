@@ -31,6 +31,8 @@ Helpers.whenTaskIsAvailable = function(taskName) {
   // baseName of 'coffee:compile' is 'coffee'
   baseName = taskName.split(':')[0];
   reqs = taskRequirements[baseName];
+  // If we aren't tracking requirements, we want the task to run
+  if(reqs === undefined) { return taskName; }
   isAvailable = Helpers.isPackageAvailable(reqs);
   return isAvailable ? taskName : undefined; 
 };
