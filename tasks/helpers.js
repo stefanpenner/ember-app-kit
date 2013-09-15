@@ -42,7 +42,7 @@ Helpers.isPackageAvailable = function(pkgNames) {
   if (!_.isArray(pkgNames)) {
     pkgNames = [pkgNames];
   }
-  return _.every(pkgNames, function(pkgName){
+  return _.any(pkgNames, function(pkgName){
     return !!Helpers.config.pkg.devDependencies[pkgName];
   });
 };
