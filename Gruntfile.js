@@ -25,6 +25,8 @@ module.exports = function(grunt) {
   //   `npm install --save-dev grunt-emblem`
   //   `bower install emblem.js --save`
   //
+  // * for LiveReload, `npm install --save-dev connect-livereload`
+  //
   // If you use SASS, LESS or Stylus, don't forget to delete
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 

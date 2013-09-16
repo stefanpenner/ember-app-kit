@@ -1,3 +1,5 @@
+var Helpers = require('../helpers');
+
 module.exports = {
   main: {
     files: ['app/**/*', 'public/**/*', 'vendor/**/*', 'tests/**/*'],
@@ -8,6 +10,7 @@ module.exports = {
     tasks: ['build:debug', 'karma:server:run']
   },
   options: {
-    debounceDelay: 200
+    debounceDelay: 200,
+    livereload: Helpers.isPackageAvailable("connect-livereload")
   }
 };

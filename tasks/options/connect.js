@@ -1,6 +1,7 @@
 var lockFile = require('lockfile'),
     fs = require('fs'),
-    url = require('url');
+    url = require('url'),
+    Helpers = require('../helpers');
 
 module.exports = {
   server: {
@@ -61,11 +62,18 @@ function buildWildcardMiddleware(options) {
 }
 
 function middleware(connect, options) {
-  return [
+  var middleware = [
     lock,
     connect['static'](options.base),
     connect.directory(options.base),
     // Remove this middleware to disable catch-all routing.
     buildWildcardMiddleware(options)
   ];
+
+  // Add livereload middlware after lock middleware if enabled
+  if (Helpers.isPackageAvailable("connect-livereload")) {
+    middleware.splice(1,0, require("connect-livereload")());
+  }
+  
+  return middleware;
 }
