@@ -1,7 +1,6 @@
 {
   "name": "app-kit",
   "version": "0.0.0",
-  "main": "index.js",
   "directories": {
     "doc": "doc",
     "test": "test"
