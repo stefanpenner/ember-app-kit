@@ -36,13 +36,12 @@ Helpers.whenTaskIsAvailable = function(taskName) {
 };
 
 Helpers.isPackageAvailable = function(pkgNames) {
-  if (!pkgNames) {
-    pkgNames = [];
-  }
+  if (!pkgNames) return true;  // packages are assumed to exist
+
   if (!_.isArray(pkgNames)) {
     pkgNames = [pkgNames];
   }
-  return _.every(pkgNames, function(pkgName){
+  return _.any(pkgNames, function(pkgName){
     return !!Helpers.config.pkg.devDependencies[pkgName];
   });
 };
@@ -58,6 +57,6 @@ Helpers.loadConfig = function(path) {
   });
 
   return object;
-}
+};
 
 module.exports = Helpers;
