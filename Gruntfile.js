@@ -34,15 +34,29 @@ module.exports = function(grunt) {
       _ = grunt.util._;
 
   config = _.extend(config, Helpers.loadConfig('./tasks/options/'));
-  grunt.initConfig(config);
 
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('tasks');
 
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
 
+  config.concurrent = {
+    dist: [
+      "build:templates:dist",
+      "build:scripts",
+      "build:styles",
+      "build:other"
+    ],
+    debug: [
+      "build:templates:debug",
+      "build:scripts",
+      "build:styles",
+      "build:other"
+    ]
+  };
+
   // All tasks except build:before and build:after are run concurrently
-  grunt.registerTask('build:before', [
+  grunt.registerTask('build:before:dist', [
                      'clean:build',
                      'clean:release',
                      'lock'
@@ -53,7 +67,7 @@ module.exports = function(grunt) {
                      'lock'
                      ]);
 
-  grunt.registerTask('build:templates', filterAvailable([
+  grunt.registerTask('build:templates:dist', filterAvailable([
                      'emblem:compile',
                      'emberTemplates:dist'
                      ]));
@@ -83,7 +97,7 @@ module.exports = function(grunt) {
                      'copy:vendor'
                      ]));
 
-  grunt.registerTask('build:after', filterAvailable([
+  grunt.registerTask('build:after:dist', filterAvailable([
                      'copy:stage',
                      'unlock',
                      'dom_munger:distEmber',
@@ -102,9 +116,9 @@ module.exports = function(grunt) {
                      ]));
 
   grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
-                     'build:before',
+                     'build:before:dist',
                      'concurrent:dist',
-                     'build:after'
+                     'build:after:dist'
                      ]);
 
   grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
@@ -129,4 +143,6 @@ module.exports = function(grunt) {
                      ['build:debug', 'connect:server', 'watch:main']);
   grunt.registerTask('server:dist', "Build and preview production (minified) assets.",
                      ['build:dist', 'connect:dist:keepalive']);
+
+  grunt.initConfig(config);
 };
