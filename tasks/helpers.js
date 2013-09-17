@@ -36,9 +36,8 @@ Helpers.whenTaskIsAvailable = function(taskName) {
 };
 
 Helpers.isPackageAvailable = function(pkgNames) {
-  if (!pkgNames) {
-    pkgNames = [];
-  }
+  if (!pkgNames) return true;  // packages are assumed to exist
+
   if (!_.isArray(pkgNames)) {
     pkgNames = [pkgNames];
   }
@@ -58,6 +57,6 @@ Helpers.loadConfig = function(path) {
   });
 
   return object;
-}
+};
 
 module.exports = Helpers;
