@@ -9,11 +9,11 @@ guides:
     page: "/guides/using-modules.html"
   - name: "Asset Compilation"
     page: "/guides/asset-compilation.html"
-  - name: "Managing Dependencies"
-    page: "/guides/dependencies.html"
   - name: "Testing with Karma"
     page: "/guides/testing.html"
+  - name: "Managing Dependencies"
+    page: "/guides/dependencies.html"
   - name: "Deployment Strategies"
     page: "/guides/deployment.html"
 
-exclude: [node_modules, vendor, tmp]
+exclude: [dist, node_modules, vendor, tmp]

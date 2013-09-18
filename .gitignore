@@ -1,7 +1,11 @@
 # ignore EAK's ignored output so we can be lazy when switching branches :)
+dist/
 node_modules/
 tmp/
 vendor/
 
 # jekyll output
 _site/
+
+# personal shell script i use for starting jekyll
+run.sh
