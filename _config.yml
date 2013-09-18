@@ -15,5 +15,9 @@ guides:
     page: "/guides/dependencies.html"
   - name: "Deployment Strategies"
     page: "/guides/deployment.html"
+  - name: "Using With Ember Data"
+    page: "/guides/ember-data.html"
+
+pygments: true
 
 exclude: [dist, node_modules, vendor, tmp]
