@@ -4,8 +4,6 @@ title: "Getting Started"
 permalink: getting-started.html
 ---
 
-## Getting Started
-
 ### Installing
 
 Ember App Kit's primary build tool is [Grunt](http://gruntjs.com), a build tool written in Node.js. If you don't already have Node installed, you can get it from [nodejs.org](http://nodejs.org/) or your package manager of choice (including [Homebrew](http://brew.sh/) on OSX).

@@ -1,10 +1,8 @@
 ---
 layout: default
-title: "Ember App Kit"
+title: "Overview"
 permalink: index.html
 ---
-
-## Overview
 
 Ember App Kit (EAK) is a robust starter kit for developing applications in [Ember.js](http://emberjs.com). EAK makes it easy to develop, build, test, and deploy applications independent of any back-end build process.
 
