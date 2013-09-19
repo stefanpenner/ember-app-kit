@@ -8,7 +8,10 @@ We welcome ideas and experiments.
 
 ## Getting Started
 
-See the [getting started guide](https://github.com/stefanpenner/ember-app-kit/wiki/Getting-Started) in our wiki.
+* [getting started guide](https://github.com/stefanpenner/ember-app-kit/wiki/Getting-Started) in our wiki
+* *Safari Books Online Blog* - [Introduction to Ember App Kit](http://blog.safaribooksonline.com/2013/09/18/ember-app-kit/) for more experienced Ember developers by @mixonic
+* *Ember Sherpa* - [Introduction to Ember App Kit](http://embersherpa.com/articles/introduction-to-ember-app-kit/) for those who are new to the Grunt workflow by @taras 
+
 
 ## Features
 
