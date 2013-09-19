@@ -13,10 +13,12 @@ guides:
     page: "/guides/testing.html"
   - name: "Managing Dependencies"
     page: "/guides/dependencies.html"
-  - name: "Deployment Strategies"
+  - name: "Deploying Your App"
     page: "/guides/deployment.html"
   - name: "Using With Ember Data"
     page: "/guides/ember-data.html"
+  - name: "Frequently Asked Questions"
+    page: "/guides/faq.html"
 
 pygments: true
 
