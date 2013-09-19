@@ -35,7 +35,7 @@ npm install -g bower
 bower install
 {% endhighlight %}
 
-For more information on Bower, see the guide on [managing dependencies](/guides/dependencies.html)
+For more information on Bower, see the guide on [managing dependencies](dependencies.html)
 
 Once your dependencies are installed, you should be able to simply run:
 

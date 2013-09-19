@@ -8,7 +8,7 @@ Ember Data has recently undergone a major reboot, drastically simplifying it and
 
 ### Adding it as a dependency
 
-To add Ember Data as a dependency, you'll need to add it as a dependency, as described in [Managing Dependencies](/guides/dependencies.html). The TL;DR of it:
+To add Ember Data as a dependency, you'll need to add it as a dependency, as described in [Managing Dependencies](dependencies.html). The TL;DR of it:
 
 * `bower install --save http://builds.emberjs.com/beta/ember-data.js`
 
