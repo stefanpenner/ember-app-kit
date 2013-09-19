@@ -10,7 +10,7 @@ While Ember App Kit is powerful and easy once you get the hang of it, getting st
 
 The easiest way to create a new project with Ember App Kit is to simply [download it as a zip](https://github.com/stefanpenner/ember-app-kit/archive/master.zip). You can also `git clone` the repo, though you'll want to `rm -r .git` to remove its Git history.
 
-Once you have the template, you'll need to install its dependencies. Ember App Kit's primary build tool is [Grunt](http://gruntjs.com), a build tool written in Node.js. If you don't already have Node installed, you can get it from [nodejs.org](http://nodejs.org/) or your package manager of choice (including [Homebrew](http://brew.sh/) on OSX).jj
+Once you have the template, you'll need to install its dependencies. Ember App Kit's primary build tool is [Grunt](http://gruntjs.com), a build tool written in Node.js. If you don't already have Node installed, you can get it from [nodejs.org](http://nodejs.org/) or your package manager of choice (including [Homebrew](http://brew.sh/) on OSX).
 
 Once you've installed Node, you'll need to install the Grunt command-line tool globally with:
 
