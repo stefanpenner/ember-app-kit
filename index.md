@@ -10,7 +10,7 @@ Ember App Kit (EAK) is a robust starter kit for developing applications in [Embe
 
 Ember App Kit is built around [Grunt](http://gruntjs.com), an extremely easy-to-use task runner built in Node.js. Grunt is the *de facto* build tool of the front-end world, and EAK uses its huge ecosystem of tasks for compiling all kinds of assets, including:
 
-* Handlebars templates (or [Emblem](http://emblemjs.com/)
+* Handlebars templates (or [Emblem](http://emblemjs.com/))
 * [LESS](http://lesscss.org/) (or [SASS](http://sass-lang.com/), or [Compass](http://compass-style.org/), or [Stylus](http://learnboost.github.io/stylus/)...)
 * [CoffeeScript](http://coffeescript.org/)
 * Minified JS & CSS
@@ -33,5 +33,5 @@ Ember App Kit uses the [Bower package manager](http://bower.io/), making it easy
 
 ### And More
 
-Ember App Kit is an ongoing community effort, and efforts continue to find the easiest ways to architect applications. We welcome your issues and PRs for features, bugfixes, and anything that would improve your quality of life as an Ember developer.
+Ember App Kit is an ongoing community effort, and efforts continue to find the easiest ways to architect applications. We welcome your issues and PRs for features, bug fixes, and anything that would improve your quality of life as an Ember developer.
 
