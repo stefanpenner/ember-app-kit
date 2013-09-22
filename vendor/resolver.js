@@ -1,43 +1,3 @@
-var define, requireModule;
-
-(function() {
-  var registry = {}, seen = {};
-
-  define = function(name, deps, callback) {
-    registry[name] = { deps: deps, callback: callback };
-  };
-
-  requireModule = function(name) {
-    if (seen[name]) { return seen[name]; }
-    seen[name] = {};
-
-    var mod = registry[name];
-
-    if (!mod) {
-      throw new Error("Module: '" + name + "' not found.");
-    }
-
-    var deps = mod.deps,
-        callback = mod.callback,
-        reified = [],
-        exports;
-
-    for (var i=0, l=deps.length; i<l; i++) {
-      if (deps[i] === 'exports') {
-        reified.push(exports = {});
-      } else {
-        reified.push(requireModule(deps[i]));
-      }
-    }
-
-    var value = callback.apply(this, reified);
-    return seen[name] = exports || value;
-  };
-
-  define.registry = registry;
-  define.seen = seen;
-})();
-
 define("resolver",
   [],
   function() {
@@ -47,7 +7,7 @@ define("resolver",
    * important features:
    *
    *  1) The resolver makes the container aware of es6 modules via the AMD
-   *     output. The loader's registry is consulted so that classes can be 
+   *     output. The loader's _seen is consulted so that classes can be 
    *     resolved directly via the module loader, without needing a manual
    *     `import`.
    *  2) is able provide injections to classes that implement `extend`
@@ -87,16 +47,16 @@ define("resolver",
     };
   }
 
-  function chooseModuleName(registry, moduleName) {
+  function chooseModuleName(seen, moduleName) {
     var underscoredModuleName = Ember.String.underscore(moduleName);
 
-    if (moduleName !== underscoredModuleName && registry[moduleName] && registry[underscoredModuleName]) {
+    if (moduleName !== underscoredModuleName && seen[moduleName] && seen[underscoredModuleName]) {
       throw new TypeError("Ambigous module names: `" + moduleName + "` and `" + underscoredModuleName + "`");
     }
 
-    if (registry[moduleName]) {
+    if (seen[moduleName]) {
       return moduleName;
-    } else if (registry[underscoredModuleName]) {
+    } else if (seen[underscoredModuleName]) {
       return underscoredModuleName;
     } else {
       return moduleName;
@@ -114,10 +74,10 @@ define("resolver",
 
     // allow treat all dashed and all underscored as the same thing
     // supports components with dashes and other stuff with underscores.
-    var normalizedModuleName = chooseModuleName(define.registry, moduleName);
+    var normalizedModuleName = chooseModuleName(requirejs._eak_seen, moduleName);
 
-    if (define.registry[normalizedModuleName]) {
-      var module = requireModule(normalizedModuleName);
+    if (requirejs._eak_seen[normalizedModuleName]) {
+      var module = require(normalizedModuleName, null, null, true /* force sync */);
 
       if (module === undefined) {
         throw new Error("Module: '" + name + "' was found but returned undefined. Did you forget to `export default`?");
