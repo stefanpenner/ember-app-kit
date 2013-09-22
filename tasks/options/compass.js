@@ -14,4 +14,4 @@ module.exports = {
     debugInfo: true
   },
   compile: {}
-}
+};

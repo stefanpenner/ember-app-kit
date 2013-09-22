@@ -4,4 +4,4 @@ module.exports = {
       'tmp/public/assets/app.css': ['app/styles/**/*.css']
     }
   }
-}
+};

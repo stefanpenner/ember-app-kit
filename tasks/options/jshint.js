@@ -1,13 +1,27 @@
 module.exports = {
-  all: {
+  app: {
+    src: [
+      'app/**/*.js'
+    ],
+    options: { jshintrc: '.jshintrc' }
+  },
+
+  tooling: {
     src: [
       'Gruntfile.js',
-      'app/**/*.js',
-      'tests/**/*.js'
-    ]
+      'tasks/**/*.js'
+    ],
+    options: { jshintrc: 'tasks/.jshintrc' }
   },
+
+  tests: {
+    src: [
+      'tests/**/*.js',
+    ],
+    options: { jshintrc: 'tests/.jshintrc' }
+  },
+
   options: {
-    jshintrc: '.jshintrc',
     force: true
   }
 };
