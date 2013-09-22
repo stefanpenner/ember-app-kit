@@ -1,7 +1,7 @@
 document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
 
-window.startApp          = requireModule('appkit/tests/helpers/start_app');
-window.isolatedContainer = requireModule('appkit/tests/helpers/isolated_container');
+window.startApp          = require('appkit/tests/helpers/start_app');
+window.isolatedContainer = require('appkit/tests/helpers/isolated_container');
 
 function exists(selector) {
   return !!find(selector).length;
