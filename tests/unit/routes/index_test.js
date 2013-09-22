@@ -1,11 +1,13 @@
 import Index from 'appkit/routes/index';
-import App from 'appkit/app';
 
 var route;
-
 module("Unit - IndexRoute", {
   setup: function(){
-    route = App.__container__.lookup('route:index');
+    var container = isolatedContainer([
+      'route:index'
+    ]);
+
+    route = container.lookup('route:index');
   }
 });
 

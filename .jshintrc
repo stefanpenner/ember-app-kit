@@ -33,7 +33,9 @@
     "exists",
     "fillIn",
     "click",
-    "find"
+    "find",
+    "isolatedContainer",
+    "startApp"
   ],
   "node" : false,
   "browser" : false,
