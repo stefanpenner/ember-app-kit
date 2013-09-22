@@ -94,6 +94,10 @@ define("resolver",
     var pluralizedType = parsedName.type + 's';
     var name = parsedName.fullNameWithoutType;
 
+    if (parsedName.type === 'router') {
+      return requireModule('appkit/router');
+    }
+
     var moduleName = prefix + '/' +  pluralizedType + '/' + name;
     var module;
 

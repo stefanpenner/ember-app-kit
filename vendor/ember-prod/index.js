@@ -34405,7 +34405,7 @@ var Application = Ember.Application = Ember.Namespace.extend(Ember.DeferredMixin
     // it possible to do App.Router.map(...) without explicitly
     // creating a router first.
     if (this.router === undefined) {
-      return Ember.Router.extend();
+      return this.__container.lookupFactory('router:main');//Ember.Router.extend();
     }
   },
 
