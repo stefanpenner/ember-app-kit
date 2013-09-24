@@ -45,7 +45,7 @@ grunt server
 
 and navigate to [http://0.0.0.0:8000](http://0.0.0.0:8000) to see your new app in action.
 
-### Developing using Ember App Kit
+### Development using Ember App Kit
 
 #### Using Grunt
 
@@ -54,9 +54,13 @@ The development workflow for EAK is centered around Grunt, the build tool mentio
 If you'd like to peek into the innards of Ember App Kit's build pipeline, you can pop open the `Gruntfile.js` to see the exact order of execution in each task, along with the individual task configuration in the `tasks/options` folder. To get started, though, you only need to know a few easy commands:
 
 * `grunt` - The default command builds your application (in *debug* mode) and runs its tests.
+
 * `grunt server` - As you saw above, this command builds your application (in *debug* mode) and serves it. This task also will *watch* your application for changes, and will rebuild any time you change a file.
+
 * `grunt build:debug` - Builds your application once in *debug* mode. This will output your app in `tmp/public`.
+
 * `grunt build:dist` - Builds your application once in *dist* mode. This means your assets will be minified and version-stamped. This task also builds to the `dist/` folder, which can be deployed to a static server in production.
+
 * `grunt server:dist` - Same as above, but also launches a preview server for your optimized output.
 
 #### Testing your application
