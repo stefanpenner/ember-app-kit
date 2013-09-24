@@ -105,6 +105,14 @@ footer p {
   color: #f2f2f2;
 }
 
+footer a {
+  color: black;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
 a {
   text-decoration: none;
   color: #f23818;
@@ -124,11 +132,6 @@ a {
 
 #main_content a:hover {
   color: #0069ba;
-  text-shadow: #0090ff 0px 0px 2px;
-}
-
-footer a:hover {
-  color: #43adff;
   text-shadow: #0090ff 0px 0px 2px;
 }
 
