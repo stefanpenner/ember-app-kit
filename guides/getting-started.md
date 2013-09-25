@@ -149,7 +149,7 @@ Ember App Kit comes with lots of boilerplate, which can be daunting to navigate 
     </tr>
     <tr>
       <td>app/controllers/, app/models/...</td>
-      <td>Modules resolved by the Ember App Kit resolver. See [Using Modules &amp; the Reslolver](using-modules.html).</td>
+      <td>Modules resolved by the Ember App Kit resolver. See [Using Modules &amp; the Resolver](using-modules.html).</td>
     </tr>
   </tbody>
 </table>
