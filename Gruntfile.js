@@ -61,11 +61,13 @@ module.exports = function(grunt) {
   grunt.registerTask('build:before:dist', [
                      'clean:build',
                      'clean:release',
+                     'copy:stage',
                      'lock'
                      ]);
 
   grunt.registerTask('build:before:debug', [
                      'clean:build',
+                     'copy:stage',
                      'lock'
                      ]);
 
@@ -100,7 +102,6 @@ module.exports = function(grunt) {
                      ]));
 
   grunt.registerTask('build:after:dist', filterAvailable([
-                     'copy:stage',
                      'unlock',
                      'dom_munger:distEmber',
                      'dom_munger:distHandlebars',
@@ -113,8 +114,7 @@ module.exports = function(grunt) {
                      ]));
 
   grunt.registerTask('build:after:debug', filterAvailable([
-                     'copy:stage',
-                     'unlock' 
+                     'unlock'
                      ]));
 
   grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
