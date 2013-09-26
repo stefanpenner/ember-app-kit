@@ -76,6 +76,11 @@ define("resolver",
     // supports components with dashes and other stuff with underscores.
     var normalizedModuleName = chooseModuleName(requirejs._eak_seen, moduleName);
 
+    if (parsedName.fullName === 'router:main') {
+      // for now, lets keep the router at app/router.js
+      return require(prefix + '/router');
+    }
+
     if (requirejs._eak_seen[normalizedModuleName]) {
       var module = require(normalizedModuleName, null, null, true /* force sync */);
 
