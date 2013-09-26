@@ -100,15 +100,10 @@ define("resolver",
       return this._super(parsedName);
     }
   }
-
-  function resolveTemplate(parsedName) {
-    return Ember.TEMPLATES[parsedName.name] || Ember.TEMPLATES[Ember.String.underscore(parsedName.name)];
-  }
-
   // Ember.DefaultResolver docs:
   //   https://github.com/emberjs/ember.js/blob/master/packages/ember-application/lib/system/resolver.js
   var Resolver = Ember.DefaultResolver.extend({
-    resolveTemplate: resolveTemplate,
+    resolveTemplate: resolveOther,
     resolveOther: resolveOther,
     parseName: parseName,
     normalize: function(fullName) {
