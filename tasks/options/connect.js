@@ -62,7 +62,7 @@ function buildWildcardMiddleware(options) {
 }
 
 function middleware(connect, options) {
-  var middleware = [
+  var result = [
     lock,
     connect['static'](options.base),
     connect.directory(options.base),
@@ -72,8 +72,8 @@ function middleware(connect, options) {
 
   // Add livereload middlware after lock middleware if enabled
   if (Helpers.isPackageAvailable("connect-livereload")) {
-    middleware.splice(1,0, require("connect-livereload")());
+    result.splice(1,0, require("connect-livereload")());
   }
-  
-  return middleware;
+
+  return result;
 }
