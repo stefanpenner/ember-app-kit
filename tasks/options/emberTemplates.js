@@ -1,7 +1,12 @@
+var grunt = require('grunt');
+
 module.exports = {
   options: {
-    templateBasePath: /app\/templates\//,
-    templateFileExtensions: /\.(hbs|hjs|handlebars)/
+    templateBasePath: /app\//,
+    templateFileExtensions: /\.(hbs|hjs|handlebars)/,
+    templateRegistration: function(name, template) {
+      return grunt.config.process("define('<%= pkg.namespace %>/") + name + "', [], function(){ return " + template + "; });";
+    }
   },
   debug: {
     options: {
