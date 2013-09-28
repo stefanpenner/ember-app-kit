@@ -7,7 +7,7 @@ function registerComponents(container) {
   if (!templates) { return; }
 
   for (var prop in templates) {
-    if (match = prop.match(/components\/(.*)$/)) {
+    if (match = prop.match(/templates\/components\/(.*)$/)) {
       require(prop, null, null, true);
       registerComponent(container, match[1]);
     }
