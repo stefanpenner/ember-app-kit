@@ -1,3 +1,6 @@
+/* global requirejs */
+/* global require */
+
 function registerComponents(container) {
   var seen = requirejs._eak_seen;
   var templates = seen, match;
