@@ -16,5 +16,18 @@ App.initializer({
   }
 });
 
+/*
+When registering a custom store into the application you have to make sure your initializer runs
+before the 'store' initializer. You can do so as follows:
+
+import YourCustomStore from 'appkit/store';
+App.initializer({
+  name: 'Register Custom Store',
+  before: 'store',
+  initialize: function(container, application) {
+    application.store = YourCustomStore;
+  }
+});
+*/
 
 export default App;
