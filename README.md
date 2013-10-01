@@ -10,6 +10,7 @@ We welcome ideas and experiments.
 
 * [Project Documentation Site](http://stefanpenner.github.io/ember-app-kit/)
 * [Getting Started Guide](http://stefanpenner.github.io/ember-app-kit/guides/getting-started.html)
+* [EAK-todos](https://github.com/c0urg3tt3/EAK-todos) - the Emberjs [todos](http://emberjs.com/guides/getting-started/) using Ember App Kit 
 * *Safari Books Online Blog* - [Introduction to Ember App Kit](http://blog.safaribooksonline.com/2013/09/18/ember-app-kit/) for more experienced Ember developers by @mixonic
 * *Ember Sherpa* - [Introduction to Ember App Kit](http://embersherpa.com/articles/introduction-to-ember-app-kit/) for those who are new to the Grunt workflow by @taras 
 
