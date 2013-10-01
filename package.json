@@ -2,6 +2,8 @@
   "name": "app-kit",
   "namespace": "appkit",
   "version": "0.0.0",
+  "description": "",
+  "homepage": "",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -42,7 +44,8 @@
     "grunt-concat-sourcemap": "~0.3.0",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-concurrent": "~0.3.1",
-    "grunt-dom-munger": "~2.0.1"
+    "grunt-dom-munger": "~2.0.1",
+    "grunt-contrib-yuidoc": "~0.5.0"
   },
   "dependencies": {
     "loom": "~2.0.0",
