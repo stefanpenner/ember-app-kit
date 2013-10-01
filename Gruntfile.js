@@ -143,6 +143,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.",
                      ['build:debug', 'connect:server', 'watch:main']);
+                     
   grunt.registerTask('server:dist', "Build and preview production (minified) assets.",
                      ['build:dist', 'connect:dist:keepalive']);
 

@@ -1,6 +1,13 @@
 import Resolver from 'resolver';
 import registerComponents from 'appkit/utils/register_components';
+/**
+  @module app
+*/
 
+/**
+  @class App
+  @extends Ember.Application
+*/
 var App = Ember.Application.extend({
   LOG_MODULE_RESOLVER: true,
   LOG_ACTIVE_GENERATION: true,
