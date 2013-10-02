@@ -25,6 +25,7 @@ We welcome ideas and experiments.
 - Optional support for CoffeeScript, SASS, LESS or Stylus
 - Testing via QUnit, Ember Testing and Karma (with examples)
 - Linting via JSHint (including module syntax)
+- Docs via Yuidoc ([syntax reference](http://yui.github.io/yuidoc/syntax/index.html)), task command `grunt yuidoc` 
 - Catch-all `index.html` for easy reloading of pushState router apps
 
 ## Future Goals
