@@ -1,13 +1,6 @@
-var pathUtils = require('path'),
-    grunt = require('grunt'),
+var grunt = require('grunt'),
     _ = grunt.util._,
     Helpers = {};
-
-// Grunt configuration. Object is expected to be mutated in Gruntfile.
-Helpers.config = {
-  pkg: grunt.file.readJSON('./package.json'),
-  env: process.env
-};
 
 // List of package requisits for tasks
 var taskRequirements = {
@@ -44,19 +37,6 @@ Helpers.isPackageAvailable = function(pkgNames) {
   return _.any(pkgNames, function(pkgName){
     return !!Helpers.config.pkg.devDependencies[pkgName];
   });
-};
-
-Helpers.loadConfig = function(path) {
-  var glob = require('glob');
-  var object = {};
-  var key;
-
-  glob.sync('*', {cwd: path}).forEach(function(option) {
-    key = option.replace(/\.js$/,'');
-    object[key] = require("../" + path + option);
-  });
-
-  return object;
 };
 
 module.exports = Helpers;

@@ -4,7 +4,7 @@ module.exports = {
   "tests": {
     type: 'amd',
     moduleName: function(path) {
-      return grunt.config.process('<%= pkg.namespace %>/tests/') + path;
+      return grunt.config.process('<%= package.namespace %>/tests/') + path;
     },
     files: [{
       expand: true,
@@ -16,7 +16,7 @@ module.exports = {
   "app": {
     type: 'amd',
     moduleName: function(path) {
-      return grunt.config.process('<%= pkg.namespace %>/') + path;
+      return grunt.config.process('<%= package.namespace %>/') + path;
     },
     files: [{
       expand: true,

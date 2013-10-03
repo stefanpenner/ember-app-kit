@@ -31,14 +31,15 @@ module.exports = function(grunt) {
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
   var Helpers = require('./tasks/helpers'),
-      config = Helpers.config,
-      filterAvailable = Helpers.filterAvailableTasks,
-      _ = grunt.util._;
+      filterAvailable = Helpers.filterAvailableTasks;
 
-  config = _.extend(config, Helpers.loadConfig('./tasks/options/'));
-
-  require('load-grunt-tasks')(grunt);
+  var config = require('load-grunt-config')(grunt, {
+    configPath: "tasks/options",
+    init: false
+  });
   grunt.loadTasks('tasks');
+
+  config.env = process.env;
 
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
 
