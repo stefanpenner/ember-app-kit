@@ -33,6 +33,8 @@ module.exports = function(grunt) {
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks;
 
+  Helpers.pkg = require("./package.json");
+
   var config = require('load-grunt-config')(grunt, {
     configPath: "tasks/options",
     init: false

@@ -35,7 +35,7 @@ Helpers.isPackageAvailable = function(pkgNames) {
     pkgNames = [pkgNames];
   }
   return _.any(pkgNames, function(pkgName){
-    return !!Helpers.config.pkg.devDependencies[pkgName];
+    return !!Helpers.pkg.devDependencies[pkgName];
   });
 };
 
