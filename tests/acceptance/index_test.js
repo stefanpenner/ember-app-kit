@@ -1,6 +1,6 @@
 var App;
 
-module("Acceptances - Index", {
+module('Acceptances - Index', {
   setup: function(){
     App = startApp();
   },
@@ -9,14 +9,16 @@ module("Acceptances - Index", {
   }
 });
 
-test("index renders", function(){
+test('index renders', function(){
   expect(3);
 
   visit('/').then(function(){
-    ok(exists("h2:contains('Welcome to Ember.js')"));
+    var title = find('h2#title');
+    var list = find('ul li');
 
-    var list = find("ul li");
+    equal(title.text(), 'Welcome to Ember.js');
+
     equal(list.length, 3);
-    equal(list.text(), "redyellowblue");
+    equal(list.text(), 'redyellowblue');
   });
 });
