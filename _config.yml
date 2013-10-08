@@ -17,6 +17,8 @@ guides:
     page: "/guides/deployment.html"
   - name: "Using With Ember Data"
     page: "/guides/ember-data.html"
+  - name: "Naming Conventions"
+    page: "/guides/naming-conventions.html"
   - name: "Frequently Asked Questions"
     page: "/guides/faq.html"
 
