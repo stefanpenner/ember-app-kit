@@ -22,7 +22,7 @@ We could easily embed this view into a container/parent using the Handlebars vie
 {% endraw %}
 {% endhighlight %}
 
-This is great. However, in Ember App Kit we use a Resolver to alleviate the issue of namespacing your views, controllers, models, etc... So the above example would not work.
+This is great. However, Ember App Kit is a Resolver and alleviates the issue of namespacing your objects (views, controllers, models, etc.). The above example, as such, will not work.
 
 In EAK our view would be declared like so:
 
@@ -36,7 +36,7 @@ We can then embed our view using the following convention:
 
 {% highlight sh %}
 {% raw %}
-{{view 'userview'}}
+{{view 'user'}}
 {% endraw %}
 {% endhighlight %}
 
@@ -46,5 +46,43 @@ We can then embed our view using the following convention:
 
 It is important to keep in mind that the Resolver uses filenames to create the associations correctly. This helps you by not having to namespace everything yourself. But there a couple of things you should know.
 
-*   Name files all in lowercase (e.g. views/user.js, models/user.js, controller/index.js )
-*   There is no need to name files according to their relationship (e.g usercontroller.js, usermodel.js or indexcontroller.js)
+#### All filenames should be lowercased
+
+{% highlight sh %}
+// models/user.js
+var User = Ember.Model.extend(); 
+
+export default User;
+{% endhighlight %}
+
+#### Comma seperated file names are recommended
+
+You may want to name your files according to their function, this is easily accomplished:
+
+{% highlight sh %}
+// models/user_model.js
+var UserModel = Ember.Model.extend(); 
+
+export default User;
+{% endhighlight %}
+
+
+#### Nested directories can be referenced
+
+If you prefer to nest your files to better manage your application, you can easily do so.
+
+{% highlight sh %}
+// controller/posts/new.js -> controller:posts/new
+var PostsNewController = Ember.Controller.extend();
+
+export default PostsNewController;
+{% endhighlight %}
+
+If your filename has an underscore in it, we can reference it using the following technique:
+
+{% highlight sh %}
+// controller/posts/comment_thread.js -> controller:posts/comment-thread  
+var CommentThreadPostsController = Ember.Controller.extend();
+
+export default CommentThreadPostsController;
+{% endhighlight %}
