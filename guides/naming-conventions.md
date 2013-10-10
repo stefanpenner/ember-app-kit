@@ -22,7 +22,7 @@ We could easily embed this view into a container/parent using the Handlebars vie
 {% endraw %}
 {% endhighlight %}
 
-This is great. However, Ember App Kit is a Resolver and alleviates the issue of namespacing your objects (views, controllers, models, etc.). The above example, as such, will not work.
+This is great. However, Ember App Kit utilizes a Resolver which alleviates the issue of namespacing your objects (views, controllers, models, etc.). The above example, as such, will not work.
 
 In EAK our view would be declared like so:
 
