@@ -8,7 +8,7 @@ When using Ember App Kit its important to keep in mind that the Resolver changes
 
 ### Views and Templates
 
-Lets say we were using Ember out of the box with the following view:
+Let's say we were using Ember out of the box with the following view:
 
 {% highlight sh %}
 App.UserView = Ember.View.extend({});
@@ -22,7 +22,7 @@ We could easily embed this view into a container/parent using the Handlebars vie
 {% endraw %}
 {% endhighlight %}
 
-This is great. However, Ember App Kit utilizes a Resolver which alleviates the issue of namespacing your objects (views, controllers, models, etc.). The above example, as such, will not work.
+This is great. However, Ember App Kit cusotmizes the default Ember Resolver to help alleviate the issue of namespacing your objects (views, controllers, models, etc.) manually. The above example, as such, will not work in an EAK project.
 
 In EAK our view would be declared like so:
 
@@ -40,7 +40,7 @@ We can then embed our view using the following convention:
 {% endraw %}
 {% endhighlight %}
 
-> Please note that we did not namespace UserView. The resolver takes care of this for you.
+> Please note that we did not namespace UserView. The resolver takes care of this for you. For more information about the default Ember resolver, check out the source [here](https://github.com/emberjs/ember.js/blob/master/packages/ember-application/lib/system/resolver.js).
 
 ### Filenames
 
