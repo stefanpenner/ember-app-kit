@@ -11,7 +11,7 @@ function exists(selector) {
 
 function equal(actual, expected, message) {
   message = message || QUnit.jsDump.parse(expected) + " expected but was " + QUnit.jsDump.parse(actual);
-  QUnit.equal.call(this, expected, actual, message);
+  QUnit.equal.call(this, actual, expected, message);
 }
 
 window.exists = exists;
