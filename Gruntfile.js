@@ -43,68 +43,25 @@ module.exports = function(grunt) {
 
   config.env = process.env;
 
+  
+
+
+  // App Kit's Main Tasks
+  // ====================
+
+  // Default Task
+  // ------------------
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
 
-  config.concurrent = {
-    dist: [
-      "build:templates:dist",
-      "build:scripts",
-      "build:styles",
-      "build:other"
-    ],
-    debug: [
-      "build:templates:debug",
-      "build:scripts",
-      "build:styles",
-      "build:other"
-    ]
-  };
 
-  // All tasks except build:before and build:after are run concurrently
-  grunt.registerTask('build:before:dist', [
+  // Building
+  // --------
+  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
                      'clean:build',
                      'clean:release',
                      'copy:stage',
-                     'lock'
-                     ]);
-
-  grunt.registerTask('build:before:debug', [
-                     'clean:build',
-                     'copy:stage',
-                     'lock'
-                     ]);
-
-  grunt.registerTask('build:templates:dist', filterAvailable([
-                     'emblem:compile',
-                     'emberTemplates:dist'
-                     ]));
-
-  grunt.registerTask('build:templates:debug', filterAvailable([
-                     'emblem:compile',
-                     'emberTemplates:debug'
-                     ]));
-
-  grunt.registerTask('build:scripts', filterAvailable([
-                     'coffee',
-                     'copy:prepare',
-                     'transpile',
-                     'jshint',
-                     'concat_sourcemap'
-                     ]));
-
-  grunt.registerTask('build:styles', filterAvailable([
-                     'compass:compile',
-                     'sass:compile',
-                     'less:compile',
-                     'stylus:compile',
-                     'cssmin'
-                     ]));
-
-  grunt.registerTask('build:other', filterAvailable([
-                     'copy:vendor'
-                     ]));
-
-  grunt.registerTask('build:after:dist', filterAvailable([
+                     'lock',
+                     'concurrent:dist', // Main phase, see config below
                      'unlock',
                      'dom_munger:distEmber',
                      'dom_munger:distHandlebars',
@@ -114,24 +71,18 @@ module.exports = function(grunt) {
                      'copy:dist',
                      'rev',
                      'usemin'
-                     ]));
-
-  grunt.registerTask('build:after:debug', filterAvailable([
-                     'unlock'
-                     ]));
-
-  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
-                     'build:before:dist',
-                     'concurrent:dist',
-                     'build:after:dist'
                      ]);
 
   grunt.registerTask('build:debug', "Build a development-friendly version of your app.", [
-                     'build:before:debug',
-                     'concurrent:debug',
-                     'build:after:debug'
+                     'clean:build',
+                     'copy:stage',
+                     'lock',
+                     'concurrent:debug', // Main phase, see config below
+                     'unlock'
                      ]);
 
+  // Testing
+  // -------
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/public/coverage.", [
                      'build:debug', 'karma:test' ]);
 
@@ -142,12 +93,83 @@ module.exports = function(grunt) {
                      'build:debug', 'karma:browsers' ]);
 
   grunt.registerTask('test:server', "Start a Karma test server. Automatically reruns your tests when files change and logs the results to the terminal.", [
-                     'build:debug', 'karma:server', 'connect:server', 'watch:test']);
+                     'build:debug',
+                     'karma:server',
+                     'connect:server',
+                     'watch'
+                     ]);
 
-  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.",
-                     ['build:debug', 'connect:server', 'watch:main']);
-  grunt.registerTask('server:dist', "Build and preview production (minified) assets.",
-                     ['build:dist', 'connect:dist:keepalive']);
+  // Development Servers
+  // -------------------
+  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", [
+                     'build:debug',
+                     'connect:server',
+                     'watch'
+                     ]);
+
+  grunt.registerTask('server:dist', "Build and preview production (minified) assets.", [
+                     'build:dist',
+                     'connect:dist:keepalive'
+                     ]);
+
+
+
+  // Inner workings of the build tasks
+  // =================================
+
+  // Parallelize most of the build process
+  config.concurrent = {
+    dist: [
+      "buildTemplates:dist",
+      "buildScripts",
+      "buildStyles",
+      "buildOther"
+    ],
+    debug: [
+      "buildTemplates:debug",
+      "buildScripts",
+      "buildStyles",
+      "buildOther"
+    ]
+  };
+
+  // Templates
+  grunt.registerTask('buildTemplates:dist', filterAvailable([
+                     'emblem:compile',
+                     'emberTemplates:dist'
+                     ]));
+
+  grunt.registerTask('buildTemplates:debug', filterAvailable([
+                     'emblem:compile',
+                     'emberTemplates:debug'
+                     ]));
+
+  // Scripts
+  grunt.registerTask('buildScripts', filterAvailable([
+                     'coffee',
+                     'copy:prepare',
+                     'transpile',
+                     'jshint',
+                     'concat_sourcemap'
+                     ]));
+
+  // Styles
+  grunt.registerTask('buildStyles', filterAvailable([
+                     'compass:compile',
+                     'sass:compile',
+                     'less:compile',
+                     'stylus:compile',
+                     'cssmin'
+                     ]));
+
+  // Other
+  grunt.registerTask('buildOther', filterAvailable([
+                     'copy:vendor'
+                     ]));
+
+
+
+
 
   grunt.initConfig(config);
 };
