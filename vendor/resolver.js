@@ -63,6 +63,16 @@ define("resolver",
     }
   }
 
+  function resolveRouter(parsedName) {
+    var prefix = this.namespace.modulePrefix;
+    if (parsedName.fullName === 'router:main') {
+      // for now, lets keep the router at app/router.js
+      if (requirejs._eak_seen[prefix + '/router']) {
+        return require(prefix + '/router');
+      }
+    }
+  }
+
   function resolveOther(parsedName) {
     var prefix = this.namespace.modulePrefix;
     Ember.assert('module prefix must be defined', prefix);
@@ -75,11 +85,6 @@ define("resolver",
     // allow treat all dashed and all underscored as the same thing
     // supports components with dashes and other stuff with underscores.
     var normalizedModuleName = chooseModuleName(requirejs._eak_seen, moduleName);
-
-    if (parsedName.fullName === 'router:main') {
-      // for now, lets keep the router at app/router.js
-      return require(prefix + '/router');
-    }
 
     if (requirejs._eak_seen[normalizedModuleName]) {
       var module = require(normalizedModuleName, null, null, true /* force sync */);
@@ -105,6 +110,7 @@ define("resolver",
   var Resolver = Ember.DefaultResolver.extend({
     resolveTemplate: resolveOther,
     resolveOther: resolveOther,
+    resolveRouter: resolveRouter,
     parseName: parseName,
     normalize: function(fullName) {
       // replace `.` with `/` in order to make nested controllers work in the following cases
