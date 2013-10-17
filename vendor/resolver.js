@@ -47,22 +47,6 @@ define("resolver",
     };
   }
 
-  function chooseModuleName(seen, moduleName) {
-    var underscoredModuleName = Ember.String.underscore(moduleName);
-
-    if (moduleName !== underscoredModuleName && seen[moduleName] && seen[underscoredModuleName]) {
-      throw new TypeError("Ambigous module names: `" + moduleName + "` and `" + underscoredModuleName + "`");
-    }
-
-    if (seen[moduleName]) {
-      return moduleName;
-    } else if (seen[underscoredModuleName]) {
-      return underscoredModuleName;
-    } else {
-      return moduleName;
-    }
-  }
-
   function resolveOther(parsedName) {
     var prefix = this.namespace.modulePrefix;
     Ember.assert('module prefix must be defined', prefix);
@@ -74,31 +58,33 @@ define("resolver",
 
     // allow treat all dashed and all underscored as the same thing
     // supports components with dashes and other stuff with underscores.
-    var normalizedModuleName = chooseModuleName(requirejs._eak_seen, moduleName);
+    var normalizedModuleName = Ember.String.underscore(moduleName);
 
     if (parsedName.fullName === 'router:main') {
       // for now, lets keep the router at app/router.js
       return require(prefix + '/router');
     }
 
-    if (requirejs._eak_seen[normalizedModuleName]) {
+    try {
       var module = require(normalizedModuleName, null, null, true /* force sync */);
-
-      if (module === undefined) {
-        throw new Error(" Expected to find: '" + parsedName.fullName + "' within '" + normalizedModuleName + "' but got 'undefined'. Did you forget to `export default` within '" + normalizedModuleName + "'?");
-      }
-
-      if (Ember.ENV.LOG_MODULE_RESOLVER) {
-        Ember.Logger.info('hit', moduleName);
-      }
-
-      return module;
-    } else {
+    } catch  (error) {
       if (Ember.ENV.LOG_MODULE_RESOLVER) {
         Ember.Logger.info('miss', moduleName);
       }
       return this._super(parsedName);
     }
+    
+    if (module === undefined) {
+      throw new Error(" Expected to find: '" + parsedName.fullName + "' within '" + normalizedModuleName + "' but got 'undefined'. Did you forget to `export default` within '" + normalizedModuleName + "'?");
+    }
+
+    if (Ember.ENV.LOG_MODULE_RESOLVER) {
+      Ember.Logger.info('hit', moduleName);
+    }
+
+    return module;
+
+
   }
   // Ember.DefaultResolver docs:
   //   https://github.com/emberjs/ember.js/blob/master/packages/ember-application/lib/system/resolver.js
