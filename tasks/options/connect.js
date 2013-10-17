@@ -1,6 +1,5 @@
 var lockFile = require('lockfile'),
     fs = require('fs'),
-    url = require('url'),
     Helpers = require('../helpers');
 
 module.exports = {
