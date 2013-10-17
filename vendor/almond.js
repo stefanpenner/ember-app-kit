@@ -2,6 +2,10 @@
  * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
+ *
+ * This copy of almond.js has been modified to better support ember-app-kit.
+ * See reference to `requirejs._eak_seen` below.
+ *
  */
 //Going sloppy to avoid 'use strict' string cost, but strict practices should
 //be followed.
