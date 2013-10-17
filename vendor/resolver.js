@@ -93,6 +93,10 @@ define("resolver",
         throw new Error(" Expected to find: '" + parsedName.fullName + "' within '" + normalizedModuleName + "' but got 'undefined'. Did you forget to `export default` within '" + normalizedModuleName + "'?");
       }
 
+      if (this.shouldWrapInClassFactory(module, parsedName)) {
+        module = classFactory(module);
+      }
+
       if (Ember.ENV.LOG_MODULE_RESOLVER) {
         Ember.Logger.info('hit', moduleName);
       }
@@ -112,6 +116,9 @@ define("resolver",
     resolveOther: resolveOther,
     resolveRouter: resolveRouter,
     parseName: parseName,
+    shouldWrapInClassFactory: function(module, parsedName){
+      return false;
+    },
     normalize: function(fullName) {
       // replace `.` with `/` in order to make nested controllers work in the following cases
       // 1. `needs: ['posts/post']`
