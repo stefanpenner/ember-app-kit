@@ -6,5 +6,8 @@
     "qunit": "~1.12.0",
     "ember": "1.2.0-beta.1",
     "ember-data-shim": "1.0.0-beta.3"
+  },
+  "resolutions": {
+    "ember": "1.2.0-beta.1"
   }
 }
