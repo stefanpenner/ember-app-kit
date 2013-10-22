@@ -1,4 +1,4 @@
-import Application from 'appkit/app';
+import { App as Application } from 'appkit/app';
 import Router from 'appkit/router';
 
 function startApp(attrs) {
