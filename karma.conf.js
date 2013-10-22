@@ -17,7 +17,7 @@ module.exports = function(config) {
       'vendor/ember-data-shim/ember-data.js',
       'assets/templates.js',
       'assets/app.js',
-      'tests/tests.js',
+      '../transpiled/tests/**/*.js',
       'tests/test_helper.js',
       'tests/test_loader.js'
     ],
