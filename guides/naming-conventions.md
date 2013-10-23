@@ -55,7 +55,7 @@ var User = Ember.Model.extend();
 export default User;
 {% endhighlight %}
 
-#### Comma seperated file names are recommended
+#### Underscore seperated file names are recommended
 
 You may want to name your files according to their function, this is easily accomplished:
 
@@ -63,7 +63,7 @@ You may want to name your files according to their function, this is easily acco
 // models/user_model.js
 var UserModel = Ember.Model.extend(); 
 
-export default User;
+export default UserModel;
 {% endhighlight %}
 
 
