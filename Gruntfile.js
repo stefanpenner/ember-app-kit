@@ -93,18 +93,18 @@ module.exports = function(grunt) {
   // Testing
   // -------
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/public/coverage.", [
-                     'build:debug', 'karma:test' ]);
+                     'build:debug', 'copy:vendor', 'karma:test' ]);
 
   grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
-                     'build:debug', 'karma:ci' ]);
+                     'build:debug', 'copy:vendor', 'karma:ci' ]);
 
   grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/karma.js for configuration).", [
-                     'build:debug', 'karma:browsers' ]);
+                     'build:debug', 'copy:vendor', 'karma:browsers' ]);
 
   grunt.registerTask('test:server', "Start a Karma test server. Automatically reruns your tests when files change and logs the results to the terminal.", [
                      'build:debug',
                      'karma:server',
-                     'connect:server',
+                     'expressServer:debug',
                      'watch'
                      ]);
 
