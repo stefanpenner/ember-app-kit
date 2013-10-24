@@ -11,7 +11,7 @@
     "start": "grunt server",
     "build": "grunt build:debug",
     "test": "grunt test:ci",
-    "postinstall": "./node_modules/.bin/bower install"
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   "author": "",
   "license": "BSD",
   "devDependencies": {
-    "grunt-contrib-connect": "~0.3.0",
+    "express": "~3.4.2",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-copy": "~0.4.1",
