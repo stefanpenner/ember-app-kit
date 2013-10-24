@@ -27,13 +27,21 @@ module.exports = function(grunt) {
   //
   // * for LiveReload, `npm install --save-dev connect-livereload`
   //
+  // * for displaying the execution time of the various grunt tasks,
+  //   `npm install --save-dev time-grunt`
+  //
   // If you use SASS, LESS or Stylus, don't forget to delete
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
   var Helpers = require('./tasks/helpers'),
-      filterAvailable = Helpers.filterAvailableTasks;
+      filterAvailable = Helpers.filterAvailableTasks,
+      _ = grunt.util._;
 
   Helpers.pkg = require("./package.json");
+
+  if (Helpers.isPackageAvailable("time-grunt")) {
+    require("time-grunt")(grunt);
+  }
 
   var config = require('load-grunt-config')(grunt, {
     configPath: "tasks/options",
@@ -62,6 +70,7 @@ module.exports = function(grunt) {
                      'copy:stage',
                      'lock',
                      'concurrent:dist', // Main phase, see config below
+                     'copy:vendor',
                      'unlock',
                      'dom_munger:distEmber',
                      'dom_munger:distHandlebars',
@@ -103,13 +112,13 @@ module.exports = function(grunt) {
   // -------------------
   grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", [
                      'build:debug',
-                     'connect:server',
+                     'expressServer:debug',
                      'watch'
                      ]);
 
   grunt.registerTask('server:dist', "Build and preview production (minified) assets.", [
                      'build:dist',
-                     'connect:dist:keepalive'
+                     'expressServer:dist:keepalive'
                      ]);
 
 
@@ -118,20 +127,20 @@ module.exports = function(grunt) {
   // =================================
 
   // Parallelize most of the build process
-  config.concurrent = {
-    dist: [
-      "buildTemplates:dist",
-      "buildScripts",
-      "buildStyles",
-      "buildOther"
-    ],
-    debug: [
-      "buildTemplates:debug",
-      "buildScripts",
-      "buildStyles",
-      "buildOther"
-    ]
-  };
+  _.merge(config, {
+    concurrent: {
+      dist: [
+        "buildTemplates:dist",
+        "buildScripts",
+        "buildStyles"
+      ],
+      debug: [
+        "buildTemplates:debug",
+        "buildScripts",
+        "buildStyles"
+      ]
+    }
+  });
 
   // Templates
   grunt.registerTask('buildTemplates:dist', filterAvailable([
@@ -161,14 +170,6 @@ module.exports = function(grunt) {
                      'stylus:compile',
                      'cssmin'
                      ]));
-
-  // Other
-  grunt.registerTask('buildOther', filterAvailable([
-                     'copy:vendor'
-                     ]));
-
-
-
 
 
   grunt.initConfig(config);
