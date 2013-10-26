@@ -47,9 +47,5 @@
     "bower": "~1.2.7",
     "grunt-cli": "~0.1.9",
     "grunt-preprocess": "~3.0.1"
-  },
-  "dependencies": {
-    "loom": "~2.0.0",
-    "loom-generators-ember": "0.0.1"
   }
 }

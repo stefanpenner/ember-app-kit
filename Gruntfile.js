@@ -30,6 +30,9 @@ module.exports = function(grunt) {
   // * for displaying the execution time of the various grunt tasks,
   //   `npm install --save-dev time-grunt`
   //
+  // * for using the loom generator to generate routes, controllers, etc.
+  //   efficiently. `npm install --save-dev loom loom-generators-ember`
+  //
   // If you use SASS, LESS or Stylus, don't forget to delete
   // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
