@@ -1,7 +1,9 @@
 module.exports = function(grunt) {
   var express = require('express'),
       lockFile = require('lockfile'),
-      Helpers = require('./helpers');
+      Helpers = require('./helpers'),
+      fs = require('fs'),
+      path = require('path');
 
   /**
   Task for serving the static files.
@@ -63,7 +65,13 @@ module.exports = function(grunt) {
         filePath = options.file;
       } else { throw new Error('static() isn\'t properly configured!'); }
       
-      res.sendfile(filePath, function(err) { if (err) { next(); } });
+      fs.stat(filePath, function(err, stats) {
+        // Is it a directory? If so, search for a index.html in it.
+        if (stats.isDirectory()) { filePath = path.join(filePath, 'index.html'); }
+
+        // Serve the file
+        res.sendfile(filePath, function(err) { if (err) { next(); } });
+      });
     };
   } 
 };

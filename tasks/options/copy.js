@@ -17,6 +17,7 @@ module.exports = {
       dest: 'tmp/javascript/tests/'
     }]
   },
+
   // Stage moves files to their final destinations after the rest
   // of the build cycle has run.
   //
@@ -24,7 +25,7 @@ module.exports = {
     files: [{
       expand: true,
       cwd: 'tests/',
-      src: ['index.html', 'test_helper.js', 'test_loader.js', 'vendor/**/*'],
+      src: ['test_helper.js', 'test_loader.js', 'vendor/**/*'],
       dest: 'tmp/public/tests/'
     },
     {

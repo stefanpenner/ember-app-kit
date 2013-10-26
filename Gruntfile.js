@@ -72,8 +72,6 @@ module.exports = function(grunt) {
                      'concurrent:dist', // Main phase, see config below
                      'copy:vendor',
                      'unlock',
-                     'dom_munger:distEmber',
-                     'dom_munger:distHandlebars',
                      'useminPrepare',
                      'concat',
                      'uglify',
@@ -132,12 +130,14 @@ module.exports = function(grunt) {
       dist: [
         "buildTemplates:dist",
         "buildScripts",
-        "buildStyles"
+        "buildStyles",
+        "buildIndexHTML:dist"
       ],
       debug: [
         "buildTemplates:debug",
         "buildScripts",
-        "buildStyles"
+        "buildStyles",
+        "buildIndexHTML:debug"
       ]
     }
   });
@@ -170,6 +170,17 @@ module.exports = function(grunt) {
                      'stylus:compile',
                      'cssmin'
                      ]));
+
+  // Index HTML
+  grunt.registerTask('buildIndexHTML:dist', [
+                     'preprocess:indexHTMLDistApp',
+                     'preprocess:indexHTMLDistTests'
+                     ]);
+
+  grunt.registerTask('buildIndexHTML:debug', [
+                     'preprocess:indexHTMLDebugApp',
+                     'preprocess:indexHTMLDebugTests'
+                     ]);
 
 
   grunt.initConfig(config);
