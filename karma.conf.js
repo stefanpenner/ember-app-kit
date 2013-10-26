@@ -18,8 +18,8 @@ module.exports = function(config) {
       'assets/templates.js',
       'assets/app.js',
       '../transpiled/tests/**/*.js',
-      'tests/test_helper.js',
-      'tests/test_loader.js'
+      '../../tests/test_helper.js',
+      '../../tests/test_loader.js'
     ],
 
     frameworks: ['qunit'],
