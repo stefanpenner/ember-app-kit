@@ -1,9 +1,6 @@
 module.exports = {
-  // These copy tasks happen before transpile or hinting. They
-  // prepare the build pipeline by moving JavaScript files to
-  // tmp/javascript.
-  //
-  "prepare": {
+
+  "javascriptToTmp": {
     files: [{
       expand: true,
       cwd: 'app/',
@@ -17,28 +14,27 @@ module.exports = {
       dest: 'tmp/javascript/tests/'
     }]
   },
-  // Stage moves files to their final destinations after the rest
-  // of the build cycle has run.
-  //
-  "stage": {
+
+  // Puts gathers files in `tmp/public`
+  assemble: {
     files: [{
       expand: true,
       cwd: 'tests/',
-      src: ['index.html', 'test_helper.js', 'test_loader.js', 'vendor/**/*'],
+      src: ['test_helper.js', 'test_loader.js', 'vendor/**/*'],
       dest: 'tmp/public/tests/'
-    },
-    {
+    }, {
       expand: true,
       cwd: 'public/',
       src: ['**'],
       dest: 'tmp/public/'
-    }]
+    }, {
+      src: ['vendor/**/*.js', 'vendor/**/*.css'],
+      dest: 'tmp/public/'
+    }
+    ]
   },
-  "vendor": {
-    src: ['vendor/**/*.js', 'vendor/**/*.css'],
-    dest: 'tmp/public/'
-  },
-  "dist": {
+
+  dist: {
     files: [{
       expand: true,
       cwd: 'tmp/public',

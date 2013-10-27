@@ -1,7 +1,9 @@
 module.exports = function(grunt) {
   var express = require('express'),
       lockFile = require('lockfile'),
-      Helpers = require('./helpers');
+      Helpers = require('./helpers'),
+      fs = require('fs'),
+      path = require('path');
 
   /**
   Task for serving the static files.
@@ -15,20 +17,22 @@ module.exports = function(grunt) {
     app.use(lock);
 
     if (target === 'debug') {
-      // For `expressServer:debug`:
+      // For `expressServer:debug`
 
       // Add livereload middlware after lock middleware if enabled
       if (Helpers.isPackageAvailable("connect-livereload")) {
         app.use(require("connect-livereload")());
       }
 
-      app.use(static({ urlRoot: '/assets/images', directory: 'tmp/images' }));
-      app.use(static({ urlRoot: '/assets/images', directory: 'app/images' }));
+      // These three lines simulate what the `copy:assemble` task does
       app.use(static({ urlRoot: '/vendor', directory: 'vendor' }));
+      app.use(static({ directory: 'public' }));
+      app.use(static({ urlRoot: '/tests', directory: 'tests' })); // For test_helper.js and test_loader.js
+
       app.use(static({ directory: 'tmp/public' }));
       app.use(static({ file: 'tmp/public/index.html' })); // Gotta catch 'em all
     } else {
-      // For `expressServer:dist`:
+      // For `expressServer:dist`
 
       app.use(lock);
       app.use(static({ directory: 'dist' }));
@@ -36,6 +40,7 @@ module.exports = function(grunt) {
     }
 
     app.listen(process.env.PORT || 8000);
+    grunt.log.ok('Started development server.');
     if (!this.flags.keepalive) { done(); }
   });
 
@@ -63,7 +68,18 @@ module.exports = function(grunt) {
         filePath = options.file;
       } else { throw new Error('static() isn\'t properly configured!'); }
       
-      res.sendfile(filePath, function(err) { if (err) { next(); } });
+      fs.stat(filePath, function(err, stats) {
+        if (err) { next(); return; } // Not a file, not a folder => can't handle it
+
+        // Is it a directory? If so, search for an index.html in it.
+        if (stats.isDirectory()) { filePath = path.join(filePath, 'index.html'); }
+
+        // Serve the file
+        res.sendfile(filePath, function(err) {
+          if (err) { next(); return; }
+          grunt.verbose.ok('Served: ' + filePath);
+        });
+      });
     };
   } 
 };

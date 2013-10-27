@@ -26,7 +26,6 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-es6-module-transpiler": "~0.4.1",
     "glob": "~3.2.1",
-    "load-grunt-tasks": "~0.1.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.2",
@@ -43,13 +42,9 @@
     "grunt-concat-sourcemap": "~0.3.0",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-concurrent": "~0.3.1",
-    "grunt-dom-munger": "~2.0.1",
     "load-grunt-config": "~0.5.0",
     "bower": "~1.2.7",
-    "grunt-cli": "~0.1.9"
-  },
-  "dependencies": {
-    "loom": "~2.0.0",
-    "loom-generators-ember": "0.0.1"
+    "grunt-cli": "~0.1.9",
+    "grunt-preprocess": "~3.0.1"
   }
 }

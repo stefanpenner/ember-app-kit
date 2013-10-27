@@ -1,26 +1,31 @@
 var Helpers = require('../helpers');
 
-var scripts = '{app,tests}/**/*.{js,coffee}';
-var templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}';
-var styles = 'app/styles/**/*.{css,sass,scss,less,styl}';
-var other = '{app,tests,public,vendor}/**/*';
+var scripts = '{app,tests}/**/*.{js,coffee}',
+    templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
+    styles = 'app/styles/**/*.{css,sass,scss,less,styl}',
+    indexHTML = 'app/index.html',
+    other = '{app,tests,public,vendor}/**/*';
 
 module.exports = {
   scripts: {
     files: [scripts],
-    tasks: ['lock', 'buildScripts', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'buildScripts', 'unlock']
   },
   templates: {
     files: [templates],
-    tasks: ['lock', 'buildTemplates:debug', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'buildTemplates:debug', 'unlock']
   },
   styles: {
     files: [styles],
-    tasks: ['lock', 'buildStyles', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'buildStyles', 'unlock']
+  },
+  indexHTML: {
+    files: [indexHTML],
+    tasks: ['lock', 'buildIndexHTML:debug', 'unlock']
   },
   other: {
-    files: [other, '!'+scripts, '!'+templates, '!'+styles],
-    tasks: ['build:debug', 'karma:server:run']
+    files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML],
+    tasks: ['lock', 'build:debug', 'unlock']
   },
 
   options: {
