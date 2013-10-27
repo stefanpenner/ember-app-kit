@@ -9,23 +9,23 @@ var scripts = '{app,tests}/**/*.{js,coffee}',
 module.exports = {
   scripts: {
     files: [scripts],
-    tasks: ['lock', 'buildScripts', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'buildScripts', 'unlock']
   },
   templates: {
     files: [templates],
-    tasks: ['lock', 'buildTemplates:debug', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'buildTemplates:debug', 'unlock']
   },
   styles: {
     files: [styles],
-    tasks: ['lock', 'buildStyles', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'buildStyles', 'unlock']
   },
   indexHTML: {
     files: [indexHTML],
-    tasks: ['lock', 'buildIndexHTML:debug', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'buildIndexHTML:debug', 'unlock']
   },
   other: {
     files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML],
-    tasks: ['lock', 'build:debug', 'unlock', 'karma:server:run']
+    tasks: ['lock', 'build:debug', 'unlock']
   },
 
   options: {

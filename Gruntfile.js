@@ -105,6 +105,7 @@ module.exports = function(grunt) {
                      'build:debug',
                      'karma:server',
                      'expressServer:debug',
+                     'addKarmaToWatchTask',
                      'watch'
                      ]);
 
@@ -188,6 +189,18 @@ module.exports = function(grunt) {
                      'preprocess:indexHTMLDebugTests'
                      ]);
 
+  // Configure watch task
+  grunt.registerTask('addKarmaToWatchTask', function() {
+    // Append `karma:server:run` to every watch target's tasks array
+    _.forIn(grunt.config('watch'), function(config, key) {
+      if (key === 'options') { return; }
+      config.tasks.push('karma:server:run');
+      grunt.config('watch.' + key, config);
+    });
+  });
+
 
   grunt.initConfig(config);
+
+  
 };
