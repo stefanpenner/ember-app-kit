@@ -46,11 +46,13 @@ module.exports = function(grunt) {
     require("time-grunt")(grunt);
   }
 
+  // Loads task options from `tasks/options/`
+  // and loads tasks defined in `package.json`
   var config = require('load-grunt-config')(grunt, {
     configPath: "tasks/options",
     init: false
   });
-  grunt.loadTasks('tasks');
+  grunt.loadTasks('tasks'); // Loads tasks in `tasks/` folder
 
   config.env = process.env;
 
