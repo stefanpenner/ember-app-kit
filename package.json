@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stefanpenner/app-kit.git"
+    "url": "git://github.com/stefanpenner/ember-app-kit.git"
   },
   "author": "",
   "license": "BSD",
