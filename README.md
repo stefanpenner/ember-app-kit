@@ -39,3 +39,8 @@ Think anything else is missing? Feel free to open an issue (or, even better, a P
 ## Special Thanks
 
 Some ideas in ember-app-kit originated in work by Yapp Labs (@yapplabs) with McGraw-Hill Education Labs (@mhelabs) on [yapplabs/glazier](https://github.com/yapplabs/glazier). Thanks to Yapp and MHE for supporting the Ember ecosystem!
+
+## License
+
+Copyright 2013 by Stefan Penner and Ember App Kit Contributors, and licensed under the MIT License. See included
+[LICENSE](/stefanpenner/ember-app-kit/blob/master/LICENSE) file for details.
