@@ -13,7 +13,7 @@ module("Unit - IndexRoute", {
 
 test("it exists", function(){
   ok(route);
-  ok(route instanceof Ember.Route);
+  ok(route instanceof Index);
 });
 
 test("#model", function(){
