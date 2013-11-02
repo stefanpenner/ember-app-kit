@@ -1,4 +1,5 @@
 import Application from 'appkit/app';
+import Router from 'appkit/router';
 
 function startApp(attrs) {
   var App;
@@ -14,6 +15,10 @@ function startApp(attrs) {
     App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();
+  });
+
+  Router.reopen({
+    location: 'none'
   });
 
   App.reset(); // this shouldn't be needed, i want to be able to "start an app at a specific URL"
