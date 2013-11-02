@@ -1,44 +1,69 @@
 module.exports = {
 
-  "javascriptToTmp": {
+  // Note: These tasks are listed in the order in which they will run.
+
+  javascriptToTmp: {
     files: [{
       expand: true,
-      cwd: 'app/',
+      cwd: 'app',
       src: '**/*.js',
       dest: 'tmp/javascript/app'
     },
     {
       expand: true,
-      cwd: 'tests/',
-      src: ['**/*.js', '!test_helper.js', '!test_loader.js', '!vendor/**/*.js'],
+      cwd: 'tests',
+      src: ['**/*.js', '!test_helper.js', '!test_loader.js'],
       dest: 'tmp/javascript/tests/'
     }]
   },
 
-  // Puts gathers files in `tmp/public`
+  cssToResult: {
+    expand: true,
+    cwd: 'app/styles',
+    src: ['**/*.css'],
+    dest: 'tmp/result/assets'
+  },
+
+  // Assembles everything in `tmp/result`
   assemble: {
     files: [{
       expand: true,
-      cwd: 'tests/',
-      src: ['test_helper.js', 'test_loader.js', 'vendor/**/*'],
-      dest: 'tmp/public/tests/'
+      cwd: 'tests',
+      src: ['test_helper.js', 'test_loader.js'],
+      dest: 'tmp/result/tests/'
     }, {
       expand: true,
-      cwd: 'public/',
+      cwd: 'public',
       src: ['**'],
-      dest: 'tmp/public/'
+      dest: 'tmp/result/'
     }, {
       src: ['vendor/**/*.js', 'vendor/**/*.css'],
-      dest: 'tmp/public/'
+      dest: 'tmp/result/'
     }
     ]
+  },
+
+  imageminFallback: {
+    files: [{
+      expand: true,
+      cwd: 'tmp/result',
+      src: '**/*.{png,gif,jpg,jpeg}',
+      dest: 'dist/'
+    }]
   },
 
   dist: {
     files: [{
       expand: true,
-      cwd: 'tmp/public',
-      src: ['**', '!coverage'],
+      cwd: 'tmp/result',
+      src: [
+        '**',
+        '!**/*.{css,js}', // Handled by concat
+        '!**/*.{png,gif,jpg,jpeg}', // Handled by imagemin
+        '!tests/**/*', // No tests, please
+        '!**/*.map' // No source maps
+      ],
+      filter: 'isFile',
       dest: 'dist/'
     }]
   },

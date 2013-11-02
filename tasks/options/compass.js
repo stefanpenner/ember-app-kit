@@ -1,15 +1,15 @@
 module.exports = {
   options: {
     sassDir: "app/styles",
-    cssDir: "tmp/public/assets",
-    generatedImagesDir: "tmp/public/assets/images",
-    imagesDir: "app/assets/images",
+    cssDir: "tmp/result/assets",
+    generatedImagesDir: "tmp/result/assets/images/generated",
+    imagesDir: "public/assets/images",
     javascriptsDir: "app",
-    fontsDir: "app/styles/fonts",
+    fontsDir: "public/assets/fonts",
     importPath: ["vendor"],
-    httpImagesPath: "/images",
-    httpGeneratedImagesPath: "/images/generated",
-    httpFontsPath: "/styles/fonts",
+    httpImagesPath: "/assets/images",
+    httpGeneratedImagesPath: "/assets/images/generated",
+    httpFontsPath: "/assets/fonts",
     relativeAssets: false,
     debugInfo: true
   },
