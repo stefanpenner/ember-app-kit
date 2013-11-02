@@ -18,7 +18,7 @@ function startApp(attrs) {
   });
 
   Router.reopen({
-    location: 'none'
+    location: 'hash'
   });
 
   App.reset(); // this shouldn't be needed, i want to be able to "start an app at a specific URL"
