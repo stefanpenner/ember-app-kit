@@ -4,22 +4,19 @@
 module.exports = function(config) {
   config.set({
 
-    // base path, that will be used to resolve files and exclude
-    basePath: 'tmp/result',
-
     // list of files / patterns to load in the browser
     files: [
-      '../../vendor/almond.js',
-      '../../vendor/ember-resolver/dist/ember-resolver.js',
-      '../../vendor/jquery/jquery.js',
-      '../../vendor/handlebars/handlebars.js',
-      '../../vendor/ember/ember.js',
-      '../../vendor/ember-data-shim/ember-data.js',
-      'assets/templates.js',
-      'assets/app.js',
-      '../transpiled/tests/**/*.js',
-      '../../tests/test_helper.js',
-      '../../tests/test_loader.js'
+      'vendor/almond.js',
+      'vendor/ember-resolver/dist/ember-resolver.js',
+      'vendor/jquery/jquery.js',
+      'vendor/handlebars/handlebars.js',
+      'vendor/ember/ember.js',
+      'vendor/ember-data-shim/ember-data.js',
+      'tmp/result/assets/templates.js',
+      'tmp/result/assets/app.js',
+      'tmp/transpiled/tests/**/*.js',
+      'tests/test_helper.js',
+      'tests/test_loader.js'
     ],
 
     frameworks: ['qunit'],
