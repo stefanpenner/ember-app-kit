@@ -5,20 +5,19 @@ module.exports = function(grunt) {
   //
   // * for Coffeescript, run `npm install --save-dev grunt-contrib-coffee`
   //
-  // * for SASS (SCSS only), run `npm install --save-dev grunt-sass`
+  // * for SCSS (without SASS), run `npm install --save-dev grunt-sass`
   // * for SCSS/SASS support (may be slower), run
   //   `npm install --save-dev grunt-contrib-sass`
   //   This depends on the ruby sass gem, which can be installed with
   //   `gem install sass`
-  //
-  // * for LESS, run `npm install --save-dev grunt-contrib-less`
-  //
-  // * for Stylus/Nib, `npm install --save-dev grunt-contrib-stylus`
-  //
   // * for Compass, run `npm install --save-dev grunt-contrib-compass`
   //   This depends on the ruby compass gem, which can be installed with
   //   `gem install compass`
   //   You should not install SASS if you have installed Compass.
+  //
+  // * for LESS, run `npm install --save-dev grunt-contrib-less`
+  //
+  // * for Stylus/Nib, `npm install --save-dev grunt-contrib-stylus`
   //
   // * for Emblem, run the following commands:
   //   `npm uninstall --save-dev grunt-ember-templates`
@@ -27,14 +26,18 @@ module.exports = function(grunt) {
   //
   // * for LiveReload, `npm install --save-dev connect-livereload`
   //
-  // * for displaying the execution time of the various grunt tasks,
+  // * for displaying the execution time of the grunt tasks,
   //   `npm install --save-dev time-grunt`
+  //
+  // * for minimizing the index.html at the end of the dist task
+  //   `npm install --save-dev grunt-contrib-htmlmin`
+  //
+  // * for minimizing images in the dist task
+  //   `npm install --save-dev grunt-contrib-imagemin`
   //
   // * for using the loom generator to generate routes, controllers, etc.
   //   efficiently. `npm install --save-dev loom loom-generators-ember`
   //
-  // If you use SASS, LESS or Stylus, don't forget to delete
-  // `public/assets/app.css` and create `app/styles/app.scss` instead.
 
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
@@ -66,7 +69,11 @@ module.exports = function(grunt) {
   // Generate the production version
   // ------------------
   grunt.registerTask('dist', "Build a minified & production-ready version of your app.", [
-                     'clean:dist', 'build:dist', 'copy:assemble', 'optimize' ]);
+                     'clean:dist',
+                     'build:dist',
+                     'copy:assemble',
+                     'createDistVersion'
+                     ]);
 
 
   // Default Task
@@ -91,7 +98,7 @@ module.exports = function(grunt) {
 
   // Testing
   // -------
-  grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/public/coverage.", [
+  grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/result/coverage.", [
                      'clean:debug', 'build:debug', 'copy:assemble', 'karma:test' ]);
 
   grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
@@ -113,34 +120,38 @@ module.exports = function(grunt) {
   // =================================
 
   grunt.registerTask('build:dist', [
-                     'concurrent:dist', // Tasks are ran in parallel, see config below
+                     'concurrent:buildDist', // Executed in parallel, see config below
                      ]);
 
   grunt.registerTask('build:debug', [
-                     'concurrent:debug', // Tasks are ran in parallel, see config below
+                     'concurrent:buildDebug', // Executed in parallel, see config below
                      ]);
 
-  grunt.registerTask('optimize', [
-                     'useminPrepare',
-                     'concat',
-                     'uglify',
-                     'copy:dist',
-                     'rev',
-                     'usemin'
-  ]);
+  grunt.registerTask('createDistVersion', filterAvailable([
+                     'useminPrepare', // Configures concat, cssmin and uglify
+                     'concat', // Combines css and javascript files
 
+                     'cssmin', // Minifies css
+                     'uglify', // Minifies javascript
+                     'imagemin', // Optimizes image compression
+                     // 'svgmin',
+                     'copy:dist', // Copies files not covered by concat and imagemin
 
+                     'rev', // Appends 8 char hash value to filenames
+                     'usemin', // Replaces file references
+                     'htmlmin:dist' // Removes comments and whitespace
+                     ]));
 
   // Parallelize most of the build process
   _.merge(config, {
     concurrent: {
-      dist: [
+      buildDist: [
         "buildTemplates:dist",
         "buildScripts",
         "buildStyles",
         "buildIndexHTML:dist"
       ],
-      debug: [
+      buildDebug: [
         "buildTemplates:debug",
         "buildScripts",
         "buildStyles",
@@ -175,7 +186,8 @@ module.exports = function(grunt) {
                      'sass:compile',
                      'less:compile',
                      'stylus:compile',
-                     'cssmin'
+                     'copy:cssToResult'
+                     // ToDo: Add 'autoprefixer'
                      ]));
 
   // Index HTML
@@ -189,9 +201,8 @@ module.exports = function(grunt) {
                      'preprocess:indexHTMLDebugTests'
                      ]);
 
-  // Configure watch task
+  // Appends `karma:server:run` to every watch target's tasks array
   grunt.registerTask('addKarmaToWatchTask', function() {
-    // Append `karma:server:run` to every watch target's tasks array
     _.forIn(grunt.config('watch'), function(config, key) {
       if (key === 'options') { return; }
       config.tasks.push('karma:server:run');
@@ -201,6 +212,4 @@ module.exports = function(grunt) {
 
 
   grunt.initConfig(config);
-
-  
 };

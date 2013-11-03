@@ -3,39 +3,51 @@ var grunt = require('grunt'),
     Helpers = {};
 
 // List of package requisits for tasks
+// Notated in conjunctive normal form (CNF)
+// e.g. ['a', ['b', 'alternative-to-b']]
 var taskRequirements = {
   'coffee': ['grunt-contrib-coffee'],
   'compass': ['grunt-contrib-compass'],
-  'sass': ['grunt-sass', 'grunt-contrib-sass'],
+  'sass': [['grunt-sass', 'grunt-contrib-sass']],
   'less': ['grunt-contrib-less'],
   'stylus': ['grunt-contrib-stylus'],
   'emberTemplates': ['grunt-ember-templates'],
-  'emblem': ['grunt-emblem']
+  'emblem': ['grunt-emblem'],
+  'imagemin': ['grunt-contrib-imagemin'],
+  'htmlmin': ['grunt-contrib-htmlmin']
 };
+
+// Task fallbacks
+// e.g. 'a': ['fallback-a-step-1', 'fallback-a-step-2']
+var taskFallbacks = {
+  'imagemin': 'copy:imageminFallback'
+};
+
 
 Helpers.filterAvailableTasks = function(tasks){
-  tasks = tasks.filter(Helpers.whenTaskIsAvailable);
-  return _.compact(tasks);
-};
+  tasks = tasks.map(function(taskName) {
+    // Maps to task name or fallback if task is unavailable
 
-// @returns taskName if given task is available, undefined otherwise
-Helpers.whenTaskIsAvailable = function(taskName) {
-  var baseName, reqs, isAvailable;
-  // baseName of 'coffee:compile' is 'coffee'
-  baseName = taskName.split(':')[0];
-  reqs = taskRequirements[baseName];
-  isAvailable = Helpers.isPackageAvailable(reqs);
-  return isAvailable ? taskName : undefined; 
+    var baseName = taskName.split(':')[0]; // e.g. 'coffee' for 'coffee:compile'
+    var reqs = taskRequirements[baseName];
+    var isAvailable = Helpers.isPackageAvailable(reqs);
+    return isAvailable ? taskName : taskFallbacks[taskName]; 
+  });
+
+  return _.flatten(_.compact(tasks)); // Remove undefined's and flatten it
 };
 
 Helpers.isPackageAvailable = function(pkgNames) {
   if (!pkgNames) return true;  // packages are assumed to exist
 
-  if (!_.isArray(pkgNames)) {
-    pkgNames = [pkgNames];
-  }
-  return _.any(pkgNames, function(pkgName){
-    return !!Helpers.pkg.devDependencies[pkgName];
+  if (!_.isArray(pkgNames)) { pkgNames = [pkgNames]; }
+
+  return _.every(pkgNames, function(pkgNames) {
+    if (!_.isArray(pkgNames)) { pkgNames = [pkgNames]; }
+
+    return _.any(pkgNames, function(pkgName) {
+      return !!Helpers.pkg.devDependencies[pkgName];
+    });
   });
 };
 
