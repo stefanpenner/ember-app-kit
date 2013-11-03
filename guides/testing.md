@@ -12,6 +12,10 @@ permalink: testing.html
 
 ### Running Your Tests
 
+{% highlight sh %}
+grunt test
+{% endhighlight %}
+
 #### Karma
 
 #### Travis CI
