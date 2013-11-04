@@ -124,6 +124,7 @@ module.exports = function(grunt) {
                      ]);
 
   grunt.registerTask('build:debug', [
+                     'jshint:tooling',
                      'concurrent:buildDebug', // Executed in parallel, see config below
                      ]);
 
@@ -176,7 +177,8 @@ module.exports = function(grunt) {
                      'coffee',
                      'copy:javascriptToTmp',
                      'transpile',
-                     'jshint',
+                     'jshint:app',
+                     'jshint:tests',
                      'concat_sourcemap'
                      ]));
 
