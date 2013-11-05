@@ -29,7 +29,10 @@ module.exports = {
   },
 
   options: {
-    debounceDelay: 200,
+    // No need to debounce
+    debounceDelay: 0,
+    // When we don't have inotify, we still want to be snappy
+    interval: 20,
     livereload: Helpers.isPackageAvailable("connect-livereload")
   }
 };
