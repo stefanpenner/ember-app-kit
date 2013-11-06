@@ -98,21 +98,20 @@ module.exports = function(grunt) {
 
   // Testing
   // -------
-  grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/result/coverage.", [
-                     'clean:debug', 'build:debug', 'karma:test' ]);
+  grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default.", [
+                     'clean:debug', 'build:debug', 'testem:ci:basic' ]);
 
   grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
-                     'clean:debug', 'build:debug', 'karma:ci' ]);
+                     'clean:debug', 'build:debug', 'testem:ci:basic' ]);
 
-  grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/karma.js for configuration).", [
-                     'clean:debug', 'build:debug', 'karma:browsers' ]);
+  grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/testem.js for configuration).", [
+                     'clean:debug', 'build:debug', 'testem:ci:browsers' ]);
 
-  grunt.registerTask('test:server', "Start a Karma test server and the standard development server.", [
+  grunt.registerTask('test:server', "Start a Testem test server and the standard development server.", [
                      'clean:debug',
                      'build:debug',
-                     'karma:server',
+                     'testem:run:basic',
                      'expressServer:debug',
-                     'addKarmaToWatchTask',
                      'watch'
                      ]);
 
@@ -202,16 +201,6 @@ module.exports = function(grunt) {
                      'preprocess:indexHTMLDebugApp',
                      'preprocess:indexHTMLDebugTests'
                      ]);
-
-  // Appends `karma:server:run` to every watch target's tasks array
-  grunt.registerTask('addKarmaToWatchTask', function() {
-    _.forIn(grunt.config('watch'), function(config, key) {
-      if (key === 'options') { return; }
-      config.tasks.push('karma:server:run');
-      grunt.config('watch.' + key, config);
-    });
-  });
-
 
   grunt.initConfig(config);
 };

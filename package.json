@@ -40,10 +40,6 @@
     "grunt-usemin": "~0.1.12",
     "grunt-rev": "~0.1.0",
     "grunt-ember-templates": "~0.4.15",
-    "grunt-karma": "~0.5",
-    "karma": "~0.9.4",
-    "karma-qunit": "~0.0.3",
-    "karma-coverage": "~0.0.3",
-    "karma-phantomjs-launcher": "~0.0.2"
+    "grunt-contrib-testem": "~0.5.11"
   }
 }
