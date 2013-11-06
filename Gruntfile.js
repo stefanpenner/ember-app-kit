@@ -5,6 +5,11 @@ module.exports = function(grunt) {
   //
   // * for Coffeescript, run `npm install --save-dev grunt-contrib-coffee`
   //
+  // * for TypeScript, run `npm install --save-dev grunt-simple-typescript`.
+  //   TypeScript also requires that your app prefix ("appkit" by default)
+  //   be the same as the directory your app has as a home ("app" by default).
+  //   See the tasks/options/simple-typescript.js file for more details.
+  //
   // * for SCSS (without SASS), run `npm install --save-dev grunt-sass`
   // * for SCSS/SASS support (may be slower), run
   //   `npm install --save-dev grunt-contrib-sass`
@@ -174,6 +179,7 @@ module.exports = function(grunt) {
 
   // Scripts
   grunt.registerTask('buildScripts', filterAvailable([
+                     'simple-typescript',
                      'coffee',
                      'copy:javascriptToTmp',
                      'transpile',

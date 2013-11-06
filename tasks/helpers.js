@@ -7,6 +7,7 @@ var grunt = require('grunt'),
 // e.g. ['a', ['b', 'alternative-to-b']]
 var taskRequirements = {
   'coffee': ['grunt-contrib-coffee'],
+  'simple-typescript': ['grunt-simple-typescript'],
   'compass': ['grunt-contrib-compass'],
   'sass': [['grunt-sass', 'grunt-contrib-sass']],
   'less': ['grunt-contrib-less'],
