@@ -18,7 +18,7 @@
     "url": "git://github.com/stefanpenner/ember-app-kit.git"
   },
   "author": "",
-  "license": "BSD",
+  "license": "MIT",
   "devDependencies": {
     "express": "~3.4.2",
     "lockfile": "~>0.3.0",
