@@ -33,6 +33,7 @@
     "exists",
     "fillIn",
     "click",
+    "keyEvent",
     "find",
     "wait",
     "keyEvent",
