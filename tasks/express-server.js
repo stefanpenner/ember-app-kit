@@ -15,6 +15,7 @@ module.exports = function(grunt) {
         done = this.async();
 
     app.use(lock);
+    app.use(express.compress());
 
     if (target === 'debug') {
       // For `expressServer:debug`
