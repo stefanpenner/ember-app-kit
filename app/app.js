@@ -10,4 +10,13 @@ var App = Ember.Application.extend({
   Resolver: Resolver.default
 });
 
+Ember.RSVP.configure('onerror', function(error) {
+  // ensure unhandled promises raise awareness.
+  // may result in false negatives, but visibility is more imporant
+  if (error instanceof Error) {
+    Ember.Logger.assert(false, error);
+    Ember.Logger.error(error.stack);
+  }
+});
+
 export default App;
