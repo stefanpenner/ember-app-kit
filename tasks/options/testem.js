@@ -5,11 +5,8 @@ module.exports = {
       parallel: 2,
       framework: 'qunit',
       src_files: [
-        '{app,tests}/**/*.{js,coffee}',
-        'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
-        'app/styles/**/*.{css,sass,scss,less,styl}',
-        'app/index.html',
-        '{app,tests,public,vendor}/**/*'
+        'tmp/result/{app,tests}/**/*.{js,coffee,css}',
+        'tmp/result/index.html'
       ],
       serve_files: [
         'vendor/almond.js',
@@ -33,11 +30,8 @@ module.exports = {
       parallel: 8,
       framework: 'qunit',
       src_files: [
-        '{app,tests}/**/*.{js,coffee}',
-        'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
-        'app/styles/**/*.{css,sass,scss,less,styl}',
-        'app/index.html',
-        '{app,tests,public,vendor}/**/*'
+        'tmp/result/{app,tests}/**/*.{js,coffee,css}',
+        'tmp/result/index.html'
       ],
       serve_files: [
         'vendor/almond.js',
