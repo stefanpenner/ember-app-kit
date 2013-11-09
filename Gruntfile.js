@@ -120,11 +120,13 @@ module.exports = function(grunt) {
   // =================================
 
   grunt.registerTask('build:dist', [
+                     'createResultDirectory', // Create directoy beforehand, fixes race condition
                      'concurrent:buildDist', // Executed in parallel, see config below
                      ]);
 
   grunt.registerTask('build:debug', [
                      'jshint:tooling',
+                     'createResultDirectory', // Create directoy beforehand, fixes race condition
                      'concurrent:buildDebug', // Executed in parallel, see config below
                      ]);
 
@@ -211,7 +213,10 @@ module.exports = function(grunt) {
       grunt.config('watch.' + key, config);
     });
   });
-
+  
+  grunt.registerTask('createResultDirectory', function() {
+    grunt.file.mkdir('tmp/result');
+  });
 
   grunt.initConfig(config);
 };
