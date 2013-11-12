@@ -31,7 +31,7 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      'assets/*.js': 'coverage'
+      'tmp/result/assets/*.js': 'coverage'
     },
 
     // list of files to exclude
