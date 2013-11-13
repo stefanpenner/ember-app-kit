@@ -4,7 +4,7 @@ Ember App Kit aims to be the foundation for ambitious web applications built wit
 
 This project has been extracted out of several real world applications and is actively used. Currently it covers the basics fairly well, but much still needs to be done. As we learn and as more contributors join in it continues to evolve. If you encounter any bugs, clunky features or missing documentation, just submit an issue and we'll respond ASAP.
 
-At they very least, it helps setup your Ember.js applications directory structure.
+At the very least, it helps setup your Ember.js applications directory structure.
 
 We welcome ideas and experiments.
 
