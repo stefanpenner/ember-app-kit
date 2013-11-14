@@ -11,11 +11,18 @@ module.exports = function(grunt) {
   Note: The expressServer:debug task looks for files in multiple directories.
   */
   grunt.registerTask('expressServer', function(target) {
+    // Load namespace module before creating the server
+    require('express-namespace'); 
+
     var app = express(),
         done = this.async();
 
     app.use(lock);
     app.use(express.compress());
+
+    // Load API stub routes
+    app.use(express.bodyParser());
+    require('../api-stub/routes')(app); 
 
     if (target === 'debug') {
       // For `expressServer:debug`
