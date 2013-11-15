@@ -16,4 +16,4 @@ function isolatedContainer(fullNames) {
   return container;
 }
 
-export default = isolatedContainer;
+export default isolatedContainer;

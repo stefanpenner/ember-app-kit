@@ -1,4 +1,4 @@
-import { App as Application } from 'appkit/app';
+import Application from 'appkit/app';
 import Router from 'appkit/router';
 
 function startApp(attrs) {
@@ -26,4 +26,4 @@ function startApp(attrs) {
   return App;
 }
 
-export default = startApp;
+export default startApp;
