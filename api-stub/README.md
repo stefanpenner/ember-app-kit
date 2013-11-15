@@ -10,9 +10,11 @@ As development progresses, the API stub becomes a functioning spec
 for the real backend. Once you have a separate development API
 server running, then switch from the stub to the proxy pass through.
 
-To configure which API method to use edit: tasks/options/express-server.js
-Set the method to 'stub' to use these express stub routes. Set the method
-to 'proxy' and define the proxyURL to pass all API requests to the proxy URL.
+To configure which API method to use edit **package.json**.
+
+* Set the **APIMethod** to 'stub' to use these express stub routes. 
+
+* Set the method to 'proxy' and define the **proxyURL** to pass all API requests to the proxy URL.
 
 Default Example
 ---------------- 

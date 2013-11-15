@@ -1,6 +1,8 @@
+var grunt = require('grunt');
+
 module.exports = {
 	options: {
-		APIMethod: 'stub',									// stub or proxy
-		proxyURL: 'http://URL/to/your/API'	// URL to the API server, if using APIMethod: 'proxy'
+		APIMethod: "<%= package.APIMethod %>",		// stub or proxy
+		proxyURL: "<%= package.proxyURL %>"			// URL to the API server, if using APIMethod: 'proxy'
 	}
 };
