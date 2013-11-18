@@ -2,7 +2,7 @@ import Resolver from 'resolver';
 
 function isolatedContainer(fullNames) {
   var container = new Ember.Container();
-  var resolver = Resolver.default.create();
+  var resolver = Resolver['default'].create();
 
   resolver.namespace = {
     modulePrefix: 'appkit'
