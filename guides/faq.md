@@ -18,7 +18,9 @@ Yes!
 
 ### How do I update Ember App Kit?
 
-*someone should put an answer here*
+A seamless way to upgrade is currently under development. In the meantime
+[have a look here](https://github.com/gevious/eak-update) for one way to
+upgrade your existing project.
 
 ### How do I add a new task?
 
