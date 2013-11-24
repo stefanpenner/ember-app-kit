@@ -25,7 +25,7 @@
     "bower": "~1.2.7",
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.9",
-    "load-grunt-config": "~0.5.0",
+    "load-grunt-config": "~0.7.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",

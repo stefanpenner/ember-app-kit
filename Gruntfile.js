@@ -41,7 +41,8 @@ module.exports = function(grunt) {
 
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
-      _ = grunt.util._;
+      _ = grunt.util._,
+      path = require('path');
 
   Helpers.pkg = require("./package.json");
 
@@ -52,7 +53,7 @@ module.exports = function(grunt) {
   // Loads task options from `tasks/options/`
   // and loads tasks defined in `package.json`
   var config = require('load-grunt-config')(grunt, {
-    configPath: "tasks/options",
+    configPath: path.join(__dirname, 'tasks/options'),
     init: false
   });
   grunt.loadTasks('tasks'); // Loads tasks in `tasks/` folder
