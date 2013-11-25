@@ -32,7 +32,7 @@ var define, requireModule, require, requirejs;
     }
 
     var value = callback.apply(this, reified);
-    return seen[name] = exports || value;
+    return seen[name] = value || exports;
 
     function resolve(child) {
       if (child.charAt(0) !== '.') { return child; }
