@@ -3,7 +3,7 @@ layout: default
 title: "Naming Conventions"
 permalink: naming-conventions.html
 ---
-
+### Naming Conventions 
 When using Ember App Kit its important to keep in mind that the Resolver changes some of the naming conventions you would typically use out of the box with Ember, Ember Data and Handlebars. In this section we review some of these naming conventions.
 
 ### Views and Templates

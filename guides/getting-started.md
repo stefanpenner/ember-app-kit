@@ -69,11 +69,7 @@ Ember App Kit comes with lots of boilerplate, which can be daunting to navigate 
     </tr>
     <tr>
       <td>public/</td>
-      <td>This folder will be copied verbatim (excepting index.html) into the root of your built application. Use this for assets that don't have a build step, such as images or fonts.</td>
-    </tr>
-    <tr>
-      <td>public/index.html</td>
-      <td>The only actual page of your single-page app! Includes dependencies and kickstarts your Ember application.</td>
+      <td>This folder will be copied verbatim into the root of your built application. Use this for assets that don't have a build step, such as images or fonts.</td>
     </tr>
     <tr>
       <td>tasks/</td>
@@ -134,6 +130,10 @@ Ember App Kit comes with lots of boilerplate, which can be daunting to navigate 
     <tr>
       <td>app/app.js</td>
       <td>Your application's entry point. This is the module that is first executed.</td>
+    </tr>
+    <tr>
+      <td>app/index.html</td>
+      <td>The only actual page of your single-page app! Includes dependencies and kickstarts your Ember application.</td>
     </tr>
     <tr>
       <td>app/router.js</td>
