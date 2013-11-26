@@ -54,3 +54,18 @@ web: ./node_modules/grunt-cli/bin/grunt expressServer:dist:keepalive
 {% endhighlight %}
 
 Finally, `git push heroku master` to deploy.
+
+#### Travis CI (optional)
+Additionally you can set up Travis CI for automatic Heroku deployment upon successful builds. Assuming you have completed first 2 steps from their [offical getting started guide](http://about.travis-ci.org/docs/user/getting-started/).
+
+Install `travis` gem so that we can generate a pair of private and public RSA keys which can be used to encrypt our `api_key` which you will want to put into the `.travis.yml` file and still keep it private. 
+{% highlight sh %}
+gem install travis
+{% endhighlight %}
+
+To have travis gem set up everything automatically for you, run
+{% highlight sh %}
+travis setup heroku
+{% endhighlight %}
+
+Keep in mind that the above command has to run in your project directory, so it can modify the .travis.yml for you.
