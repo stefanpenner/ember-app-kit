@@ -53,7 +53,8 @@ module.exports = function(grunt) {
   // Loads task options from `tasks/options/`
   // and loads tasks defined in `package.json`
   var config = require('load-grunt-config')(grunt, {
-    configPath: path.join(__dirname, 'tasks/options'),
+    defaultPath: path.join(__dirname, 'tasks/options'),
+    configPath: path.join(__dirname, 'tasks/custom'),
     init: false
   });
   grunt.loadTasks('tasks'); // Loads tasks in `tasks/` folder
