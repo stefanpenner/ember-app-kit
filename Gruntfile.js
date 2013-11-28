@@ -85,12 +85,18 @@ module.exports = function(grunt) {
 
   // Servers
   // -------------------
-  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", [
-                     'clean:debug',
-                     'build:debug',
-                     'expressServer:debug',
-                     'watch'
-                     ]);
+  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", function(proxyMethod) {
+    var expressServerTask = 'expressServer:debug';
+    if (proxyMethod) {
+      expressServerTask += ':' + proxyMethod;
+    }
+
+    grunt.task.run(['clean:debug',
+                    'build:debug',
+                    expressServerTask,
+                    'watch'
+                    ]);
+  });
 
   grunt.registerTask('server:dist', "Build and preview a minified & production-ready version of your app.", [
                      'dist',
@@ -109,14 +115,20 @@ module.exports = function(grunt) {
   grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/karma.js for configuration).", [
                      'clean:debug', 'build:debug', 'karma:browsers' ]);
 
-  grunt.registerTask('test:server', "Start a Karma test server and the standard development server.", [
-                     'clean:debug',
-                     'build:debug',
-                     'karma:server',
-                     'expressServer:debug',
-                     'addKarmaToWatchTask',
-                     'watch'
-                     ]);
+  grunt.registerTask('test:server', "Start a Karma test server and the standard development server.", function(proxyMethod) {
+    var expressServerTask = 'expressServer:debug';
+    if (proxyMethod) {
+      expressServerTask += ':' + proxyMethod;
+    }
+
+    grunt.task.run(['clean:debug',
+                    'build:debug',
+                    'karma:server',
+                    expressServerTask,
+                    'addKarmaToWatchTask',
+                    'watch'
+                    ]);
+  });
 
   // Worker tasks
   // =================================
