@@ -3,7 +3,8 @@ module.exports = function(grunt) {
       lockFile = require('lockfile'),
       Helpers = require('./helpers'),
       fs = require('fs'),
-      path = require('path');
+      path = require('path'),
+      request = require('request');
 
   /**
   Task for serving the static files.
@@ -11,11 +12,29 @@ module.exports = function(grunt) {
   Note: The expressServer:debug task looks for files in multiple directories.
   */
   grunt.registerTask('expressServer', function(target) {
+    // Load namespace module before creating the server
+    require('express-namespace'); 
+
     var app = express(),
         done = this.async();
 
     app.use(lock);
     app.use(express.compress());
+
+    if (grunt.config('express-server.options.APIMethod') === 'stub') {
+      grunt.log.writeln('Using API Stub');
+      
+      // Load API stub routes
+      app.use(express.bodyParser());
+      require('../api-stub/routes')(app); 
+    }
+    else {
+      grunt.log.writeln('Proxying API requests to: ' + grunt.config('express-server.options.proxyURL'));
+      
+      // Use API proxy
+      app.all('/api/*', passThrough("http://localhost:8000"));
+    }
+    
 
     if (target === 'debug') {
       // For `expressServer:debug`
@@ -82,6 +101,12 @@ module.exports = function(grunt) {
           grunt.verbose.ok('Served: ' + filePath);
         });
       });
+    };
+  }
+
+  function passThrough(target) {
+    return function(req, res) {
+      req.pipe(request(target+req.path)).pipe(res);
     };
   }
 };
