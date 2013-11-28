@@ -29,10 +29,11 @@ module.exports = function(grunt) {
       require('../api-stub/routes')(app); 
     }
     else {
-      grunt.log.writeln('Proxying API requests to: ' + grunt.config('express-server.options.proxyURL'));
+      var proxyURL = grunt.config('express-server.options.proxyURL');
+      grunt.log.writeln('Proxying API requests to: ' + proxyURL);
       
       // Use API proxy
-      app.all('/api/*', passThrough("http://localhost:8000"));
+      app.all('/api/*', passThrough(proxyURL));
     }
     
 
