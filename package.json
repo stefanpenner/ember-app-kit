@@ -25,7 +25,7 @@
     "express": "~3.4.2",
     "lockfile": "~>0.3.0",
     "bower": "~1.2.7",
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.2",
     "grunt-cli": "~0.1.9",
     "load-grunt-config": "git://github.com/Pradeek/load-grunt-config.git",
     "grunt-contrib-watch": "~0.5.3",
