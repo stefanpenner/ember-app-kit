@@ -106,7 +106,7 @@ module.exports = function(grunt) {
 
   function passThrough(target) {
     return function(req, res) {
-      req.pipe(request(target+req.path)).pipe(res);
+      req.pipe(request(target+req.url)).pipe(res);
     };
   }
 };
