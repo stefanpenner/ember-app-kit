@@ -9,12 +9,13 @@ module.exports = {
         'tmp/result/index.html'
       ],
       serve_files: [
-        'vendor/almond.js',
+        'vendor/loader.js',
         'vendor/ember-resolver/dist/ember-resolver.js',
         'vendor/jquery/jquery.js',
         'vendor/handlebars/handlebars.js',
         'vendor/ember/ember.js',
-        'vendor/ember-data-shim/ember-data.js',
+        'vendor/ember-data/ember-data.js',
+        'vendor/ic-ajax/main.js',
         'tmp/result/assets/templates.js',
         'tmp/result/assets/app.js',
         'tmp/transpiled/tests/**/*.js',
@@ -34,12 +35,13 @@ module.exports = {
         'tmp/result/index.html'
       ],
       serve_files: [
-        'vendor/almond.js',
+        'vendor/loader.js',
         'vendor/ember-resolver/dist/ember-resolver.js',
         'vendor/jquery/jquery.js',
         'vendor/handlebars/handlebars.js',
         'vendor/ember/ember.js',
-        'vendor/ember-data-shim/ember-data.js',
+        'vendor/ember-data/ember-data.js',
+        'vendor/ic-ajax/main.js',
         'tmp/result/assets/templates.js',
         'tmp/result/assets/app.js',
         'tmp/transpiled/tests/**/*.js',

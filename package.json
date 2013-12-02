@@ -1,6 +1,8 @@
 {
   "name": "app-kit",
   "namespace": "appkit",
+  "APIMethod": "stub",
+  "proxyURL": "http://localhost:8000",
   "version": "0.0.0",
   "private": true,
   "directories": {
@@ -23,9 +25,9 @@
     "express": "~3.4.2",
     "lockfile": "~>0.3.0",
     "bower": "~1.2.7",
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.2",
     "grunt-cli": "~0.1.9",
-    "load-grunt-config": "~0.5.0",
+    "load-grunt-config": "git://github.com/Pradeek/load-grunt-config.git",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
@@ -34,12 +36,14 @@
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-preprocess": "~3.0.1",
-    "grunt-es6-module-transpiler": "~0.4.1",
+    "grunt-es6-module-transpiler": "~0.5.1",
     "grunt-concat-sourcemap": "~0.3.0",
     "grunt-concurrent": "~0.3.1",
     "grunt-usemin": "~0.1.12",
     "grunt-rev": "~0.1.0",
-    "grunt-ember-templates": "~0.4.15",
-    "grunt-contrib-testem": "~0.5.11"
+    "grunt-ember-templates": "~0.4.17",
+    "grunt-contrib-testem": "~0.5.11",
+    "express-namespace": "~0.1.1",
+    "request": "~2.27.0"
   }
 }

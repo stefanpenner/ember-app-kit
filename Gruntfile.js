@@ -41,7 +41,8 @@ module.exports = function(grunt) {
 
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
-      _ = grunt.util._;
+      _ = grunt.util._,
+      path = require('path');
 
   Helpers.pkg = require("./package.json");
 
@@ -52,7 +53,8 @@ module.exports = function(grunt) {
   // Loads task options from `tasks/options/`
   // and loads tasks defined in `package.json`
   var config = require('load-grunt-config')(grunt, {
-    configPath: "tasks/options",
+    defaultPath: path.join(__dirname, 'tasks/options'),
+    configPath: path.join(__dirname, 'tasks/custom'),
     init: false
   });
   grunt.loadTasks('tasks'); // Loads tasks in `tasks/` folder
@@ -83,12 +85,18 @@ module.exports = function(grunt) {
 
   // Servers
   // -------------------
-  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", [
-                     'clean:debug',
-                     'build:debug',
-                     'expressServer:debug',
-                     'watch'
-                     ]);
+  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", function(proxyMethod) {
+    var expressServerTask = 'expressServer:debug';
+    if (proxyMethod) {
+      expressServerTask += ':' + proxyMethod;
+    }
+
+    grunt.task.run(['clean:debug',
+                    'build:debug',
+                    expressServerTask,
+                    'watch'
+                    ]);
+  });
 
   grunt.registerTask('server:dist', "Build and preview a minified & production-ready version of your app.", [
                      'dist',
@@ -119,11 +127,13 @@ module.exports = function(grunt) {
   // =================================
 
   grunt.registerTask('build:dist', [
+                     'createResultDirectory', // Create directoy beforehand, fixes race condition
                      'concurrent:buildDist', // Executed in parallel, see config below
                      ]);
 
   grunt.registerTask('build:debug', [
                      'jshint:tooling',
+                     'createResultDirectory', // Create directoy beforehand, fixes race condition
                      'concurrent:buildDebug', // Executed in parallel, see config below
                      ]);
 
@@ -201,6 +211,10 @@ module.exports = function(grunt) {
                      'preprocess:indexHTMLDebugApp',
                      'preprocess:indexHTMLDebugTests'
                      ]);
+  
+  grunt.registerTask('createResultDirectory', function() {
+    grunt.file.mkdir('tmp/result');
+  });
 
   grunt.initConfig(config);
 };

@@ -1,2 +1,1 @@
-var FixtureAdapter = DS.FixtureAdapter.extend();
-export default FixtureAdapter;
+export default DS.FixtureAdapter.extend();
