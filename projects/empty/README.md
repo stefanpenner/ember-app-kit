@@ -27,3 +27,11 @@ The least files required for an ember application. This will start up applicatio
 ```
 grunt project:minimum
 ```
+
+#### startkit
+A minimalist project the emulates the ember starter kit 
+https://github.com/emberjs/starter-kit 
+
+```
+grunt project:starterkit
+```

@@ -83,6 +83,15 @@ module.exports = {
       src: ['**', '**/.gitkeep'],
       dest: 'app/'
     }]
+  },
+
+  projectStarterKit: {
+    files: [{
+      expand: true,
+      cwd: 'projects/eak-shared/starterkit',
+      src: ['**', '**/.gitkeep'],
+      dest: 'app/'
+    }]
   }
 
 

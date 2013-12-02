@@ -16,4 +16,12 @@ module.exports = function (grunt) {
                      'copy:projectMinimum'
                      ]);
 
+  // Note: startkit depends on project:minimum being created first
+  // TODO: configure better dependency management between project types
+  grunt.registerTask('project:starterkit', "Minimum Ember Project", [
+                     'project:new',
+                     'copy:projectMinimum',
+                     'copy:projectStarterKit'
+                     ]);
+
 };
