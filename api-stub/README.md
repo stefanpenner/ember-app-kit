@@ -30,6 +30,7 @@ Default Example
 
 		var Post = DS.Model.extend({
 		  title: attr(),
+		  body: attr(),
 		  comments: hasMany('comment'),
 		  user: attr(),
 		});
@@ -96,25 +97,54 @@ Default Example
 		</section>
 		```
 
-When Ember Data queries the store for the post, it will make an API call to
-http://localhost:8000/api/posts/1, to which the express server will respond with
+When Ember Data queries the store for the post, it will make an API call to the express server which will respond with
 some mock data:
+
+A collection
+http://localhost:8000/api/posts/
 
 ```
 {
-  "post": {
-    "id": 1,
-    "title": "Rails is omakase",
-    "comments": ["1", "2"],
-    "user" : "dhh"
-  },
-
-  "comments": [{
-    "id": "1",
-    "body": "Rails is unagi"
-  }, {
-    "id": "2",
-    "body": "Omakase O_o"
-  }]
+  "posts": [
+    {
+      "id": 1,
+      "title": "Rails is omakase",
+      "body": "There are lots of à la carte software environments in this world...",
+      "comments": [
+        "1",
+        "2"
+      ],
+      "user": "dhh"
+    },
+    {
+      "id": 2,
+      "title": "Ember is for ambitious web applications",
+      "body": "Ember.js is built for productivity. Designed with developer ergonomics in mind...",
+      "comments": [
+        "3"
+      ],
+      "user": "wycats"
+    }
+  ]
 }
 ```
+
+An individual record
+http://localhost:8000/api/posts/1
+
+```
+
+{
+  "post": {
+    "id": "1",
+    "title": "Rails is omakase",
+    "body": "There are lots of à la carte software environments in this world...",
+    "comments": [
+      "1",
+      "2"
+    ],
+    "user": "dhh"
+  }
+}
+```
+
