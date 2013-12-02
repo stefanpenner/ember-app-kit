@@ -61,8 +61,6 @@ module.exports = function(grunt) {
 
   config.env = process.env;
 
-  
-
 
   // App Kit's Main Tasks
   // ====================
@@ -77,11 +75,16 @@ module.exports = function(grunt) {
                      'createDistVersion'
                      ]);
 
-
   // Default Task
   // ------------------
   grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
 
+
+  // Purge App Folder
+  // ------------------
+  grunt.registerTask('purge', "Delete the contents of the app/ project folder. Alias for clean:app", [
+                     'clean:app'
+                     ]);
 
   // Servers
   // -------------------

@@ -65,4 +65,25 @@ module.exports = {
       dest: 'dist/'
     }]
   },
+
+  // Project bootrapping
+  projectEmpty: {
+    files: [{
+      expand: true,
+      cwd: 'projects/empty',
+      src: '**',
+      dest: 'app/'
+    }]
+  },
+
+  projectMinimum: {
+    files: [{
+      expand: true,
+      cwd: 'projects/minimum',
+      src: ['**', '**/.gitkeep'],
+      dest: 'app/'
+    }]
+  }
+
+
 };
