@@ -6,9 +6,7 @@ module.exports = {
     templateFileExtensions: /\.(hbs|hjs|handlebars)/,
     templateRegistration: function(name, template) {
       return grunt.config.process("define('<%= package.namespace %>/") + name + "', ['exports'], function(__exports__){ __exports__['default'] = " + template + "; });";
-    },
-    templateCompilerPath: 'vendor/ember/ember-template-compiler.js',
-    handlebarsPath: 'vendor/handlebars/handlebars.js'
+    }
   },
   debug: {
     options: {
