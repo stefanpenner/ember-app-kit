@@ -23,6 +23,28 @@ function strictEqual(actual, expected, message) {
   QUnit.strictEqual.call(this, actual, expected, message);
 }
 
+/**
+ * Current Route
+ * 
+ * Compare the given route name with the route of the active
+ * handler and assert that they are equal.
+ * 
+ * @param  {string} routeName The name of the route (i.e. 'posts.new')
+ * @param  {string} message
+ */
+function currentRoute(routeName, message) {
+  var container = isolatedContainer([
+        'router:main'
+      ]),
+      router = container.lookup('router:main'), //get the main router
+      currentHandlerInfos = router.router.currentHandlerInfos, //get all handlers
+      activeHandler = currentHandlerInfos[currentHandlerInfos.length - 1], // get active handler
+      activeRoute = activeHandler.handler.get('routeName');
+
+  message = getAssertionMessage( activeRoute, routeName, message );
+  QUnit.equal.call( this, activeRoute, routeName, message );
+}
+
 window.exists = exists;
 window.equal = equal;
 window.strictEqual = strictEqual;
