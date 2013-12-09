@@ -23,28 +23,36 @@ function strictEqual(actual, expected, message) {
   QUnit.strictEqual.call(this, actual, expected, message);
 }
 
-/**
- * Current Route
- * 
- * Compare the given route name with the route of the active
- * handler and assert that they are equal.
- * 
- * @param  {string} routeName The name of the route (i.e. 'posts.new')
- * @param  {string} message
- */
-function currentRoute(routeName, message) {
-  var container = isolatedContainer([
-        'router:main'
-      ]),
-      router = container.lookup('router:main'), //get the main router
-      currentHandlerInfos = router.router.currentHandlerInfos, //get all handlers
-      activeHandler = currentHandlerInfos[currentHandlerInfos.length - 1], // get active handler
-      activeRoute = activeHandler.handler.get('routeName');
-
-  message = getAssertionMessage( activeRoute, routeName, message );
-  QUnit.equal.call( this, activeRoute, routeName, message );
-}
-
 window.exists = exists;
 window.equal = equal;
 window.strictEqual = strictEqual;
+
+/**
+ * Test Helpers from Canary
+ */
+var get = Ember.get;
+
+function currentRouteName(app){
+  var appController = app.__container__.lookup('controller:application');
+
+  return get(appController, 'currentRouteName');
+}
+
+/**
+    Returns the currently active route name.
+
+    Example:
+
+    ```
+    function validateRouteName(){
+      equal(currentRouteName(), 'some.path', "correct route was transitioned into.");
+    }
+
+    visit('/some/path').then(validateRouteName)
+
+    ```
+
+    @method currentRouteName
+    @return {Object} The name of the currently active route.
+  */
+Ember.Test.registerHelper('currentRouteName', currentRouteName);

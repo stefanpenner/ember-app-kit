@@ -10,7 +10,7 @@ module('Acceptances - Index', {
 });
 
 test('index renders', function(){
-  expect(3);
+  expect(4);
 
   visit('/').then(function(){
     var title = find('h2#title');
@@ -20,5 +20,7 @@ test('index renders', function(){
 
     equal(list.length, 3);
     equal(list.text(), 'redyellowblue');
+
+    equal(currentRouteName(), 'index');
   });
 });
