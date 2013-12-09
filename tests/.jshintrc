@@ -39,7 +39,7 @@
     "keyEvent",
     "isolatedContainer",
     "startApp",
-    "currentRoute"
+    "currentRouteName"
   ],
   "node" : false,
   "browser" : false,
