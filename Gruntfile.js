@@ -100,22 +100,56 @@ module.exports = function(grunt) {
                     ]);
   });
 
-  grunt.registerTask('server:dist', "Build and preview a minified & production-ready version of your app.", [
+  grunt.registerTask('server:dist', "Build and preview a minified & production-ready version of your app.", function(proxyMethod) {
+    var expressServerTask = 'expressServer:dist';
+    if (proxyMethod) {
+      expressServerTask += ':' + proxyMethod;
+    }
+
+    grunt.task.run([
                      'dist',
-                     'expressServer:dist:keepalive'
+                     expressServerTask + ':keepalive'
                      ]);
+  });
 
 
   // Testing
   // -------
-  grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/result/coverage.", [
-                     'clean:debug', 'build:debug', 'karma:test' ]);
+  grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/result/coverage.", function(proxyMethod) {
+    var expressServerTask = 'expressServer:debug';
+    if (proxyMethod) {
+      expressServerTask += ':' + proxyMethod;
+    }
 
-  grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
-                     'clean:debug', 'build:debug', 'karma:ci' ]);
+    grunt.task.run(['clean:debug', 
+                    'build:debug',
+                    expressServerTask, 
+                    'karma:test' ]);
+  });
 
-  grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/karma.js for configuration).", [
-                     'clean:debug', 'build:debug', 'karma:browsers' ]);
+  grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", function(proxyMethod) {
+    var expressServerTask = 'expressServer:debug';
+    if (proxyMethod) {
+      expressServerTask += ':' + proxyMethod;
+    }
+
+    grunt.task.run(['clean:debug', 
+                    'build:debug',
+                    expressServerTask, 
+                    'karma:ci' ]);
+  });
+
+  grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/karma.js for configuration).", function(proxyMethod) {
+    var expressServerTask = 'expressServer:debug';
+    if (proxyMethod) {
+      expressServerTask += ':' + proxyMethod;
+    }
+
+    grunt.task.run(['clean:debug', 
+                    'build:debug',
+                    expressServerTask, 
+                    'karma:browsers' ]);
+  });
 
   grunt.registerTask('test:server', "Start a Karma test server and the standard development server.", function(proxyMethod) {
     var expressServerTask = 'expressServer:debug';
