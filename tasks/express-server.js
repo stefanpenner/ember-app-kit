@@ -11,29 +11,30 @@ module.exports = function(grunt) {
 
   Note: The expressServer:debug task looks for files in multiple directories.
   */
-  grunt.registerTask('expressServer', function(target, proxyMethodToUse) {
+  grunt.registerTask('expressServer', function(target, apiMethod) {
     // Load namespace module before creating the server
     require('express-namespace');
 
     var app = express(),
         done = this.async(),
-        proxyMethod = proxyMethodToUse || grunt.config('express-server.options.APIMethod');
+        api = grunt.config('express-server.options.api');
+
+    apiMethod = apiMethod || api.method || 'stub';
 
     app.use(lock);
     app.use(express.compress());
 
-    if (proxyMethod === 'stub') {
+    if (apiMethod === 'stub') {
       grunt.log.writeln('Using API Stub');
 
       // Load API stub routes
       app.use(express.bodyParser());
-      require('../api-stub/routes')(app);
+      require('../api-stub/routes')(app, api.namespace);
     } else if (proxyMethod === 'proxy') {
-      var proxyURL = grunt.config('express-server.options.proxyURL');
-      grunt.log.writeln('Proxying API requests to: ' + proxyURL);
+      grunt.log.writeln('Proxying API requests to: ' + api.host);
 
       // Use API proxy
-      app.all('/api/*', passThrough(proxyURL));
+      app.all(api.namespace + '/*', passThrough(api.host));
     }
 
     if (target === 'debug') {
