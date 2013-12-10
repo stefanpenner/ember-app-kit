@@ -2,7 +2,10 @@ module.exports = {
   options: {
     configFile: 'karma.conf.js',
     browsers: ['Chrome'],
-    reporters: ['coverage', 'dots']
+    reporters: ['coverage', 'dots'],
+    proxies: {
+      "<%= package.api.namespace %>":"<%= package.api.host %>"
+    }
   },
   ci: {
     singleRun: true,
