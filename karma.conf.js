@@ -6,6 +6,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'config/environment.js',
+      'config/environments/test.js',
       'vendor/loader.js',
       'vendor/ember-resolver/dist/ember-resolver.js',
       'vendor/jquery/jquery.js',
