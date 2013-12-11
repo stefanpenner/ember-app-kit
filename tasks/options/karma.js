@@ -3,9 +3,7 @@ module.exports = {
     configFile: 'karma.conf.js',
     browsers: ['Chrome'],
     reporters: ['coverage', 'dots'],
-    proxies: {
-      "<%= package.api.namespace %>":"<%= package.api.host %>"
-    }
+    proxies: {}
   },
   ci: {
     singleRun: true,
