@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       // Load API stub routes
       app.use(express.bodyParser());
       require('../api-stub/routes')(app, api.namespace);
-    } else if (proxyMethod === 'proxy') {
+    } else if (apiMethod === 'proxy') {
       grunt.log.writeln('Proxying API requests to: ' + api.host);
 
       // Use API proxy
