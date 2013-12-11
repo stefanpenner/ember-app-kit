@@ -13,6 +13,6 @@ test('returns posts', function(){
   expect(1);
   visit('/');
   ic.ajax('/api/posts/1').then(function(result){
-    ok(result.post || false);
+    ok(result.response.post);
   });
 });
