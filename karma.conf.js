@@ -1,8 +1,7 @@
 // Karma configuration
 // Generated on Fri Jul 05 2013 01:57:57 GMT-0400 (EDT)
 
-var options,
-    pkg = require('./package.json'),
+var pkg = require('./package.json'),
     proxies = {};
 
 // set proxy namespace and url
