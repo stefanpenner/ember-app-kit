@@ -2,6 +2,12 @@ import Resolver from 'resolver';
 
 function isolatedContainer(fullNames) {
   var container = new Ember.Container();
+
+  container.optionsForType('component', { singleton: false });
+  container.optionsForType('view', { singleton: false });
+  container.optionsForType('template', { instantiate: false });
+  container.optionsForType('helper', { instantiate: false });
+  
   var resolver = Resolver['default'].create();
 
   resolver.namespace = {
