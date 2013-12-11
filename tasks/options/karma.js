@@ -2,8 +2,7 @@ module.exports = {
   options: {
     configFile: 'karma.conf.js',
     browsers: ['Chrome'],
-    reporters: ['coverage', 'dots'],
-    proxies: {}
+    reporters: ['coverage', 'dots']
   },
   ci: {
     singleRun: true,
