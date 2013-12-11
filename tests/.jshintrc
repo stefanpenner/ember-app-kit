@@ -38,7 +38,8 @@
     "wait",
     "keyEvent",
     "isolatedContainer",
-    "startApp"
+    "startApp",
+    "ic"
   ],
   "node" : false,
   "browser" : false,
