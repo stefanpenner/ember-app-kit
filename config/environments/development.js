@@ -1,4 +1,6 @@
 // Put your development configuration here.
-// This might be useful when using a separate API 
+//
+// This is useful when using a separate API 
 // endpoint in development than in production.
-window.ENV = {};
+//
+// window.ENV.public_key = '123456'
