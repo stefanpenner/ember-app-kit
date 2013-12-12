@@ -45,6 +45,7 @@ module.exports = function(grunt) {
       }
 
       // These three lines simulate what the `copy:assemble` task does
+      app.use(static({ urlRoot: '/config', directory: 'config' }));
       app.use(static({ urlRoot: '/vendor', directory: 'vendor' }));
       app.use(static({ directory: 'public' }));
       app.use(static({ urlRoot: '/tests', directory: 'tests' })); // For test_helper.js and test_loader.js

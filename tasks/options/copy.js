@@ -42,7 +42,11 @@ module.exports = {
     }, {
       src: ['vendor/**/*.js', 'vendor/**/*.css'],
       dest: 'tmp/result/'
+    }, {
+      src: ['config/**/*.js'],
+      dest: 'tmp/result/'
     }
+
     ]
   },
 
