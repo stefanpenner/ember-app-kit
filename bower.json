@@ -12,5 +12,10 @@
   "resolutions": {
     "ember": "~1.2.0",
     "handlebars": "~1.1.2"
+  },
+  "devDependencies": {
+    "FakeXMLHttpRequest": "git+https://github.com/trek/FakeXMLHttpRequest",
+    "fakehr": "git+https://github.com/trek/fakehr",
+    "ember-testing-httpRespond": "git+https://github.com/taras/ember-testing-httpRespond"
   }
 }
