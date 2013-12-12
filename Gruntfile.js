@@ -87,50 +87,26 @@ module.exports = function(grunt) {
 
   // Servers
   // -------------------
-  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", function(proxyMethod) {
-    var expressServerTask = 'expressServer:debug';
-    if (proxyMethod) {
-      expressServerTask += ':' + proxyMethod;
-    }
-
-    grunt.task.run(['clean:debug',
-                    'build:debug',
-                    expressServerTask,
-                    'watch'
-                    ]);
-  });
+  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", [
+                     'clean:debug', 'build:debug', 'expressServer:debug', 'watch' ]);
 
   grunt.registerTask('server:dist', "Build and preview a minified & production-ready version of your app.", [
-                     'dist',
-                     'expressServer:dist:keepalive'
-                     ]);
+                     'dist', 'expressServer:dist:keepalive' ]);
 
 
   // Testing
   // -------
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default. Logs coverage output to tmp/result/coverage.", [
-                     'clean:debug', 'build:debug', 'karma:test' ]);
+                     'clean:debug', 'build:debug', 'expressServer:debug', 'karma:test' ]);
 
   grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
-                     'clean:debug', 'build:debug', 'karma:ci' ]);
+                     'clean:debug', 'build:debug', 'expressServer:debug', 'karma:ci' ]);
 
   grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/karma.js for configuration).", [
-                     'clean:debug', 'build:debug', 'karma:browsers' ]);
+                     'clean:debug', 'build:debug', 'expressServer:debug', 'karma:browsers' ]);
 
-  grunt.registerTask('test:server', "Start a Karma test server and the standard development server.", function(proxyMethod) {
-    var expressServerTask = 'expressServer:debug';
-    if (proxyMethod) {
-      expressServerTask += ':' + proxyMethod;
-    }
-
-    grunt.task.run(['clean:debug',
-                    'build:debug',
-                    'karma:server',
-                    expressServerTask,
-                    'addKarmaToWatchTask',
-                    'watch'
-                    ]);
-  });
+  grunt.registerTask('test:server', "Start a Karma test server and the standard development server.", [
+                     'clean:debug', 'build:debug', 'expressServer:debug', 'karma:server', 'addKarmaToWatchTask', 'watch' ]);
 
   // Worker tasks
   // =================================

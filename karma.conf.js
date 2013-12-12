@@ -1,6 +1,12 @@
 // Karma configuration
 // Generated on Fri Jul 05 2013 01:57:57 GMT-0400 (EDT)
 
+var pkg = require('./package.json'),
+    proxies = {};
+
+// set proxy namespace and url
+proxies[pkg.api.namespace] = pkg.api.host + pkg.api.namespace;
+
 module.exports = function(config) {
   config.set({
 
@@ -80,6 +86,8 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+    proxies: proxies
   });
 };
