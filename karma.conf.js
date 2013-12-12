@@ -1,6 +1,12 @@
 // Karma configuration
 // Generated on Fri Jul 05 2013 01:57:57 GMT-0400 (EDT)
 
+var pkg = require('./package.json'),
+    proxies = {};
+
+// set proxy namespace and url
+proxies[pkg.api.namespace] = pkg.api.host + pkg.api.namespace;
+
 module.exports = function(config) {
   config.set({
 
@@ -15,6 +21,9 @@ module.exports = function(config) {
       'vendor/ember/ember.js',
       'vendor/ember-data/ember-data.js',
       'vendor/ic-ajax/main.js',
+      'vendor/FakeXMLHttpRequest/fake_xml_http_request.js',
+      'vendor/fakehr/fakehr.js',
+      'vendor/ember-testing-httpRespond/httpRespond-1.1.js',
       'tmp/result/assets/templates.js',
       'tmp/result/assets/app.js',
       'tmp/transpiled/tests/**/*.js',
@@ -80,6 +89,8 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+    proxies: proxies
   });
 };

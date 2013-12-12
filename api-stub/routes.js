@@ -1,8 +1,8 @@
-module.exports = function(server) {
+module.exports = function(server, namespace) {
 
   // Create an API namespace, so that the root does not 
   // have to be repeated for each end point.
-	server.namespace('/api', function() {
+	server.namespace(namespace, function() {
 
 		// Return fixture data for '/api/posts/:id'
 		server.get('/posts/:id', function(req, res) {
