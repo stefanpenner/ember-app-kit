@@ -13,6 +13,23 @@
 
   <!-- for more details visit: https://github.com/yeoman/grunt-usemin -->
 
+  <!-- build:js(tmp/result) assets/config.min.js -->
+
+    <script src="/config/environment.js"></script>
+    <!-- @if tests=false -->
+
+      <!-- @if dist=false -->
+      <script src="/config/environments/development.js"></script>
+      <!-- @endif --><!-- @if dist=true -->
+      <script src="/config/environments/production.js"></script>
+      <!-- @endif -->
+
+    <!-- @endif --><!-- @if tests=true -->
+      <script src="/config/environments/test.js"></script>
+    <!-- @endif -->
+
+  <!-- endbuild -->
+
   <!-- build:js(tmp/result) assets/vendor.min.js -->
 
     <script src="/vendor/jquery/jquery.js"></script>
