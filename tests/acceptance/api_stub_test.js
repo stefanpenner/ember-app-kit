@@ -9,10 +9,10 @@ module('API Stub', {
   }
 });
 
-test('returns posts', function(){
+asyncTest('responds via proxy', function(){
   expect(1);
-  visit('/');
   ic.ajax('/api/posts/1').then(function(result){
-    ok(result.response.post);
+    start();
+    ok(result.post);
   });
 });
