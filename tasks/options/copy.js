@@ -43,7 +43,7 @@ module.exports = {
       src: ['vendor/**/*.js', 'vendor/**/*.css'],
       dest: 'tmp/result/'
     }, {
-      src: ['config/**/*.js'],
+      src: ['config/environment.js', 'config/environments/production.js'],
       dest: 'tmp/result/'
     }
 
