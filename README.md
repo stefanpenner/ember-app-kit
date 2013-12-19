@@ -29,11 +29,11 @@ We welcome ideas and experiments.
 - Testing via QUnit, Ember Testing and Karma (with examples)
 - Linting via JSHint (including module syntax)
 - Catch-all `index.html` for easy reloading of pushState router apps
+- Generators via [Loom](https://github.com/cavneb/loom-generators-ember-appkit) (to generate routes, controllers, etc.)
 
 ## Future Goals
 
 - Source maps for transpiled modules
-- Better support for Ember generators
 - Easier to install 3rd party packages
 - Faster, more intelligent builds
 

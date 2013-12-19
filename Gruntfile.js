@@ -37,9 +37,6 @@ module.exports = function(grunt) {
   // * for minimizing images in the dist task
   //   `npm install --save-dev grunt-contrib-imagemin`
   //
-  // * for using the loom generator to generate routes, controllers, etc.
-  //   efficiently. `npm install --save-dev loom loom-generators-ember-appkit`
-  //
 
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,

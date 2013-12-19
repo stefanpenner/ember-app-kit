@@ -48,6 +48,9 @@
     "karma-coverage": "~0.0.3",
     "karma-phantomjs-launcher": "~0.0.2",
     "express-namespace": "~0.1.1",
-    "request": "~2.27.0"
+    "request": "~2.27.0",
+    "loom-generators-ember-appkit": "~1.0.2",
+    "originate": "~0.1.5",
+    "loom": "~3.1.2"
   }
 }
