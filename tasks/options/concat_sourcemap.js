@@ -7,6 +7,14 @@ module.exports = {
     },
   },
 
+  config: {
+    src: ['tmp/result/config/**/*.js'],
+    dest: 'tmp/result/assets/config.js',
+    options: {
+      sourcesContent: true
+    },
+  },
+
   test: {
     src: 'tmp/transpiled/tests/**/*.js',
     dest: 'tmp/result/tests/tests.js',

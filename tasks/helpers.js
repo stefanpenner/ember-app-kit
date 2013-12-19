@@ -13,6 +13,7 @@ var taskRequirements = {
   'stylus': ['grunt-contrib-stylus'],
   'emberTemplates': ['grunt-ember-templates'],
   'emblem': ['grunt-emblem'],
+  'emberscript': ['grunt-ember-script'],
   'imagemin': ['grunt-contrib-imagemin'],
   'htmlmin': ['grunt-contrib-htmlmin']
 };

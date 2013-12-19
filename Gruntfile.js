@@ -24,6 +24,8 @@ module.exports = function(grunt) {
   //   `npm install --save-dev grunt-emblem`
   //   `bower install emblem.js --save`
   //
+  // * For EmberScript, run `npm install --save-dev grunt-ember-script`
+  //
   // * for LiveReload, `npm install --save-dev connect-livereload`
   //
   // * for displaying the execution time of the grunt tasks,
@@ -36,7 +38,7 @@ module.exports = function(grunt) {
   //   `npm install --save-dev grunt-contrib-imagemin`
   //
   // * for using the loom generator to generate routes, controllers, etc.
-  //   efficiently. `npm install --save-dev loom loom-generators-ember`
+  //   efficiently. `npm install --save-dev loom loom-generators-ember-appkit`
   //
 
   var Helpers = require('./tasks/helpers'),
@@ -183,11 +185,12 @@ module.exports = function(grunt) {
 
   // Scripts
   grunt.registerTask('buildScripts', filterAvailable([
-                     'coffee',
-                     'copy:javascriptToTmp',
-                     'transpile',
                      'jshint:app',
                      'jshint:tests',
+                     'coffee',
+                     'emberscript',
+                     'copy:javascriptToTmp',
+                     'transpile',
                      'concat_sourcemap'
                      ]));
 
