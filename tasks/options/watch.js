@@ -2,6 +2,7 @@ var Helpers = require('../helpers');
 
 var scripts = '{app,tests}/**/*.{js,coffee,em}',
     templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
+    sprites = 'app/sprites/**/*.{png,jpg,jpeg}',
     styles = 'app/styles/**/*.{css,sass,scss,less,styl}',
     indexHTML = 'app/index.html',
     other = '{app,tests,public,vendor}/**/*';
@@ -14,6 +15,10 @@ module.exports = {
   templates: {
     files: [templates],
     tasks: ['lock', 'buildTemplates:debug', 'unlock']
+  },
+  sprites: {
+    files: [sprites],
+    tasks: ['lock', 'fancySprites:create', 'unlock']
   },
   styles: {
     files: [styles],
