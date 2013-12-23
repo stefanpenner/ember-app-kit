@@ -15,7 +15,8 @@ var taskRequirements = {
   'emblem': ['grunt-emblem'],
   'emberscript': ['grunt-ember-script'],
   'imagemin': ['grunt-contrib-imagemin'],
-  'htmlmin': ['grunt-contrib-htmlmin']
+  'htmlmin': ['grunt-contrib-htmlmin'],
+  'fancySprites': ['grunt-fancy-sprites']
 };
 
 // Task fallbacks

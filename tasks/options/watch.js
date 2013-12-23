@@ -1,4 +1,5 @@
-var Helpers = require('../helpers');
+var Helpers = require('../helpers'),
+    filterAvailable = Helpers.filterAvailableTasks;
 
 var scripts = '{app,tests}/**/*.{js,coffee,em}',
     templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
@@ -18,7 +19,7 @@ module.exports = {
   },
   sprites: {
     files: [sprites],
-    tasks: ['lock', 'fancySprites:create', 'unlock']
+    tasks: filterAvailable(['lock', 'fancySprites:create', 'unlock'])
   },
   styles: {
     files: [styles],
