@@ -37,6 +37,10 @@ module.exports = function(grunt) {
   // * for minimizing images in the dist task
   //   `npm install --save-dev grunt-contrib-imagemin`
   //
+  // * for using images based css sprites
+  //   `npm install --save-dev grunt-fancy-sprites`
+  //   `bower install --save fancy-sprites-scss`
+  //
 
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
@@ -132,16 +136,18 @@ module.exports = function(grunt) {
   // Worker tasks
   // =================================
 
-  grunt.registerTask('build:dist', [
+  grunt.registerTask('build:dist', filterAvailable([
                      'createResultDirectory', // Create directoy beforehand, fixes race condition
+                     'fancySprites:create',
                      'concurrent:buildDist', // Executed in parallel, see config below
-                     ]);
+                     ]));
 
-  grunt.registerTask('build:debug', [
+  grunt.registerTask('build:debug', filterAvailable([
                      'jshint:tooling',
                      'createResultDirectory', // Create directoy beforehand, fixes race condition
+                     'fancySprites:create',
                      'concurrent:buildDebug', // Executed in parallel, see config below
-                     ]);
+                     ]));
 
   grunt.registerTask('createDistVersion', filterAvailable([
                      'useminPrepare', // Configures concat, cssmin and uglify
