@@ -26,7 +26,7 @@ We welcome ideas and experiments.
 - Transparent project compilation & minification for easy deploys via [Grunt](http://gruntjs.com/)
 - Package management via [Bower](https://github.com/bower/bower)
 - Optional support for CoffeeScript, SASS, LESS or Stylus
-- Testing via QUnit, Ember Testing and Karma (with examples)
+- Testing via QUnit, Ember Testing and Testem (with examples)
 - Linting via JSHint (including module syntax)
 - Catch-all `index.html` for easy reloading of pushState router apps
 - Generators via [Loom](https://github.com/cavneb/loom-generators-ember-appkit) (to generate routes, controllers, etc.)
