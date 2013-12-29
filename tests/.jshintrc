@@ -38,7 +38,10 @@
     "wait",
     "keyEvent",
     "isolatedContainer",
-    "startApp"
+    "startApp",
+    "currentRouteName",
+    "currentPath",
+    "currentURL"
   ],
   "node" : false,
   "browser" : false,
