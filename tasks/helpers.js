@@ -6,17 +6,18 @@ var grunt = require('grunt'),
 // Notated in conjunctive normal form (CNF)
 // e.g. ['a', ['b', 'alternative-to-b']]
 var taskRequirements = {
-  'coffee': ['grunt-contrib-coffee'],
-  'compass': ['grunt-contrib-compass'],
-  'sass': [['grunt-sass', 'grunt-contrib-sass']],
-  'less': ['grunt-contrib-less'],
-  'stylus': ['grunt-contrib-stylus'],
-  'emberTemplates': ['grunt-ember-templates'],
-  'emblem': ['grunt-emblem'],
-  'emberscript': ['grunt-ember-script'],
-  'imagemin': ['grunt-contrib-imagemin'],
-  'htmlmin': ['grunt-contrib-htmlmin'],
-  'fancySprites': ['grunt-fancy-sprites']
+  coffee: ['grunt-contrib-coffee'],
+  compass: ['grunt-contrib-compass'],
+  sass: [['grunt-sass', 'grunt-contrib-sass']],
+  less: ['grunt-contrib-less'],
+  stylus: ['grunt-contrib-stylus'],
+  emberTemplates: ['grunt-ember-templates'],
+  emblem: ['grunt-emblem'],
+  emberscript: ['grunt-ember-script'],
+  imagemin: ['grunt-contrib-imagemin'],
+  htmlmin: ['grunt-contrib-htmlmin'],
+  fancySprites: ['grunt-fancy-sprites'],
+  autoprefixer: ['grunt-autoprefixer']
 };
 
 // Task fallbacks
