@@ -1,0 +1,18 @@
+{
+  "framework": "qunit",
+  "src_files": [
+    "vendor/loader.js",
+    "vendor/ember-resolver/dist/ember-resolver.js",
+    "vendor/jquery/jquery.js",
+    "vendor/handlebars/handlebars.js",
+    "vendor/ember/ember.js",
+    "vendor/ember-data/ember-data.js",
+    "vendor/ic-ajax/main.js",
+    "tmp/result/assets/templates.js",
+    "tmp/result/assets/app.js",
+    "tmp/transpiled/tests/**/*.js",
+    "tests/test_helper.js",
+    "tests/test_loader.js"
+  ],
+  "launch_in_dev": ["PhantomJS", "Chrome"]
+}
