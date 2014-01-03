@@ -4,6 +4,7 @@ module.exports = {
     options: {
       parallel: 2,
       framework: 'qunit',
+      port: (parseInt(process.env.PORT || 7358, 10) + 1),
       src_files: [
         'tmp/result/{app,tests}/**/*.{js,coffee,css}',
         'tmp/result/index.html'
@@ -30,6 +31,7 @@ module.exports = {
     options: {
       parallel: 8,
       framework: 'qunit',
+      port: (parseInt(process.env.PORT || 7358, 10) + 1),
       src_files: [
         'tmp/result/{app,tests}/**/*.{js,coffee,css}',
         'tmp/result/index.html'

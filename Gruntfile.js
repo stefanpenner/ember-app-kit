@@ -118,14 +118,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/testem.js for configuration).", [
                      'clean:debug', 'build:debug', 'testem:ci:browsers' ]);
 
-  grunt.registerTask('test:server', "Start a Testem test server and the standard development server.", [
-                     'clean:debug',
-                     'build:debug',
-                     'testem:run:basic',
-                     'expressServer:debug',
-                     'watch'
-                     ]);
-
   // Worker tasks
   // =================================
 
