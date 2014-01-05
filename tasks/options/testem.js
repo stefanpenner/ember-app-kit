@@ -7,7 +7,7 @@ module.exports = {
       port: (parseInt(process.env.PORT || 7358, 10) + 1),
       src_files: [
         'tmp/result/{app,tests}/**/*.{js,coffee,css}',
-        'tmp/result/index.html'
+        'tmp/result/test/index.html'
       ],
       serve_files: [
         'vendor/loader.js',
@@ -34,7 +34,7 @@ module.exports = {
       port: (parseInt(process.env.PORT || 7358, 10) + 1),
       src_files: [
         'tmp/result/{app,tests}/**/*.{js,coffee,css}',
-        'tmp/result/index.html'
+        'tmp/result/test/index.html'
       ],
       serve_files: [
         'vendor/loader.js',
