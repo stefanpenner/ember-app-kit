@@ -36,7 +36,7 @@
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-preprocess": "~3.0.1",
-    "grunt-es6-module-transpiler": "~0.5.1",
+    "grunt-es6-module-transpiler": "~0.6.0",
     "grunt-concat-sourcemap": "~0.3.0",
     "grunt-concurrent": "~0.3.1",
     "grunt-usemin": "~0.1.12",
