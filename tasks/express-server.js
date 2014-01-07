@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       app.use(static({ urlRoot: '/tests', directory: 'tests' })); // For test_helper.js and test_loader.js
 
       app.use(static({ directory: 'tmp/result' }));
-      app.use(static({ file: 'tests/testem.js' }));
+      app.use(static({ urlRoot: '/testem.js', directory: 'tests' }));
       app.use(static({ file: 'tmp/result/index.html' })); // Gotta catch 'em all
     } else {
       // For `expressServer:dist`
