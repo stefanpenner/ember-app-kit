@@ -6,7 +6,7 @@
  * Testem is configured to run tests directly against 
  * the test build of index.html, which requires a
  * snippet to load the testem.js file:
- * 		<script src="/testem.js"></script>
+ *   <script src="/testem.js"></script>
  * This has to go after the qunit framework and app
  * tests are loaded.
  *
