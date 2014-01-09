@@ -56,13 +56,20 @@ module.exports = function(grunt) {
     require("time-grunt")(grunt);
   }
 
-  // Loads task options from `tasks/options/`
+  // Loads task options from `tasks/options/` and `tasks/custom-options`
   // and loads tasks defined in `package.json`
-  var config = require('load-grunt-config')(grunt, {
-    defaultPath: path.join(__dirname, 'tasks/options'),
-    configPath: path.join(__dirname, 'tasks/custom'),
-    init: false
-  });
+  var config = _.extend({},
+    require('load-grunt-config')(grunt, {
+        configPath: path.join(__dirname, 'tasks/options'),
+        loadGruntTasks: false,
+        init: false
+      }),
+    require('load-grunt-config')(grunt, { // Custom options have precedence
+        configPath: path.join(__dirname, 'tasks/custom-options'),
+        init: false
+      })
+  );
+
   grunt.loadTasks('tasks'); // Loads tasks in `tasks/` folder
 
   config.env = process.env;
