@@ -4,6 +4,7 @@
     "window",
     "location",
     "setTimeout",
+    "require",
     "Ember",
     "Em",
     "DS",

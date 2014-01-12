@@ -120,13 +120,13 @@ module.exports = function(grunt) {
   // Testing
   // -------
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default.", [
-                     'clean:debug', 'build:debug', 'testem:ci:basic' ]);
+                     'clean:debug', 'build:test', 'testem:ci:basic' ]);
 
   grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
-                     'clean:debug', 'build:debug', 'testem:ci:basic' ]);
+                     'clean:debug', 'build:test', 'testem:ci:basic' ]);
 
   grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/testem.js for configuration).", [
-                     'clean:debug', 'build:debug', 'testem:ci:browsers' ]);
+                     'clean:debug', 'build:test', 'testem:ci:browsers' ]);
 
   // Worker tasks
   // =================================
@@ -135,6 +135,7 @@ module.exports = function(grunt) {
                      'createResultDirectory', // Create directoy beforehand, fixes race condition
                      'fancySprites:create',
                      'concurrent:buildDist', // Executed in parallel, see config below
+                     'htmlbuild:dist'
                      ]));
 
   grunt.registerTask('build:debug', filterAvailable([
@@ -142,7 +143,10 @@ module.exports = function(grunt) {
                      'createResultDirectory', // Create directoy beforehand, fixes race condition
                      'fancySprites:create',
                      'concurrent:buildDebug', // Executed in parallel, see config below
+                     'htmlbuild:debug'
                      ]));
+
+  grunt.registerTask('build:test', [ 'build:debug', 'htmlbuild:test' ]);
 
   grunt.registerTask('createDistVersion', filterAvailable([
                      'useminPrepare', // Configures concat, cssmin and uglify
@@ -165,14 +169,12 @@ module.exports = function(grunt) {
       buildDist: [
         "buildTemplates:dist",
         "buildScripts",
-        "buildStyles",
-        "buildIndexHTML:dist"
+        "buildStyles"
       ],
       buildDebug: [
         "buildTemplates:debug",
         "buildScripts",
-        "buildStyles",
-        "buildIndexHTML:debug"
+        "buildStyles"
       ]
     }
   });
@@ -195,8 +197,7 @@ module.exports = function(grunt) {
                      'coffee',
                      'emberscript',
                      'copy:javascriptToTmp',
-                     'transpile',
-                     'concat_sourcemap'
+                     'transpile'
                      ]));
 
   // Styles
@@ -209,17 +210,6 @@ module.exports = function(grunt) {
                      'autoprefixer:app'
                      ]));
 
-  // Index HTML
-  grunt.registerTask('buildIndexHTML:dist', [
-                     'preprocess:indexHTMLDistApp',
-                     'preprocess:indexHTMLDistTests'
-                     ]);
-
-  grunt.registerTask('buildIndexHTML:debug', [
-                     'preprocess:indexHTMLDebugApp',
-                     'preprocess:indexHTMLDebugTests'
-                     ]);
-  
   grunt.registerTask('createResultDirectory', function() {
     grunt.file.mkdir('tmp/result');
   });
