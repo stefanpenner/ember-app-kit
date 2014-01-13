@@ -27,7 +27,7 @@ module.exports = {
   },
   indexHTML: {
     files: [indexHTML],
-    tasks: ['lock', 'buildIndexHTML:debug', 'unlock']
+    tasks: ['lock', 'htmlbuild:debug', 'unlock']
   },
   other: {
     files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML],

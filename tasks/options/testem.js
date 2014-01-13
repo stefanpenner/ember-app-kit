@@ -6,12 +6,6 @@ module.exports = {
       framework: 'qunit',
       port: (parseInt(process.env.PORT || 7358, 10) + 1),
       test_page: 'tmp/result/tests/index.html',
-      routes: {
-        '/tests/tests.js': 'tmp/result/tests/tests.js',
-        '/assets/app.js': 'tmp/result/assets/app.js',
-        '/assets/templates.js': 'tmp/result/assets/templates.js',
-        '/assets/app.css': 'tmp/result/assets/app.css'
-      },
       launch_in_dev: ['PhantomJS', 'Chrome'],
       launch_in_ci: ['PhantomJS', 'Chrome'],
     }
@@ -22,12 +16,6 @@ module.exports = {
       framework: 'qunit',
       port: (parseInt(process.env.PORT || 7358, 10) + 1),
       test_page: 'tmp/result/tests/index.html',
-      routes: {
-        '/tests/tests.js': 'tmp/result/tests/tests.js',
-        '/assets/app.js': 'tmp/result/assets/app.js',
-        '/assets/templates.js': 'tmp/result/assets/templates.js',
-        '/assets/app.css': 'tmp/result/assets/app.css'
-      },
       launch_in_dev: ['PhantomJS',
                      'Chrome',
                      'ChromeCanary',

@@ -31,23 +31,10 @@ module.exports = {
   assemble: {
     files: [{
       expand: true,
-      cwd: 'tests',
-      src: ['test_helper.js', 'test_loader.js'],
-      dest: 'tmp/result/tests/'
-    }, {
-      expand: true,
       cwd: 'public',
       src: ['**'],
       dest: 'tmp/result/'
-    }, {
-      src: ['vendor/**/*.js', 'vendor/**/*.css'],
-      dest: 'tmp/result/'
-    }, {
-      src: ['config/environment.js', 'config/environments/production.js'],
-      dest: 'tmp/result/'
-    }
-
-    ]
+    }]
   },
 
   imageminFallback: {
