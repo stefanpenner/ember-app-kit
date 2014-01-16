@@ -6,7 +6,7 @@ var scripts = '{app,tests}/**/*.{js,coffee,em}',
     sprites = 'app/sprites/**/*.{png,jpg,jpeg}',
     styles = 'app/styles/**/*.{css,sass,scss,less,styl}',
     indexHTML = 'app/index.html',
-    other = '{app,tests,public,vendor}/**/*';
+    other = '{app,tests,public}/**/*';
 
 module.exports = {
   scripts: {
