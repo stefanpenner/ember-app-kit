@@ -99,7 +99,6 @@ module.exports = function(grunt) {
         if (options.ignoredFileExtensions) {
           if (options.ignoredFileExtensions.test(req.path)) {
             res.send(404, {error: 'Resource not found'});
-            next('Resource not found');
             return; // Do not serve index.html
           }
         }
