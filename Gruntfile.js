@@ -48,7 +48,8 @@ module.exports = function(grunt) {
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
       _ = grunt.util._,
-      path = require('path');
+      path = require('path'),
+      loadGruntConfig = require('load-grunt-config');
 
   Helpers.pkg = require("./package.json");
 
@@ -58,23 +59,28 @@ module.exports = function(grunt) {
 
   // Loads task options from `tasks/options/` and `tasks/custom-options`
   // and loads tasks defined in `package.json`
-  var config = _.extend({},
-    require('load-grunt-config')(grunt, {
-        configPath: path.join(__dirname, 'tasks/options'),
-        loadGruntTasks: false,
-        init: false
-      }),
-    require('load-grunt-config')(grunt, { // Custom options have precedence
-        configPath: path.join(__dirname, 'tasks/custom-options'),
-        init: false
-      })
+  var config = _.merge(
+    loadGruntConfig(grunt, {
+      configPath: path.join(__dirname, 'tasks/options'),
+      init: false
+    }),
+
+    // Custom options have precedence
+    loadGruntConfig(grunt, {
+      configPath: path.join(__dirname, 'tasks/custom-options'),
+      init: false
+    })
   );
 
   grunt.loadTasks('tasks'); // Loads tasks in `tasks/` folder
 
   config.env = process.env;
 
-  
+  // Debug task to log the used Grunt configuration
+  grunt.registerTask('_log:config', "Write the used Grunt configuration to tmp/grunt_config.js", function() {
+    grunt.file.write("tmp/grunt_config.js", JSON.stringify(config, null, 2));
+    grunt.log.writeln("Used Grunt configuration written to tmp/grunt_config.js");
+  });
 
 
   // App Kit's Main Tasks
