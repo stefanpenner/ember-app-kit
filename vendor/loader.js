@@ -8,7 +8,6 @@ var define, requireModule, require, requirejs;
   };
 
   requirejs = require = requireModule = function(name) {
-  requirejs._eak_seen = registry;
 
     if (seen.hasOwnProperty(name)) { return seen[name]; }
     seen[name] = {};
@@ -50,4 +49,10 @@ var define, requireModule, require, requirejs;
       return parentBase.join("/");
     }
   };
+  requirejs._eak_seen = registry;
+  requirejs.clear = function(){
+    requirejs._eak_seen = registry = {};
+    seen = {};
+  };
+
 })();
