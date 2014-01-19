@@ -12,6 +12,9 @@ module.exports = {
         '/assets/templates.js': 'tmp/result/assets/templates.js',
         '/assets/app.css': 'tmp/result/assets/app.css'
       },
+      src_files: [
+        'tmp/result/**/*.js'
+      ],
       launch_in_dev: ['PhantomJS', 'Chrome'],
       launch_in_ci: ['PhantomJS', 'Chrome'],
     }
@@ -28,6 +31,9 @@ module.exports = {
         '/assets/templates.js': 'tmp/result/assets/templates.js',
         '/assets/app.css': 'tmp/result/assets/app.css'
       },
+      src_files: [
+        'tmp/result/**/*.js'
+      ],
       launch_in_dev: ['PhantomJS',
                      'Chrome',
                      'ChromeCanary',
