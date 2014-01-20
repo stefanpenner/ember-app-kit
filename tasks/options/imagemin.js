@@ -1,5 +1,8 @@
 module.exports = {
   dist: {
+    options: {
+      cache: false
+    },
     files: [{
       expand: true,
       cwd: 'tmp/result',
