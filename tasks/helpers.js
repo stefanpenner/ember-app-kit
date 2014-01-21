@@ -17,7 +17,8 @@ var taskRequirements = {
   imagemin: ['grunt-contrib-imagemin'],
   htmlmin: ['grunt-contrib-htmlmin'],
   fancySprites: ['grunt-fancy-sprites'],
-  autoprefixer: ['grunt-autoprefixer']
+  autoprefixer: ['grunt-autoprefixer'],
+  rev: ['grunt-rev']
 };
 
 // Task fallbacks
