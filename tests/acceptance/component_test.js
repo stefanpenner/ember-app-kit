@@ -10,7 +10,7 @@ module('Acceptances - Component', {
 });
 
 test('component output is rendered', function(){
-  expect(3);
+  expect(2);
 
   visit('/component-test').then(function(){
     var list = find('.pretty-color');
