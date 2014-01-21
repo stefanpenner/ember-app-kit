@@ -12,7 +12,7 @@ module.exports = {
     options: {
       precompile: false
     },
-    src: "app/templates/**/*.{hbs,hjs,handlebars}",
+    src: "app/**/*.{hbs,hjs,handlebars}",
     dest: "tmp/result/assets/templates.js"
   },
   dist: {
