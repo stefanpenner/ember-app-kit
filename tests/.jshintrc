@@ -1,5 +1,5 @@
 {
-  "predef": [
+  "globals": [
     "document",
     "window",
     "location",
