@@ -98,27 +98,20 @@ module.exports = function(grunt) {
 
   // Servers
   // -------------------
-  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", function(proxyMethod) {
-    var expressServerTask = 'expressServer:debug';
-    if (proxyMethod) {
-      expressServerTask += ':' + proxyMethod;
-    }
-
-    grunt.task.run(['clean:debug',
-                    'build:debug',
-                    expressServerTask,
-                    'watch'
-                    ]);
-  });
+  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", [
+                     'clean:debug',
+                     'build:debug',
+                     'expressServer:debug',
+                     'watch' ]);
 
   grunt.registerTask('server:dist', "Build and preview a minified & production-ready version of your app.", [
                      'dist',
-                     'expressServer:dist:keepalive'
-                     ]);
+                     'expressServer:dist:keepalive' ]);
 
 
   // Testing
   // -------
+
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default.", [
                      'clean:debug', 'build:debug', 'testem:ci:basic' ]);
 

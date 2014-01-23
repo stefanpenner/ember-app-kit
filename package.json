@@ -1,8 +1,11 @@
 {
   "name": "app-kit",
   "namespace": "appkit",
-  "APIMethod": "stub",
-  "proxyURL": "http://localhost:8000",
+  "api": {
+    "method": "stub",
+    "host": "http://localhost:8000",
+    "namespace": "/api"
+  },
   "version": "0.0.0",
   "private": true,
   "directories": {
