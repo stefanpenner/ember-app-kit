@@ -8,9 +8,7 @@ var define, requireModule, require, requirejs;
   };
 
   requirejs = require = requireModule = function(name) {
-
     if (seen.hasOwnProperty(name)) { return seen[name]; }
-    seen[name] = {};
 
     if (!registry[name]) {
       throw new Error("Could not find module " + name);
