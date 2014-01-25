@@ -6,8 +6,10 @@ var scripts = '{app,tests,config}/**/*.{js,coffee,em}',
     sprites = 'app/sprites/**/*.{png,jpg,jpeg}',
     styles = 'app/styles/**/*.{css,sass,scss,less,styl}',
     indexHTML = 'app/index.html',
-    other = '{app,tests,public}/**/*';
-
+    other = '{app,tests,public}/**/*',
+    bowerFile = 'bower.json',
+    npmFile = 'package.json';
+    
 module.exports = {
   scripts: {
     files: [scripts],
@@ -30,7 +32,7 @@ module.exports = {
     tasks: ['lock', 'buildIndexHTML:debug', 'unlock']
   },
   other: {
-    files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML],
+    files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML, bowerFile, npmFile],
     tasks: ['lock', 'build:debug', 'unlock']
   },
 
