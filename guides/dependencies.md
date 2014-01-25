@@ -13,4 +13,6 @@ Executing `bower install` will install all of the dependencies listed in `bower.
 
 EAK is configured to have git ignore your `vendor` directory by default.  Using the Bower configuration file allows collaborators to fork your repo and get their dependencies installed locally by executing `bower install` themselves.
 
+EAK watches `bower.json` for changes. Thus it reloads your app if you install new dependencies via `bower install --save <dependencies>`.
+
 Further documentation about Bower is available at their [official documentation page](http://bower.io/).
