@@ -5,7 +5,7 @@
     "jquery": "~1.9.1",
     "qunit": "~1.12.0",
     "ember": "~1.4.0-beta.2",
-    "ember-data": "~1.0.0-beta.4",
+    "ember-data": "~1.0.0-beta.6",
     "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
     "ic-ajax": "~0.2",
     "ember-testing-httpRespond": "~0.1.1"
