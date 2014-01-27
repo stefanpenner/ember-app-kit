@@ -82,7 +82,7 @@ If your filename has an underscore in it, we can reference it using the followin
 
 {% highlight sh %}
 // controller/posts/comment_thread.js -> controller:posts/comment-thread  
-var CommentThreadPostsController = Ember.Controller.extend();
+var PostsCommentThreadController = Ember.Controller.extend();
 
-export default CommentThreadPostsController;
+export default PostsCommentThreadController;
 {% endhighlight %}
