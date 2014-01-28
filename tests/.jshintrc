@@ -36,6 +36,7 @@
     "keyEvent",
     "find",
     "wait",
+    "DS",
     "keyEvent",
     "isolatedContainer",
     "startApp"
