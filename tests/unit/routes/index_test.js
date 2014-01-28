@@ -1,21 +1,13 @@
+import { test , moduleFor } from 'appkit/tests/helpers/module_for';
+
 import Index from 'appkit/routes/index';
 
-var route;
-module("Unit - IndexRoute", {
-  setup: function(){
-    var container = isolatedContainer([
-      'route:index'
-    ]);
-
-    route = container.lookup('route:index');
-  }
-});
+moduleFor('route:index', "Unit - IndexRoute");
 
 test("it exists", function(){
-  ok(route);
-  ok(route instanceof Index);
+  ok(this.subject() instanceof Index);
 });
 
 test("#model", function(){
-  deepEqual(route.model(), ['red', 'yellow', 'blue']);
+  deepEqual(this.subject().model(), ['red', 'yellow', 'blue']);
 });
