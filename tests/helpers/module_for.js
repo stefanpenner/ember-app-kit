@@ -65,7 +65,7 @@ function buildContextVariables(context) {
 
   Ember.keys(callbacks).filter(function(key){
     // ignore the default setup/teardown keys
-    return key !== 'setup' && key && 'teardown';
+    return key !== 'setup' && key !== 'teardown';
   }).forEach(function(key){
     context[key] = function(options) {
       if (cache[key]) {
