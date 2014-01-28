@@ -1,5 +1,6 @@
 var Helpers = require('../helpers'),
-    filterAvailable = Helpers.filterAvailableTasks;
+    filterAvailable = Helpers.filterAvailableTasks,
+    liveReloadPort = parseInt(process.env.PORT || 8000, 10) + 2;
 
 var scripts = '{app,tests,config}/**/*.{js,coffee,em}',
     templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
@@ -9,7 +10,7 @@ var scripts = '{app,tests,config}/**/*.{js,coffee,em}',
     other = '{app,tests,public}/**/*',
     bowerFile = 'bower.json',
     npmFile = 'package.json';
-    
+
 module.exports = {
   scripts: {
     files: [scripts],
@@ -41,6 +42,6 @@ module.exports = {
     debounceDelay: 0,
     // When we don't have inotify
     interval: 100,
-    livereload: Helpers.isPackageAvailable("connect-livereload")
+    livereload: Helpers.isPackageAvailable("connect-livereload") || liveReloadPort
   }
 };
