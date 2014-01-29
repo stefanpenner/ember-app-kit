@@ -3,14 +3,14 @@ layout: default
 title: "Deploying Your App"
 permalink: "deployment.html"
 ---
-### Heroku 
+### Heroku
 Ember App Kit can be easily deployed to Heroku using Express. For better performance we should be using nginx since we are only serving static files, but for a quick demo this could be useful.
 
 Assuming you have heroku toolbelt installed...
 
 From the ROOT of your EAK project create a new Heroku app and add 1 web worker
 {% highlight sh %}
-heroku apps:create ember-app-kit 
+heroku apps:create ember-app-kit
 heroku ps:scale web=1
 {% endhighlight %}
 
@@ -22,7 +22,7 @@ Next, we need to modify our `package.json` to include necessary dependencies. Yo
   "bower": "~1.2.7",
   "grunt": "~0.4.1",
   "grunt-cli": "~0.1.9",
-  "load-grunt-config": "~0.5.0", 
+  "load-grunt-config": "~0.5.0",
   "grunt-contrib-watch": "~0.5.3",
   "grunt-contrib-copy": "~0.4.1",
   "grunt-contrib-concat": "~0.3.0",
@@ -43,7 +43,7 @@ Next, we need to modify our `package.json` to include necessary dependencies. Yo
 {% endhighlight %}
 
 
-Then add `grunt dist` to our postinstall in our `package.json` in order to build our application for production. 
+Then add `grunt dist` to our postinstall in our `package.json` in order to build our application for production.
 {% highlight sh %}
 "postinstall": "bower install; grunt dist"
 {% endhighlight %}
@@ -58,7 +58,7 @@ Finally, `git push heroku master` to deploy.
 #### Travis CI (optional)
 Additionally you can set up Travis CI for automatic Heroku deployment upon successful builds. Assuming you have completed first 2 steps from their [offical getting started guide](http://about.travis-ci.org/docs/user/getting-started/).
 
-Install `travis` gem so that we can generate a pair of private and public RSA keys which can be used to encrypt our `api_key` which you will want to put into the `.travis.yml` file and still keep it private. 
+Install `travis` gem so that we can generate a pair of private and public RSA keys which can be used to encrypt our `api_key` which you will want to put into the `.travis.yml` file and still keep it private.
 {% highlight sh %}
 gem install travis
 {% endhighlight %}
