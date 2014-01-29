@@ -3,7 +3,7 @@ layout: default
 title: "Naming Conventions"
 permalink: naming-conventions.html
 ---
-### Naming Conventions 
+### Naming Conventions
 When using Ember App Kit its important to keep in mind that the Resolver changes some of the naming conventions you would typically use out of the box with Ember, Ember Data and Handlebars. In this section we review some of these naming conventions.
 
 ### Views and Templates
@@ -22,7 +22,7 @@ We could easily embed this view into a container/parent using the Handlebars vie
 {% endraw %}
 {% endhighlight %}
 
-This is great. However, Ember App Kit cusotmizes the default Ember Resolver to help alleviate the issue of namespacing your objects (views, controllers, models, etc.) manually. The above example, as such, will not work in an EAK project.
+This is great. However, Ember App Kit customizes the default Ember Resolver to help alleviate the issue of namespacing your objects (views, controllers, models, etc.) manually. The above example, as such, will not work in an EAK project.
 
 In EAK our view would be declared like so:
 
@@ -50,18 +50,18 @@ It is important to keep in mind that the Resolver uses filenames to create the a
 
 {% highlight sh %}
 // models/user.js
-var User = Ember.Model.extend(); 
+var User = Ember.Model.extend();
 
 export default User;
 {% endhighlight %}
 
-#### Underscore seperated file names are recommended
+#### Underscore separated file names are recommended
 
 You may want to name your files according to their function, this is easily accomplished:
 
 {% highlight sh %}
 // models/user_model.js
-var UserModel = Ember.Model.extend(); 
+var UserModel = Ember.Model.extend();
 
 export default UserModel;
 {% endhighlight %}
@@ -81,7 +81,7 @@ export default PostsNewController;
 If your filename has an underscore in it, we can reference it using the following technique:
 
 {% highlight sh %}
-// controller/posts/comment_thread.js -> controller:posts/comment-thread  
+// controller/posts/comment_thread.js -> controller:posts/comment-thread
 var PostsCommentThreadController = Ember.Controller.extend();
 
 export default PostsCommentThreadController;

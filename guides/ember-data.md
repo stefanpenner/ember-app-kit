@@ -10,7 +10,7 @@ Ember Data has recently undergone a major reboot, drastically simplifying it and
 
 ### Models
 
-Models are critical in any dynamic web application. Ember Data makes making models extremely easy. 
+Models are critical in any dynamic web application. Ember Data makes making models extremely easy.
 
 For example, we can create a todo model like so:
 
