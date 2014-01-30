@@ -20,6 +20,14 @@ npm install -g grunt-cli
 
 This will give you access to the `grunt` command-line runner.
 
+You'll need to install [Bower](http://bower.io), a package manager that keeps your front-end dependencies (including JQuery, Ember, and QUnit) up to date. This is as easy as running:
+
+{% highlight sh %}
+npm install -g bower
+{% endhighlight %}
+
+This will give you access to the `bower` command-line runner.
+
 Next, in the folder for your new project, run:
 
 {% highlight sh %}
@@ -28,14 +36,7 @@ npm install
 
 This will install the dependencies Grunt relies on to build. These dependencies are primarily various Grunt tasks that do everything from module compilation to test running.
 
-Before running your app for the first time, you'll want to install [Bower](http://bower.io), a package manager that keeps your front-end dependencies (including JQuery, Ember, and QUnit) up to date. This is as easy as running:
-
-{% highlight sh %}
-npm install -g bower
-bower install
-{% endhighlight %}
-
-For more information on Bower, see the guide on [managing dependencies](dependencies.html)
+The `npm install`'s `postinstall` hook runs for you `bower install` to install front-end dependencies. For more information on Bower, see the guide on [managing dependencies](dependencies.html).
 
 Once your dependencies are installed, you should be able to simply run:
 
