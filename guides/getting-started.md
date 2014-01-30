@@ -52,108 +52,33 @@ and navigate to [http://0.0.0.0:8000](http://0.0.0.0:8000) to see your new app i
 
 Ember App Kit comes with lots of boilerplate, which can be daunting to navigate at first. Here's the layout of the application, which we'll explore in further detail throughout the guides.
 
-<table markdown="1">
-  <thead>
-    <tr>
-      <th>File/Folder</th>
-      <th>Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>app/</td>
-      <td>Contains your Ember application's code. Javascript files in this folder are *compiled* through the ES6 module transpiler and concatenated into a file called `app.js`. See the table below for more details.</td>
-    </tr>
-    <tr>
-      <td>dist/</td>
-      <td>Contains the *distributable* (that is, optimized and self-contained) output of your application. Deploy this to your server!</td>
-    </tr>
-    <tr>
-      <td>public/</td>
-      <td>This folder will be copied verbatim into the root of your built application. Use this for assets that don't have a build step, such as images or fonts.</td>
-    </tr>
-    <tr>
-      <td>tasks/</td>
-      <td>Contains custom Grunt tasks and helpers used in the build process.</td>
-    </tr>
-    <tr>
-      <td>tasks/options/</td>
-      <td>Contains configuration for the external Grunt tasks used for everything from module compilation to serving up your application.</td>
-    </tr>
-    <tr>
-      <td>tests/</td>
-      <td>Includes unit and integration tests for your app, as well as various helpers to load and run your tests.</td>
-    </tr>
-    <tr>
-      <td>tmp/</td>
-      <td>Various temporary output of build steps, as well as the debug output of your application (`tmp/public`).</td>
-    </tr>
-    <tr>
-      <td>vendor/</td>
-      <td>Your dependencies, both those included with EAK and those installed with Bower.</td>
-    </tr>
-    <tr>
-      <td>.jshintrc</td>
-      <td>[JSHint](http://jshint.com/) configuration.</td>
-    </tr>
-    <tr>
-      <td>.travis.yml</td>
-      <td>[Travis CI](https://travis-ci.org/) configuration. See [Testing with Karma](testing.html).</td>
-    </tr>
-    <tr>
-      <td>Gruntfile.js</td>
-      <td>Defines the various multitasks EAK uses to build. See [Asset Compilation](asset-compilation.html).</td>
-    </tr>
-    <tr>
-      <td>bower.json</td>
-      <td>Bower configuration and dependency list. See [Managing Dependencies](dependencies.html).</td>
-    </tr>
-    <tr>
-      <td>karma.conf.js</td>
-      <td>Karma configuration. See [Testing with Karma](testing.html).</td>
-    </tr>
-    <tr>
-      <td>package.json</td>
-      <td>NPM configuration. Mainly used to list the dependencies needed for asset compilation.</td>
-    </tr>
-  </tbody>
-</table>
+File/Folder      | Purpose |
+-----------------|---------|
+`app/`           | Contains your Ember application's code. Javascript files in this folder are *compiled* through the ES6 module transpiler and concatenated into a file called `app.js`. See the table below for more details. |
+`dist/`          | Contains the *distributable* (that is, optimized and self-contained) output of your application. Deploy this to your server! |
+`public/`        | This folder will be copied verbatim into the root of your built application. Use this for assets that don't have a build step, such as images or fonts. |
+`tasks/`         | Contains custom Grunt tasks and helpers used in the build process. |
+`tasks/options/` | Contains configuration for the external Grunt tasks used for everything from module compilation to serving up your application. |
+`tests/`         | Includes unit and integration tests for your app, as well as various helpers to load and run your tests. |
+`tmp/`           | Various temporary output of build steps, as well as the debug output of your application (`tmp/public`). |
+`vendor/`        | Your dependencies, both those included with EAK and those installed with Bower. |
+`.jshintrc`      | [JSHint](http://jshint.com/) configuration. |
+`.travis.yml`    | [Travis CI](https://travis-ci.org/) configuration. See [Testing with Karma](testing.html). |
+`Gruntfile.js`   | Defines the various multitasks EAK uses to build. See [Asset Compilation](asset-compilation.html). |
+`bower.json`     | Bower configuration and dependency list. See [Managing Dependencies](dependencies.html). |
+`karma.conf.js`  | Karma configuration. See [Testing with Karma](testing.html). |
+`package.json`   | NPM configuration. Mainly used to list the dependencies needed for asset compilation. |
 
 ##### Layout within app/
-<table markdown="1">
-  <thead>
-    <tr>
-      <th>Folder/File</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>app/app.js</td>
-      <td>Your application's entry point. This is the module that is first executed.</td>
-    </tr>
-    <tr>
-      <td>app/index.html</td>
-      <td>The only actual page of your single-page app! Includes dependencies and kickstarts your Ember application.</td>
-    </tr>
-    <tr>
-      <td>app/router.js</td>
-      <td>Your route configuration. The routes defined here correspond to routes in `app/routes/`.</td>
-    </tr>
-    <tr>
-      <td>app/stylesheets/</td>
-      <td>Contains your stylesheets, whether SASS, LESS, Stylus, Compass, or plain CSS (though only one type is allowed, see [Asset Compilation](asset-compilation.html). These are all compiled through the into `app.css`.</td>
-    </tr>
-    <tr>
-      <td>app/templates/</td>
-      <td>Your Handlebars templates. These are compiled to `templates.js`. The templates are named the same as their filename, minus the extension (i.e. `templates/foo/bar.hbs` -> `foo/bar`).</td>
-    </tr>
-    <tr>
-      <td>app/controllers/, app/models/...</td>
-      <td>Modules resolved by the Ember App Kit resolver. See [Using Modules &amp; the Resolver](using-modules.html).</td>
-    </tr>
-  </tbody>
-</table>
+
+File/Folder                              | Description |
+-----------------------------------------|-------------|
+`app/app.js`                             | Your application's entry point. This is the module that is first executed. |
+`app/index.html`                         | The only actual page of your single-page app! Includes dependencies and kickstarts your Ember application. |
+`app/router.js`                          | Your route configuration. The routes defined here correspond to routes in `app/routes/`. |
+`app/stylesheets/`                       | Contains your stylesheets, whether SASS, LESS, Stylus, Compass, or plain CSS (though only one type is allowed, see [Asset Compilation](asset-compilation.html)). These are all compiled through the into `app.css`. |
+`app/templates/`                         | Your Handlebars templates. These are compiled to `templates.js`. The templates are named the same as their filename, minus the extension (i.e. `templates/foo/bar.hbs` -> `foo/bar`). |
+`app/controllers/`, `app/models/`, `...` | Modules resolved by the Ember App Kit resolver. See [Using Modules &amp; the Resolver](using-modules.html). |
 
 #### Using Grunt
 
