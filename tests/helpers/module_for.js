@@ -31,7 +31,7 @@ export function moduleFor(fullName, description, callbacks, delegate) {
   };
 
   if (delegate) {
-    delegate(factory(), container, __testing_context__);
+    delegate(container, __testing_context__);
   }
 
   var context = __testing_context__;
@@ -99,7 +99,7 @@ export function test(testName, callback) {
 }
 
 export function moduleForModel(name, description, callbacks) {
-  moduleFor('model:' + name, description, callbacks, function(factory, container, context) {
+  moduleFor('model:' + name, description, callbacks, function(container, context) {
     // custom model specific awesomeness
     container.register('store:main', DS.Store);
     container.register('adapter:application', DS.FixtureAdapter);
@@ -120,7 +120,7 @@ export function moduleForModel(name, description, callbacks) {
 
 export function moduleForComponent(name, description, callbacks) {
   // just a spike...
-  moduleFor('component:' + name, description, callbacks, function(factory, container, context) {
+  moduleFor('component:' + name, description, callbacks, function(container, context) {
 
     context.__setup_properties__.$ = function(selector) {
       var view = Ember.run(function(){
