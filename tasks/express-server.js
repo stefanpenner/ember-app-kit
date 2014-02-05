@@ -30,11 +30,12 @@ module.exports = function(grunt) {
       app.use(express.urlencoded());
       require('../api-stub/routes')(app);
     } else if (proxyMethod === 'proxy') {
-      var proxyURL = grunt.config('express-server.options.proxyURL');
-      grunt.log.writeln('Proxying API requests to: ' + proxyURL);
+      var proxyURL = grunt.config('express-server.options.proxyURL'),
+          proxyPath = grunt.config('express-server.options.proxyPath') || '/api';
+      grunt.log.writeln('Proxying API requests matching ' + proxyPath + '/* to: ' + proxyURL);
 
       // Use API proxy
-      app.all('/api/*', passThrough(proxyURL));
+      app.all(proxyPath + '/*', passThrough(proxyURL));
     }
 
     if (target === 'debug') {
