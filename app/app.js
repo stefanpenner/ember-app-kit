@@ -1,12 +1,15 @@
 import Resolver from 'resolver';
 
+var params = window.ENV.ApplicationParams;
+
 var App = Ember.Application.extend({
-  LOG_ACTIVE_GENERATION: true,
-  LOG_MODULE_RESOLVER: true,
-  LOG_TRANSITIONS: true,
-  LOG_TRANSITIONS_INTERNAL: true,
-  LOG_VIEW_LOOKUPS: true,
-  modulePrefix: 'appkit', // TODO: loaded via config
+  LOG_ACTIVE_GENERATION: params.LOG_ACTIVE_GENERATION,
+  LOG_MODULE_RESOLVER: params.LOG_MODULE_RESOLVER,
+  LOG_TRANSITIONS: params.LOG_TRANSITIONS,
+  LOG_TRANSITIONS_INTERNAL: params.LOG_TRANSITIONS_INTERNAL,
+  LOG_VIEW_LOOKUPS: params.LOG_VIEW_LOOKUPS,
+  modulePrefix: params.modulePrefix,
+  podModulePrefix: params.podModulePrefix,
   Resolver: Resolver['default']
 });
 
