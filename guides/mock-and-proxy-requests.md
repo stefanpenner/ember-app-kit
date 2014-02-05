@@ -53,10 +53,12 @@ properties in your `package.json`:
 
 {% highlight js %}
   APIMethod: "proxy",
-  proxyURL: "http://apiserver.dev:3000"
+  proxyURL: "http://apiserver.dev:3000",
+  proxyPath: "/api"
 {% endhighlight %}
 
-This proxies all requests for a URL starting with `/api` to the proxy server.
+This proxies all requests for a URL starting with `proxyPath` to the proxy server.
+`proxyPath` defaults to `/api` when the option is not set.
 
 So the request made in the `model` hook is forwarded to
 `http://apiserver.dev:3000/api/posts`:
