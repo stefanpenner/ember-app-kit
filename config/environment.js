@@ -8,3 +8,7 @@
 // window.ENV = {FEATURES: {'with-controller': true}};
 
 window.ENV = {};
+window.ENV.ApplicationParams = {
+  modulePrefix: 'appkit',
+  podModulePrefix: 'appkit/pods'
+}
