@@ -40,7 +40,7 @@ Your dependencies might look something like this
   "grunt-usemin": "~0.1.12",
   "grunt-rev": "~0.1.0",
   "grunt-ember-templates": "~0.4.17",
-  "grunt-karma": "~0.5",
+  "grunt-contrib-testem": "~0.5.14",
   "grunt-contrib-less": "~0.8.2"
 },
 {% endhighlight %}

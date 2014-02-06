@@ -42,8 +42,8 @@ to explicitly include a module, it's only an `import` statement away.
 
 All apps built with EAK are preconfigured to use [QUnit](http://qunitjs.com/),
 the [Ember Testing](http://emberjs.com/guides/testing/integration/) package, and
-the [Karma](http://karma-runner.github.io/0.10/index.html) test runner. These
-tools, along with the same module system as your application, make both unit and
+the [Testem](https://github.com/airportyh/testem) test runner. These tools,
+along with the same module system as your application, make both unit and
 integration tests a breeze to write.
 
 ### Dependency Management

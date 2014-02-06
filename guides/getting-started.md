@@ -84,7 +84,7 @@ File/Folder      | Purpose |
 `.travis.yml`    | [Travis CI](https://travis-ci.org/) configuration. See [Testing with Karma](testing.html). |
 `Gruntfile.js`   | Defines the various multitasks EAK uses to build. See [Asset Compilation](asset-compilation.html). |
 `bower.json`     | Bower configuration and dependency list. See [Managing Dependencies](dependencies.html). |
-`karma.conf.js`  | Karma configuration. See [Testing with Karma](testing.html). |
+`testem.json`    | Testem configuration. See [Testing with Testem](testing.html). |
 `package.json`   | NPM configuration. Mainly used to list the dependencies needed for asset compilation. |
 
 ##### Layout within app/
