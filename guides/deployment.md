@@ -69,3 +69,11 @@ travis setup heroku
 {% endhighlight %}
 
 Keep in mind that the above command has to run in your project directory, so it can modify the .travis.yml for you.
+
+### Building
+
+`grunt build:dist` builds a minified, production-ready version of your application to `dist/`. After building, you can preview this version with `grunt server:dist`.
+
+By default, `build:dist` will minify and uniquely stamp `app.css`, `vendor.css`, your JS vendor dependencies, and your built `app.js` and `templates.js`. This task uses [grunt-usemin](https://github.com/yeoman/grunt-usemin) and [grunt-rev](https://github.com/cbas/grunt-rev). See their documentation, as well as their task configurations and `public/index.html`, for more information on customizing their behavior.
+
+If you use Amazon S3 for hosting your assets, you may want to look into [grunt-s3](https://github.com/pifantastic/grunt-s3) for deploying your built application.
