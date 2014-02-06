@@ -78,6 +78,23 @@ var PostsNewController = Ember.Controller.extend();
 export default PostsNewController;
 {% endhighlight %}
 
+You cannot use paths containing slashes in your templates because Handlebars will translate them back to dots. Simply create an alias like this:
+
+{% highlight sh %}
+// controller/posts.js
+var IndexController = Ember.Controller.extend({
+    needs: ['posts/details'],
+    postsDetails: Ember.computed.alias('controllers.posts/details')
+});
+
+export default IndexController;
+{% raw %}
+// templates/posts.hbs
+// because {{controllers.posts/details.count}} does not work
+{{postsDetails.count}} 
+{% endraw %}
+{% endhighlight %}
+
 If your filename has an underscore in it, we can reference it using the following technique:
 
 {% highlight sh %}
