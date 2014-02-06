@@ -14,7 +14,7 @@ Yes!
  * [Beane Counter UI](https://github.com/stefanpenner/beane-counter-ui/) -
  * [Bugzilla Ember](https://github.com/ebryn/bugzilla-ember) - based on an older version of EAK
  * [Glazier](https://github.com/yapplabs/glazier) - the original EAK app although EAK is now slightly different
- * [DasHub] (https://github.com/bradoyler/dashub) - a heads-up for agile teams using github issues - from the readme file
+ * [DasHub](https://github.com/bradoyler/dashub) - a heads-up for agile teams using github issues - from the readme file
 
 
 ### How do I update Ember App Kit?
