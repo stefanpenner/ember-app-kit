@@ -119,8 +119,11 @@ export function moduleForModel(name, description, callbacks) {
 }
 
 export function moduleForComponent(name, description, callbacks) {
-  // just a spike...
+  callbacks = callbacks || {};
+  callbacks.needs = callbacks.needs || [];
+  callbacks.needs.push('template:components/' + name);
   moduleFor('component:' + name, description, callbacks, function(container, context) {
+    container.injection('component:' + name, 'template', 'template:components/' + name);
 
     context.__setup_properties__.$ = function(selector) {
       var view = Ember.run(function(){
