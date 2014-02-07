@@ -55,7 +55,7 @@ export function moduleFor(fullName, description, callbacks, delegate) {
     }
   };
 
-  module(description, _callbacks);
+  module(description || fullName, _callbacks);
 }
 
 // allow arbitrary named factories, like rspec let
