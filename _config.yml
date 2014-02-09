@@ -9,7 +9,7 @@ guides:
     page: "/guides/using-modules.html"
   - name: "Asset Compilation"
     page: "/guides/asset-compilation.html"
-  - name: "Testing with Karma"
+  - name: "Testing with Testem"
     page: "/guides/testing.html"
   - name: "Managing Dependencies"
     page: "/guides/dependencies.html"

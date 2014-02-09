@@ -4,15 +4,25 @@ title: "Getting Started"
 permalink: getting-started.html
 ---
 
-While Ember App Kit is powerful and easy once you get the hang of it, getting started with it isn't the most intuitive process for most developers. This guide will ease you into developing your application using EAK.
+While Ember App Kit is powerful and easy once you get the hang of it, getting
+started with it isn't the most intuitive process for most developers. This guide
+will ease you into developing your application using EAK.
 
 ### Installing
 
-The easiest way to create a new project with Ember App Kit is to simply [download it as a zip](https://github.com/stefanpenner/ember-app-kit/archive/master.zip). You can also `git clone` the repo, though you'll want to `rm -r .git` to remove its Git history.
+The easiest way to create a new project with Ember App Kit is to simply
+[download it as a zip](https://github.com/stefanpenner/ember-app-kit/archive/master.zip).
+You can also `git clone` the repo, though you'll want to `rm -r .git` to remove
+its Git history.
 
-Once you have the template, you'll need to install its dependencies. Ember App Kit's primary build tool is [Grunt](http://gruntjs.com), a build tool written in Node.js. If you don't already have Node installed, you can get it from [nodejs.org](http://nodejs.org/) or your package manager of choice (including [Homebrew](http://brew.sh/) on OSX).
+Once you have the template, you'll need to install its dependencies. Ember App
+Kit's primary build tool is [Grunt](http://gruntjs.com), a build tool written in
+Node.js. If you don't already have Node installed, you can get it from
+[nodejs.org](http://nodejs.org/) or your package manager of choice (including
+[Homebrew](http://brew.sh/) on OSX).
 
-Once you've installed Node, you'll need to install the Grunt command-line tool globally with:
+Once you've installed Node, you'll need to install the Grunt command-line tool
+globally with:
 
 {% highlight sh %}
 npm install -g grunt-cli
@@ -20,7 +30,9 @@ npm install -g grunt-cli
 
 This will give you access to the `grunt` command-line runner.
 
-You'll need to install [Bower](http://bower.io), a package manager that keeps your front-end dependencies (including JQuery, Ember, and QUnit) up to date. This is as easy as running:
+You'll need to install [Bower](http://bower.io), a package manager that keeps
+your front-end dependencies (including JQuery, Ember, and QUnit) up to date.
+This is as easy as running:
 
 {% highlight sh %}
 npm install -g bower
@@ -34,9 +46,13 @@ Next, in the folder for your new project, run:
 npm install
 {% endhighlight %}
 
-This will install the dependencies Grunt relies on to build. These dependencies are primarily various Grunt tasks that do everything from module compilation to test running.
+This will install the dependencies Grunt relies on to build. These dependencies
+are primarily various Grunt tasks that do everything from module compilation to
+test running.
 
-The `npm install`'s `postinstall` hook runs for you `bower install` to install front-end dependencies. For more information on Bower, see the guide on [managing dependencies](dependencies.html).
+The `npm install`'s `postinstall` hook runs for you `bower install` to install
+front-end dependencies. For more information on Bower, see the guide on
+[managing dependencies](dependencies.html).
 
 Once your dependencies are installed, you should be able to simply run:
 
@@ -44,13 +60,15 @@ Once your dependencies are installed, you should be able to simply run:
 grunt server
 {% endhighlight %}
 
-and navigate to [http://0.0.0.0:8000](http://0.0.0.0:8000) to see your new app in action.
+and navigate to [http://0.0.0.0:8000](http://0.0.0.0:8000) to see your new app
+in action.
 
 ### Development using Ember App Kit
 
 #### Folder Layout
 
-Ember App Kit comes with lots of boilerplate, which can be daunting to navigate at first. Here's the layout of the application, which we'll explore in further detail throughout the guides.
+Ember App Kit comes with lots of boilerplate, which can be daunting to navigate
+at first. Here's the layout of the application, which we'll explore in further detail throughout the guides.
 
 File/Folder      | Purpose |
 -----------------|---------|
@@ -66,7 +84,7 @@ File/Folder      | Purpose |
 `.travis.yml`    | [Travis CI](https://travis-ci.org/) configuration. See [Testing with Karma](testing.html). |
 `Gruntfile.js`   | Defines the various multitasks EAK uses to build. See [Asset Compilation](asset-compilation.html). |
 `bower.json`     | Bower configuration and dependency list. See [Managing Dependencies](dependencies.html). |
-`karma.conf.js`  | Karma configuration. See [Testing with Karma](testing.html). |
+`testem.json`    | Testem configuration. See [Testing with Testem](testing.html). |
 `package.json`   | NPM configuration. Mainly used to list the dependencies needed for asset compilation. |
 
 ##### Layout within app/
@@ -82,19 +100,28 @@ File/Folder                              | Description |
 
 #### Using Grunt
 
-The development workflow for EAK is centered around Grunt, the build tool mentioned above. Grunt is simply a *task runner*, that is, it runs various tasks to handle your build pipeline. Unlike a build tool like Rake, which is usually used to write custom tasks configured for an application, Grunt primarily uses generic tasks that are configured through simple, generic JSON configuration.
+The development workflow for EAK is centered around Grunt, the build tool
+mentioned above. Grunt is simply a *task runner*, that is, it runs various tasks
+to handle your build pipeline. Unlike a build tool like Rake, which is usually
+used to write custom tasks configured for an application, Grunt primarily uses
+generic tasks that are configured through simple, generic JSON configuration.
 
-If you'd like to peek into the innards of Ember App Kit's build pipeline, you can pop open the `Gruntfile.js` to see the exact order of execution in each task, along with the individual task configuration in the `tasks/options` folder. To get started, though, you only need to know a few easy commands:
+If you'd like to peek into the innards of Ember App Kit's build pipeline, you
+can pop open the `Gruntfile.js` to see the exact order of execution in each task,
+along with the individual task configuration in the `tasks/options` folder. To
+get started, though, you only need to know a few easy commands:
 
-* `grunt` - The default command builds your application (in *debug* mode) and runs its tests.
-
-* `grunt server` - As you saw above, this command builds your application (in *debug* mode) and serves it. This task also will *watch* your application for changes, and will rebuild any time you change a file.
-
+* `grunt` - The default command builds your application (in *debug* mode) and
+runs its tests.
+* `grunt server` - As you saw above, this command builds your application (in
+*debug* mode) and serves it. This task also will *watch* your application for
+changes, and will rebuild any time you change a file.
 * `grunt test:server` - Same as above, but also runs all tests as files change.
-
-* `grunt dist` - Builds your application once in *dist* mode. This means your assets will be minified and version-stamped. This task also builds to the `dist/` folder, which can be deployed to a static server in production.
-
-* `grunt server:dist` - Same as above, but also launches a preview server for your optimized output.
+* `grunt dist` - Builds your application once in *dist* mode. This means your
+assets will be minified and version-stamped. This task also builds to the
+`dist/` folder, which can be deployed to a static server in production.
+* `grunt server:dist` - Same as above, but also launches a preview server for
+your optimized output.
 
 #### Testing your application
 
