@@ -6,6 +6,91 @@ permalink: naming-conventions.html
 ### Naming Conventions
 When using Ember App Kit its important to keep in mind that the Resolver changes some of the naming conventions you would typically use out of the box with Ember, Ember Data and Handlebars. In this section we review some of these naming conventions.
 
+### Module Examples
+
+##### Adapters
+
+An adapter the traditional Ember way:
+
+{% highlight js %}
+App.ApplicationAdapter = DS.RESTAdapter.extend({ ... });
+{% endhighlight %}
+
+Would be declared like so in `app/adapters/application.js`:
+
+{% highlight js %}
+export default DS.RESTAdapter.extend({ ... });
+{% endhighlight %}
+
+##### Components
+
+A component declared in EAK, `app/components/time-input.js`:
+
+{% highlight js %}
+export default Ember.TextField.extend({ ... });
+{% endhighlight %}
+
+##### Controllers
+
+ObjectController in `app/controllers/stop_watch.js`:
+
+{% highlight js %}
+export default Ember.ObjectController.extend({ ... });
+{% endhighlight %}
+
+And if it's a route controller, we can declare child controllers like such: `app/controllers/test/index.js`.
+
+##### Helpers
+
+Helpers just the same, `app/helpers/format_time.js`:
+
+{% highlight js %}
+export default Ember.Handlebars.makeBoundHelper( function() { ... } );
+{% endhighlight %}
+
+##### Models
+
+Models are pretty straightforward, `app/models/observation.js`:
+
+{% highlight js %}
+export default DS.Model.extend({ ... });
+{% endhighlight %}
+
+##### Routes
+
+A route, `app/routes/timer.js`:
+
+{% highlight js %}
+export default Ember.Route.extend({ ... });
+{% endhighlight %}
+
+And it's children, `app/routes/timer/index.js`, or as defined in your resource: `app/routes/timer/record.js`.
+
+##### Serializers
+
+A custom serializer for our model, `app/serializers/observation.js`:
+
+{% highlight js %}
+export default DS.RESTSerializer.extend({ ... });
+{% endhighlight %}
+
+##### Transforms
+
+Or a customer attribute for our model, `app/transforms/time.js`:
+
+{% highlight js %}
+export default DS.Transforms.extend({ ... });
+{% endhighlight %}
+
+##### Views
+
+And views, which can be referenced in sub-directories, but have no inheritance. 
+`app/views/stop-watch.js`:
+
+{% highlight js %}
+export default Ember.View.extend({ ... });
+{% endhighlight %}
+
 ### Views and Templates
 
 Let's say we were using Ember out of the box with the following view:
