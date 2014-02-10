@@ -61,6 +61,19 @@ when doing so manually; see how the module `foo-model` is assigned to variable
 
 Only the `default` export is supported, at the moment.
 
+### Module Directory Naming Structure
+
+Folder                                   | Description | 
+-----------------------------------------|-------------|
+`app/adapters/`                          | Adapters for your application, where `adaptername.js` is the correct naming convention. |
+`app/components/`                        | Components for your application, where `component-name.js` is the correct naming convention. Remember, components are dasherized. |
+`app/controllers/`                       | Controllers for your application, where `controller.js` is the controller name. Child controllers are defined in sub-directories, parentcontroller/childcontroller.js |
+`app/helpers/`                           | Helpers, where `helpername.js`. Remember that you must register your helpers. |
+`app/models/`                            | Models, where `modelname.js`. |
+`app/routes/`                            | Routes for your application, where `route.js` is the controller name. Child routes are defined in sub-directories, `parentroute/childroute.js`. |
+`app/serializers/`                       | Serializers for your models or adapter, where `modelname.js` or `adaptername.js`. |
+`app/transforms/`                        | Transforms for custom Ember Data attributes, where `attributename.js` is the new attribute. |
+`app/views/`                             | Views for your application, can contain sub-directories for organization, where `viewname.js` is the view.
 
 ### Resolving from template helpers
 
