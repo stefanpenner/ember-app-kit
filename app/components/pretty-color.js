@@ -3,5 +3,10 @@ export default Ember.Component.extend({
   attributeBindings: ['style'],
   style: function(){
     return 'color: ' + this.get('name') + ';';
-  }.property('name')
+  }.property('name'),
+  actions:{
+    changeName: function(color) {
+      this.set('name', color);
+    }
+  }
 });

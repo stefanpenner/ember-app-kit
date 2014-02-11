@@ -35,3 +35,31 @@ test("template", function(){
 
   equal($.trim(this.$().text()), 'Pretty Color: green');
 });
+
+test("has button", function() {
+  equal(this.$().find('button').length, 1);
+});
+
+test("changeName action", function() {
+  var component = this.subject();
+
+  expect(2);
+
+  Ember.run(function(){
+    component.send('changeName', 'blue');
+  });
+
+  equal(component.get('name'), 'blue');
+  equal($.trim(this.$().text()), 'Pretty Color: blue');
+});
+
+test("button changes color", function() {
+  var component = this.subject();
+
+  expect(2);
+
+  this.$().find('button').trigger('click');
+
+  equal(component.get('name'), 'blue');
+  equal($.trim(this.$().text()), 'Pretty Color: blue');
+});
