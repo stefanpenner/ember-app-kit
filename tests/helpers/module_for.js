@@ -46,6 +46,7 @@ export function moduleFor(fullName, description, callbacks, delegate) {
       Ember.run(function(){
         container.destroy();
         // destroy all cached variables
+        container.reset();
       });
 
       Ember.$('#ember-testing').empty();
