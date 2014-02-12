@@ -114,3 +114,10 @@ The file name (`example.js`) and the name of the variable it's been imported
 into (`exampleHelper`) could have been anything.
 
 
+
+###	Using global variables or external scripts
+
+If you want to use external libraries that write to a global namespace (e.g.
+[moment.js](http://momentjs.com/)), you need to add those to the `prefdef`
+section of your project's `.jshintrc` file. If you use the lib in tests, need
+to add it to your `tests/.jshintrc` file, too.
