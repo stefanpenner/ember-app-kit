@@ -7,7 +7,19 @@ var define, requireModule, require, requirejs;
     registry[name] = { deps: deps, callback: callback };
   };
 
-  requirejs = require = requireModule = function(name) {
+  requirejs = require = requireModule = function(name, requiresStack) {
+    // detect circular dependencies
+    if (typeof requiresStack !== 'undefined' && requiresStack !== null) {
+      if (requiresStack.indexOf(name) > -1) {
+        Ember.warn('A circular dependency on ' + name + ' has been detected.');
+        return { 'default': {} };
+      } else {
+        requiresStack.push(name);
+      }
+    } else {
+      requiresStack = [name];
+    }
+
     if (seen.hasOwnProperty(name)) { return seen[name]; }
 
     if (!registry[name]) {
@@ -24,7 +36,7 @@ var define, requireModule, require, requirejs;
       if (deps[i] === 'exports') {
         reified.push(exports = {});
       } else {
-        reified.push(requireModule(resolve(deps[i])));
+        reified.push(requireModule(resolve(deps[i]), requiresStack));
       }
     }
 
