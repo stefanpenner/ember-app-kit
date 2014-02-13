@@ -6,6 +6,8 @@ permalink: naming-conventions.html
 ### Naming Conventions
 When using Ember App Kit its important to keep in mind that the Resolver changes some of the naming conventions you would typically use out of the box with Ember, Ember Data and Handlebars. In this section we review some of these naming conventions.
 
+Rule 1. dasherize!
+
 ### Views and Templates
 
 Let's say we were using Ember out of the box with the following view:
@@ -27,9 +29,7 @@ This is great. However, Ember App Kit customizes the default Ember Resolver to h
 In EAK our view would be declared like so:
 
 {% highlight sh %}
-var UserView = Ember.View.extend({});
-
-export default UserView;
+export default Ember.View.extend({});
 {% endhighlight %}
 
 We can then embed our view using the following convention:
@@ -50,20 +50,16 @@ It is important to keep in mind that the Resolver uses filenames to create the a
 
 {% highlight sh %}
 // models/user.js
-var User = Ember.Model.extend();
-
-export default User;
+export default Ember.Model.extend();
 {% endhighlight %}
 
-#### Underscore separated file names are recommended
+#### dasherized file names are recommended
 
 You may want to name your files according to their function, this is easily accomplished:
 
 {% highlight sh %}
-// models/user_model.js
-var UserModel = Ember.Model.extend();
-
-export default UserModel;
+// models/user-model.js
+export default Ember.Model.extend();
 {% endhighlight %}
 
 
@@ -73,21 +69,17 @@ If you prefer to nest your files to better manage your application, you can easi
 
 {% highlight sh %}
 // controller/posts/new.js -> controller:posts/new
-var PostsNewController = Ember.Controller.extend();
-
-export default PostsNewController;
+export default Ember.Controller.extend();
 {% endhighlight %}
 
 You cannot use paths containing slashes in your templates because Handlebars will translate them back to dots. Simply create an alias like this:
 
 {% highlight sh %}
 // controller/posts.js
-var IndexController = Ember.Controller.extend({
+export default Ember.Controller.extend({
     needs: ['posts/details'],
     postsDetails: Ember.computed.alias('controllers.posts/details')
 });
-
-export default IndexController;
 {% raw %}
 // templates/posts.hbs
 // because {{controllers.posts/details.count}} does not work
@@ -98,8 +90,6 @@ export default IndexController;
 If your filename has an underscore in it, we can reference it using the following technique:
 
 {% highlight sh %}
-// controller/posts/comment_thread.js -> controller:posts/comment-thread
-var PostsCommentThreadController = Ember.Controller.extend();
-
-export default PostsCommentThreadController;
+// controller/posts/comment-thread.js -> controller:posts/comment-thread
+epxport default Ember.Controller.extend();
 {% endhighlight %}
