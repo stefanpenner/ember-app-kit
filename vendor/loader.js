@@ -1,7 +1,8 @@
 var define, requireModule, require, requirejs;
 
 (function() {
-  var registry = {}, seen = {};
+  var registry = {}, seen = {}, state = {};
+  var FAILED = false;
 
   define = function(name, deps, callback) {
     registry[name] = {
@@ -11,29 +12,41 @@ var define, requireModule, require, requirejs;
   };
 
   requirejs = require = requireModule = function(name) {
-    if (seen.hasOwnProperty(name)) { return seen[name]; }
+    if (state[name] !== FAILED &&
+        seen.hasOwnProperty(name)) {
+      return seen[name];
+    }
 
     if (!registry.hasOwnProperty(name)) {
       throw new Error('Could not find module ' + name);
     }
 
-    var mod = registry[name],
-        deps = mod.deps,
-        callback = mod.callback,
-        reified = [],
-        exports;
+    var mod = registry[name];
+    var deps = mod.deps;
+    var callback = mod.callback;
+    var reified = [];
+    var exports;
+    var value;
+    var loaded = false;
 
-    seen[name] = { };
+    seen[name] = { }; // enable run-time cycles
 
-    for (var i=0, l=deps.length; i<l; i++) {
-      if (deps[i] === 'exports') {
-        reified.push(exports = {});
-      } else {
-        reified.push(requireModule(resolve(deps[i], name)));
+    try {
+      for (var i=0, l=deps.length; i<l; i++) {
+        if (deps[i] === 'exports') {
+          reified.push(exports = {});
+        } else {
+          reified.push(requireModule(resolve(deps[i], name)));
+        }
+      }
+
+      value = callback.apply(this, reified);
+      loaded = true;
+    } finally {
+      if (!loaded) {
+        state[name] = FAILED;
       }
     }
-
-    var value = callback.apply(this, reified);
     return seen[name] = exports || value;
   };
 
