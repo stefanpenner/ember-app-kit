@@ -23,6 +23,8 @@ var define, requireModule, require, requirejs;
         reified = [],
         exports;
 
+    seen[name] = { };
+
     for (var i=0, l=deps.length; i<l; i++) {
       if (deps[i] === 'exports') {
         reified.push(exports = {});
