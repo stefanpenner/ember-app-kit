@@ -99,7 +99,12 @@
 
   <!-- @if tests=false -->
   <script>
-    window.App = require('appkit/app')["default"].create();
+    (function(require, window){
+      var fn = require('appkit/app')["default"]["create"];
+      if(typeof fn === 'function') {
+          window.App = fn();
+      }
+    }(require, window));
   </script>
   <!-- @endif -->
 
