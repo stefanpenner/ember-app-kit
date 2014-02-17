@@ -1,4 +1,4 @@
-import { test , moduleForComponent } from 'appkit/tests/helpers/module_for';
+import { test , moduleForComponent } from 'appkit/tests/helpers/module-for';
 
 moduleForComponent('pretty-color');
 

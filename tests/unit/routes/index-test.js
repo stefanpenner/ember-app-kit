@@ -1,4 +1,4 @@
-import { test , moduleFor } from 'appkit/tests/helpers/module_for';
+import { test , moduleFor } from 'appkit/tests/helpers/module-for';
 
 import Index from 'appkit/routes/index';
 
