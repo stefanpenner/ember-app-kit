@@ -100,6 +100,25 @@ export function test(testName, callback) {
   QUnit.test(testName, wrapper);
 }
 
+export function asyncTest(testName, callback) {
+  var context = __testing_context__; // save refence
+
+  function wrapper() {
+    var result = callback.call(context);
+
+    function failTestOnPromiseRejection(reason) {
+      ok(false, reason);
+    }
+
+    Ember.run(function(){
+      stop();
+      Ember.RSVP.Promise.cast(result)['catch'](failTestOnPromiseRejection)['finally'](start);
+    });
+  }
+
+  QUnit.asyncTest(testName, wrapper);
+}
+
 export function moduleForModel(name, description, callbacks) {
   moduleFor('model:' + name, description, callbacks, function(container, context) {
     // custom model specific awesomeness
