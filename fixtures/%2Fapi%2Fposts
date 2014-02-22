@@ -1,0 +1,22 @@
+{
+   "posts":[
+      {
+         "id":"1",
+         "title":"blog title 1",
+         "body":"This is blog post 1.",
+         "comments":[
+            "1",
+            "2"
+         ]
+      },
+      {
+         "id":"2",
+         "title":"blog title 2",
+         "body":"This is blog post 2.",
+         "comments":[
+            "3",
+            "4"
+         ]
+      }
+   ]
+}

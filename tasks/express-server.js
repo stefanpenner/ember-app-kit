@@ -3,40 +3,27 @@ module.exports = function(grunt) {
       lockFile = require('lockfile'),
       Helpers = require('./helpers'),
       fs = require('fs'),
-      path = require('path'),
-      request = require('request');
+      path = require('path');
 
   /**
   Task for serving the static files.
 
   Note: The expressServer:debug task looks for files in multiple directories.
   */
-  grunt.registerTask('expressServer', function(target, proxyMethodToUse) {
-    // Load namespace module before creating the server
-    require('express-namespace');
+  grunt.registerTask('expressServer', function(target) {
 
     var app = express(),
         done = this.async(),
-        proxyMethod = proxyMethodToUse || grunt.config('express-server.options.APIMethod');
+        plugins = grunt.config('express-server.options.plugins') || [];
 
     app.use(lock);
     app.use(express.compress());
 
-    if (proxyMethod === 'stub') {
-      grunt.log.writeln('Using API Stub');
-
-      // Load API stub routes
-      app.use(express.json());
-      app.use(express.urlencoded());
-      require('../api-stub/routes')(app);
-    } else if (proxyMethod === 'proxy') {
-      var proxyURL = grunt.config('express-server.options.proxyURL'),
-          proxyPath = grunt.config('express-server.options.proxyPath') || '/api';
-      grunt.log.writeln('Proxying API requests matching ' + proxyPath + '/* to: ' + proxyURL);
-
-      // Use API proxy
-      app.all(proxyPath + '/*', passThrough(proxyURL));
-    }
+    plugins.forEach(function(plugin){
+      if (typeof plugin.setup === 'function') {
+        plugin.setup(app, plugin.options);
+      }
+    });
 
     if (target === 'debug') {
       // For `expressServer:debug`
@@ -113,12 +100,6 @@ module.exports = function(grunt) {
           grunt.verbose.ok('Served: ' + filePath);
         });
       });
-    };
-  }
-
-  function passThrough(target) {
-    return function(req, res) {
-      req.pipe(request(target+req.url)).pipe(res);
     };
   }
 };
