@@ -6,9 +6,9 @@ permalink: naming-conventions.html
 ### Naming Conventions
 When using Ember App Kit its important to keep in mind that the Resolver changes some of the naming conventions you would typically use out of the box with Ember, Ember Data and Handlebars. In this section we review some of these naming conventions.
 
-Rule 1. dasherize!
+[TL;DR](http://www.urbandictionary.com/define.php?term=tl%3Bdr) Dasherize file and folder names!
 
-### Views and Templates
+### Example: Views and Templates
 
 Let's say we were using Ember out of the box with the following view:
 
@@ -29,6 +29,7 @@ This is great. However, Ember App Kit customizes the default Ember Resolver to h
 In EAK our view would be declared like so:
 
 {% highlight sh %}
+// app/views/user.js
 export default Ember.View.extend({});
 {% endhighlight %}
 
@@ -53,7 +54,7 @@ It is important to keep in mind that the Resolver uses filenames to create the a
 export default Ember.Model.extend();
 {% endhighlight %}
 
-#### dasherized file names are recommended
+#### Dasherized file and folder names are recommended
 
 You may want to name your files according to their function, this is easily accomplished:
 
@@ -63,7 +64,7 @@ export default Ember.Model.extend();
 {% endhighlight %}
 
 
-#### Nested directories can be referenced
+#### Nested directories
 
 If you prefer to nest your files to better manage your application, you can easily do so.
 
@@ -83,7 +84,7 @@ export default Ember.Controller.extend({
 {% raw %}
 // templates/posts.hbs
 // because {{controllers.posts/details.count}} does not work
-{{postsDetails.count}} 
+{{postsDetails.count}}
 {% endraw %}
 {% endhighlight %}
 
@@ -93,3 +94,14 @@ If your filename has an underscore in it, we can reference it using the followin
 // controller/posts/comment-thread.js -> controller:posts/comment-thread
 epxport default Ember.Controller.extend();
 {% endhighlight %}
+
+### Overview
+- Dashes
+  - file names
+  - folder names
+  - html tags/ember components
+  - CSS classes
+  - URLs
+- camelCase
+  - JavaScript
+  - JSON
