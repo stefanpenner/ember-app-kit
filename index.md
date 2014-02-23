@@ -4,16 +4,18 @@ title: "Overview"
 permalink: index.html
 ---
 
-Ember App Kit (EAK) is a robust starter kit for developing applications in
-[Ember.js](http://emberjs.com). EAK makes it easy to develop, build, test, and
-deploy applications independent of any back-end build process.
+Ember App Kit (EAK) lets you develop, build, and test ambitious
+[Ember.js](http://emberjs.com) applications.
+
+EAK is a community effort to come up with the ideal project structure for Ember.js projects.
+Its [Grunt](http://gruntjs.com) based asset pipeline lets you get real work done today.
+However, the goal is to eventually replace EAK with
+[ember-cli](https://github.com/stefanpenner/ember-cli), a faster, more user-friendly
+command line tool which is currently under development.
 
 ### Asset Compilation
 
-Ember App Kit is built around [Grunt](http://gruntjs.com), an extremely
-easy-to-use task runner built in Node.js. Grunt is the *de facto* build tool of
-the front-end world, and EAK uses its huge ecosystem of tasks for compiling all
-kinds of assets, including:
+Ember App Kit has support for:
 
 * Handlebars templates (or [Emblem](http://emblemjs.com/))
 * [LESS](http://lesscss.org/) (or [SASS](http://sass-lang.com/), or
