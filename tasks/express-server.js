@@ -41,7 +41,7 @@ module.exports = function(grunt) {
     if (target === 'debug') {
       // For `expressServer:debug`
 
-      // Add livereload middlware after lock middleware if enabled
+      // Add livereload middleware after lock middleware if enabled
       if (Helpers.isPackageAvailable("connect-livereload")) {
         app.use(require("connect-livereload")());
       }
