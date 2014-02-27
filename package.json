@@ -49,6 +49,7 @@
     "loom-generators-ember-appkit": "~1.0.2",
     "originate": "~0.1.5",
     "loom": "~3.1.2",
-    "connect-livereload": "~0.3.1"
+    "connect-livereload": "~0.3.1",
+    "grunt-es6-import-validate": "~0.0.4"
   }
 }
