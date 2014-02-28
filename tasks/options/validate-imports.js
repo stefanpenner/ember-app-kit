@@ -3,10 +3,10 @@ var grunt = require('grunt');
 module.exports = {
   options: {
     whitelist: {
-      resolver: ['default']
+      'ember/resolver': ['default']
     }
   },
-  
+
   app: {
     options: {
       moduleName: function (name) {
