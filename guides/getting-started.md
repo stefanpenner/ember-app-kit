@@ -123,10 +123,4 @@ assets will be minified and version-stamped. This task also builds to the
 * `grunt server:dist` - Same as above, but also launches a preview server for
 your optimized output.
 
-#### Testing your application
-
-#### Writing modules
-
-### Next Steps
-
 *Special thanks to the [Rails Getting Started guide](http://guides.rubyonrails.org/getting_started.html) for inspiration, as well as blog posts by [Matthew Beale](http://blog.safaribooksonline.com/2013/09/18/ember-app-kit/) and [Taras Mankovski](http://embersherpa.com/articles/introduction-to-ember-app-kit/).*

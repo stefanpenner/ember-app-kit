@@ -27,7 +27,6 @@ var Todo = DS.Model.extend({
 export default Todo;
 {% endhighlight %}
 
-
 > Please note that filenames should be all lowercase - this is used by the
 *Resolver* automatically.
 
@@ -40,20 +39,16 @@ Adapters can be placed at `/app/adapters/type.js`:
 
 {% highlight js %}
 // adapters/post.js
-var PostAdapter = DS.RESTAdapter.extend({
+export default DS.RESTAdapter.extend({
 });
-
-export default PostAdapter;
 {% endhighlight %}
 
 And its serializer can be placed in `/app/serializers/type.js`:
 
 {% highlight js %}
 // serializers/post.js
-var PostSerializer = DS.RESTSerializer.extend({
+export default DS.RESTSerializer.extend({
 });
-
-export default PostSerializer;
 {% endhighlight %}
 
 Application-level (default) adapters and serializers should be named

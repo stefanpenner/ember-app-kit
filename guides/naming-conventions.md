@@ -16,84 +16,152 @@ An adapter the traditional Ember way:
 App.ApplicationAdapter = DS.RESTAdapter.extend({ ... });
 {% endhighlight %}
 
-Would be declared like so in `app/adapters/application.js`:
+Would be declared like so in EAK:
 
 {% highlight js %}
+// app/adapters/application.js
 export default DS.RESTAdapter.extend({ ... });
 {% endhighlight %}
 
 ##### Components
 
-A component declared in EAK, `app/components/time-input.js`:
-
 {% highlight js %}
+// app/components/time-input.js
 export default Ember.TextField.extend({ ... });
 {% endhighlight %}
 
 ##### Controllers
 
-ObjectController in `app/controllers/stop_watch.js`:
-
 {% highlight js %}
+// app/controllers/stop-watch.js
 export default Ember.ObjectController.extend({ ... });
 {% endhighlight %}
 
-And if it's a route controller, we can declare child controllers like such: `app/controllers/test/index.js`.
+And if it's a route controller, we can declare nested/child controllers like such: `app/controllers/test/index.js`.
 
 ##### Helpers
 
-Helpers just the same, `app/helpers/format_time.js`:
-
 {% highlight js %}
+// app/helpers/format-time.js
 export default Ember.Handlebars.makeBoundHelper( function() { ... } );
 {% endhighlight %}
 
 ##### Models
 
-Models are pretty straightforward, `app/models/observation.js`:
-
 {% highlight js %}
+// app/models/observation.js
 export default DS.Model.extend({ ... });
 {% endhighlight %}
 
 ##### Routes
 
-A route, `app/routes/timer.js`:
-
 {% highlight js %}
+// app/routes/timer.js
 export default Ember.Route.extend({ ... });
 {% endhighlight %}
 
-And it's children, `app/routes/timer/index.js`, or as defined in your resource: `app/routes/timer/record.js`.
+Nested routes as such: `app/routes/timer/index.js` or `app/routes/timer/record.js`.
 
 ##### Serializers
 
-A custom serializer for our model, `app/serializers/observation.js`:
+A custom serializer for our model..
 
 {% highlight js %}
+// app/serializers/observation.js
 export default DS.RESTSerializer.extend({ ... });
 {% endhighlight %}
 
 ##### Transforms
 
-Or a customer attribute for our model, `app/transforms/time.js`:
+Or a customer attribute for our model..
 
 {% highlight js %}
+// app/transforms/time.js
 export default DS.Transforms.extend({ ... });
 {% endhighlight %}
 
 ##### Views
 
-And views, which can be referenced in sub-directories, but have no inheritance.
-`app/views/stop-watch.js`:
-
 {% highlight js %}
+// app/index.hbs
+{% raw %}{{view 'stop-watch'}}{% endraw %}
+
+// app/views/stop-watch.js
 export default Ember.View.extend({ ... });
 {% endhighlight %}
 
-### Views and Templates
-=======
-[TL;DR](http://www.urbandictionary.com/define.php?term=tl%3Bdr) Dasherize file and folder names!
+And views, which can be referenced in sub-directories, but have no inheritance.
+
+{% highlight js %}
+// app/index.hbs
+{% raw %}{{view 'inputs/time-input'}}{% endraw %}
+
+// app/views/inputs/time-input.js
+export default Ember.TextField.extend({ ... });
+{% endhighlight %}
+
+### Filenames
+
+It is important to keep in mind that the Resolver uses filenames to create the associations correctly. This helps you by not having to namespace everything yourself. But there a couple of things you should know.
+
+##### Overview
+- Dashes
+  - file names
+  - folder names
+  - html tags/ember components
+  - CSS classes
+  - URLs
+- camelCase
+  - JavaScript
+  - JSON
+
+##### All filenames should be lowercased
+
+{% highlight sh %}
+// models/user.js
+export default Ember.Model.extend();
+{% endhighlight %}
+
+##### Dasherized file and folder names are recommended
+
+You may want to name your files according to their function, this is easily accomplished:
+
+{% highlight sh %}
+// models/user-model.js
+export default Ember.Model.extend();
+{% endhighlight %}
+
+
+##### Nested directories
+
+If you prefer to nest your files to better manage your application, you can easily do so.
+
+{% highlight sh %}
+// controller/posts/new.js -> controller:posts/new
+export default Ember.Controller.extend();
+{% endhighlight %}
+
+You cannot use paths containing slashes in your templates because Handlebars will translate them back to dots. Simply create an alias like this:
+
+{% highlight sh %}
+// controller/posts.js
+export default Ember.Controller.extend({
+    needs: ['posts/details'],
+    postsDetails: Ember.computed.alias('controllers.posts/details')
+});
+{% raw %}
+// templates/posts.hbs
+// because {{controllers.posts/details.count}} does not work
+{{postsDetails.count}}
+{% endraw %}
+{% endhighlight %}
+
+If your filename has an underscore in it, we can reference it using the following technique:
+
+{% highlight sh %}
+// controller/posts/comment-thread.js -> controller:posts/comment-thread
+epxport default Ember.Controller.extend();
+{% endhighlight %}
 
 ### Example: Views and Templates
 
@@ -129,66 +197,3 @@ We can then embed our view using the following convention:
 {% endhighlight %}
 
 > Please note that we did not namespace UserView. The resolver takes care of this for you. For more information about the default Ember resolver, check out the source [here](https://github.com/emberjs/ember.js/blob/master/packages/ember-application/lib/system/resolver.js).
-
-### Filenames
-
-It is important to keep in mind that the Resolver uses filenames to create the associations correctly. This helps you by not having to namespace everything yourself. But there a couple of things you should know.
-
-#### All filenames should be lowercased
-
-{% highlight sh %}
-// models/user.js
-export default Ember.Model.extend();
-{% endhighlight %}
-
-#### Dasherized file and folder names are recommended
-
-You may want to name your files according to their function, this is easily accomplished:
-
-{% highlight sh %}
-// models/user-model.js
-export default Ember.Model.extend();
-{% endhighlight %}
-
-
-#### Nested directories
-
-If you prefer to nest your files to better manage your application, you can easily do so.
-
-{% highlight sh %}
-// controller/posts/new.js -> controller:posts/new
-export default Ember.Controller.extend();
-{% endhighlight %}
-
-You cannot use paths containing slashes in your templates because Handlebars will translate them back to dots. Simply create an alias like this:
-
-{% highlight sh %}
-// controller/posts.js
-export default Ember.Controller.extend({
-    needs: ['posts/details'],
-    postsDetails: Ember.computed.alias('controllers.posts/details')
-});
-{% raw %}
-// templates/posts.hbs
-// because {{controllers.posts/details.count}} does not work
-{{postsDetails.count}}
-{% endraw %}
-{% endhighlight %}
-
-If your filename has an underscore in it, we can reference it using the following technique:
-
-{% highlight sh %}
-// controller/posts/comment-thread.js -> controller:posts/comment-thread
-epxport default Ember.Controller.extend();
-{% endhighlight %}
-
-### Overview
-- Dashes
-  - file names
-  - folder names
-  - html tags/ember components
-  - CSS classes
-  - URLs
-- camelCase
-  - JavaScript
-  - JSON
