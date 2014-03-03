@@ -84,7 +84,7 @@ export default DS.Transforms.extend({ ... });
 
 ##### Views
 
-And views, which can be referenced in sub-directories, but have no inheritance. 
+And views, which can be referenced in sub-directories, but have no inheritance.
 `app/views/stop-watch.js`:
 
 {% highlight js %}
@@ -92,6 +92,10 @@ export default Ember.View.extend({ ... });
 {% endhighlight %}
 
 ### Views and Templates
+=======
+[TL;DR](http://www.urbandictionary.com/define.php?term=tl%3Bdr) Dasherize file and folder names!
+
+### Example: Views and Templates
 
 Let's say we were using Ember out of the box with the following view:
 
@@ -112,9 +116,8 @@ This is great. However, Ember App Kit customizes the default Ember Resolver to h
 In EAK our view would be declared like so:
 
 {% highlight sh %}
-var UserView = Ember.View.extend({});
-
-export default UserView;
+// app/views/user.js
+export default Ember.View.extend({});
 {% endhighlight %}
 
 We can then embed our view using the following convention:
@@ -135,56 +138,57 @@ It is important to keep in mind that the Resolver uses filenames to create the a
 
 {% highlight sh %}
 // models/user.js
-var User = Ember.Model.extend();
-
-export default User;
+export default Ember.Model.extend();
 {% endhighlight %}
 
-#### Underscore separated file names are recommended
+#### Dasherized file and folder names are recommended
 
 You may want to name your files according to their function, this is easily accomplished:
 
 {% highlight sh %}
-// models/user_model.js
-var UserModel = Ember.Model.extend();
-
-export default UserModel;
+// models/user-model.js
+export default Ember.Model.extend();
 {% endhighlight %}
 
 
-#### Nested directories can be referenced
+#### Nested directories
 
 If you prefer to nest your files to better manage your application, you can easily do so.
 
 {% highlight sh %}
 // controller/posts/new.js -> controller:posts/new
-var PostsNewController = Ember.Controller.extend();
-
-export default PostsNewController;
+export default Ember.Controller.extend();
 {% endhighlight %}
 
 You cannot use paths containing slashes in your templates because Handlebars will translate them back to dots. Simply create an alias like this:
 
 {% highlight sh %}
 // controller/posts.js
-var IndexController = Ember.Controller.extend({
+export default Ember.Controller.extend({
     needs: ['posts/details'],
     postsDetails: Ember.computed.alias('controllers.posts/details')
 });
-
-export default IndexController;
 {% raw %}
 // templates/posts.hbs
 // because {{controllers.posts/details.count}} does not work
-{{postsDetails.count}} 
+{{postsDetails.count}}
 {% endraw %}
 {% endhighlight %}
 
 If your filename has an underscore in it, we can reference it using the following technique:
 
 {% highlight sh %}
-// controller/posts/comment_thread.js -> controller:posts/comment-thread
-var PostsCommentThreadController = Ember.Controller.extend();
-
-export default PostsCommentThreadController;
+// controller/posts/comment-thread.js -> controller:posts/comment-thread
+epxport default Ember.Controller.extend();
 {% endhighlight %}
+
+### Overview
+- Dashes
+  - file names
+  - folder names
+  - html tags/ember components
+  - CSS classes
+  - URLs
+- camelCase
+  - JavaScript
+  - JSON

@@ -127,3 +127,20 @@ The file name (`example.js`) and the name of the variable it's been imported
 into (`exampleHelper`) could have been anything.
 
 
+
+###	Using global variables or external scripts
+
+If you want to use external libraries that write to a global namespace (e.g.
+[moment.js](http://momentjs.com/)), you need to add those to the `prefdef`
+section of your project's `.jshintrc` file. If you use the lib in tests, need
+to add it to your `tests/.jshintrc` file, too.
+
+### Module import validation
+
+To prevent errors in import statements from reaching production, this project 
+uses [grunt-es6-import-validate](https://github.com/sproutsocial/grunt-es6-import-validate).
+This task parses each module files export and import statements and verifies 
+that what is being imported is actually exported by the referenced module.
+
+If you are referencing a vendor module that is defined outside of the app folder 
+you may have to add it to the whitelist in `tasks/options/validate-imports.js`.
