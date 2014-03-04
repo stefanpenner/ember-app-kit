@@ -1,0 +1,21 @@
+{
+   "post":{
+      "id":"1",
+      "title":"Rails is omakase",
+      "comments":[
+         "1",
+         "2"
+      ],
+      "user":"dhh"
+   },
+   "comments":[
+      {
+         "id":"1",
+         "body":"Comment 1."
+      },
+      {
+         "id":"2",
+         "text":"Comment 2."
+      }
+   ]
+}

@@ -1,4 +1,4 @@
-{
+module.exports = {
   "framework": "qunit",
   "test_page": "tmp/result/tests/index.html",
   "routes": {
@@ -10,5 +10,6 @@
   "src_files": [
     "tmp/result/**/*.js"
   ],
-  "launch_in_dev": ["PhantomJS", "Chrome"]
-}
+  "launch_in_dev": ["PhantomJS", "Chrome"],
+  server: require('api-fixture-proxy')
+};

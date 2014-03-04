@@ -1,9 +1,6 @@
 {
   "name": "app-kit",
   "namespace": "appkit",
-  "APIMethod": "stub",
-  "proxyURL": "http://localhost:8000",
-  "proxyPath": "/api",
   "version": "0.0.0",
   "private": true,
   "directories": {
@@ -50,5 +47,11 @@
     "originate": "~0.1.5",
     "loom": "~3.1.2",
     "connect-livereload": "~0.3.1"
+  },
+  "peerDependencies": {
+    "testem": "git+https://github.com/quand/testem.git"
+  },
+  "dependencies": {
+    "api-fixture-proxy": "0.0.1"
   }
 }
