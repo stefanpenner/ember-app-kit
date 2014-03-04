@@ -6,7 +6,7 @@ permalink: mock-and-proxy-requests.html
 
 Ember App Kit allows you to either mock responses or proxy requests to a proxy server.
 
-### Mock responses
+### Mock API Responses
 
 If you want to mock respones have a further look in the
 [api-stub/README](https://github.com/stefanpenner/ember-app-kit/tree/master/api-stub),
@@ -23,7 +23,7 @@ module.exports = function(server) {
 };
 {% endhighlight %}
 
-So if you have a route setup like this, the mocked response is served:
+So, if you have a route setup like this, the mocked response is served:
 
 {% highlight js %}
 export default Ember.Route.extend({
@@ -46,7 +46,9 @@ to be `stub`:
 
 Next time you start the server with `grunt server` it will use the mocked responses.
 
-### Proxy requests
+Note: For changes to routes.js, you'll need to restart the express server using `grunt server` or add route.js to your watch task in grunt.
+
+### Proxy API Requests
 
 Ember App Kit also allows you to forward requests to a proxy server. Set the following
 properties in your `package.json`:
