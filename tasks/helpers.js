@@ -18,7 +18,8 @@ var taskRequirements = {
   htmlmin: ['grunt-contrib-htmlmin'],
   fancySprites: ['grunt-fancy-sprites'],
   autoprefixer: ['grunt-autoprefixer'],
-  rev: ['grunt-rev']
+  rev: ['grunt-rev'],
+  'validate-imports': ['grunt-es6-import-validate']
 };
 
 // Task fallbacks
@@ -35,7 +36,7 @@ Helpers.filterAvailableTasks = function(tasks){
     var baseName = taskName.split(':')[0]; // e.g. 'coffee' for 'coffee:compile'
     var reqs = taskRequirements[baseName];
     var isAvailable = Helpers.isPackageAvailable(reqs);
-    return isAvailable ? taskName : taskFallbacks[taskName]; 
+    return isAvailable ? taskName : taskFallbacks[taskName];
   });
 
   return _.flatten(_.compact(tasks)); // Remove undefined's and flatten it

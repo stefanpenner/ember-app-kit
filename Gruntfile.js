@@ -44,6 +44,9 @@ module.exports = function(grunt) {
   // * for automatically adding CSS vendor prefixes (autoprefixer)
   //   `npm install --save-dev grunt-autoprefixer`
   //
+  // * for package import validations
+  //   `npm install --save-dev grunt-es6-import-validate`
+  //
 
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
@@ -222,7 +225,7 @@ module.exports = function(grunt) {
                      'preprocess:indexHTMLDebugApp',
                      'preprocess:indexHTMLDebugTests'
                      ]);
-  
+
   grunt.registerTask('createResultDirectory', function() {
     grunt.file.mkdir('tmp/result');
   });
