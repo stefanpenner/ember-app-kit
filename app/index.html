@@ -56,6 +56,13 @@
 
   <!-- endbuild -->
 
+  <!-- @if dist=false -->
+  <style>
+    @keyframes domChanged { from { background: yellow; } }
+    @-webkit-keyframes domChanged { from { background: yellow; } }
+    .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
+  </style>
+  <!-- @endif -->
   <!-- @if tests=true -->
   <link rel="stylesheet" href="/vendor/qunit/qunit/qunit.css">
   <script src="/vendor/qunit/qunit/qunit.js"></script>
