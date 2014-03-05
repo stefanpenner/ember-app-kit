@@ -46,7 +46,7 @@
     "grunt-contrib-testem": "~0.5.14",
     "express-namespace": "~0.1.1",
     "request": "~2.33.0",
-    "loom-generators-ember-appkit": "~1.0.2",
+    "loom-generators-ember-appkit": "~1.0.5",
     "originate": "~0.1.5",
     "loom": "~3.1.2",
     "connect-livereload": "~0.3.1",
