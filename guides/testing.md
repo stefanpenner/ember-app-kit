@@ -64,7 +64,7 @@ Extends the generic `moduleFor` with custom loading for testing models.
 *Example*  
 
 ```JavaScript
-import { test, moduleForModel } from 'appkit/tests/helpers/module_for';
+import { test, moduleForModel } from 'appkit/tests/helpers/module-for';
 import Post from 'appkit/models/post';
  
 moduleForModel('post', 'Post Model', {
@@ -98,7 +98,7 @@ Extends the generic `moduleFor` with custom loading for testing components.
 *Example*  
 
 ```JavaScript
-import { test , moduleForComponent } from 'appkit/tests/helpers/module_for';
+import { test , moduleForComponent } from 'appkit/tests/helpers/module-for';
  
 moduleForComponent('pretty-color');
  
