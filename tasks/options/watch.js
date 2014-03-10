@@ -1,6 +1,7 @@
 var Helpers = require('../helpers'),
     filterAvailable = Helpers.filterAvailableTasks,
-    liveReloadPort = parseInt(process.env.PORT || 8000, 10) + 2;
+    LIVERELOAD_PORT = 35729,
+    liveReloadPort = (parseInt(process.env.PORT || 8000, 10) - 8000) + LIVERELOAD_PORT;
 
 var scripts = '{app,tests,config}/**/*.{js,coffee,em}',
     templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
