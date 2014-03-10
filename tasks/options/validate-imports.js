@@ -3,7 +3,10 @@ var grunt = require('grunt');
 module.exports = {
   options: {
     whitelist: {
-      'ember/resolver': ['default']
+      'ember/resolver': ['default'],
+      'ember-qunit/test': ['default'],
+      'ember-qunit/module-for-component': ['default'],
+      'ember-qunit/module-for': ['default']
     }
   },
 

@@ -1,4 +1,5 @@
-import { test , moduleForComponent } from 'appkit/tests/helpers/module-for';
+import test from 'ember-qunit/test';
+import moduleForComponent from 'ember-qunit/module-for-component';
 
 moduleForComponent('template-less');
 
