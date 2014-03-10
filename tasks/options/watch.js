@@ -42,6 +42,6 @@ module.exports = {
     debounceDelay: 0,
     // When we don't have inotify
     interval: 100,
-    livereload: Helpers.isPackageAvailable("connect-livereload") || liveReloadPort
+    livereload: liveReloadPort
   }
 };
