@@ -1,4 +1,4 @@
-import { test , moduleForComponent } from 'appkit/tests/helpers/module-for';
+import { test, moduleForComponent } from 'ember-qunit';
 
 moduleForComponent('pretty-color');
 

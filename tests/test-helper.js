@@ -2,8 +2,12 @@ document.write('<div id="ember-testing-container"><div id="ember-testing"></div>
 
 Ember.testing = true;
 
+var resolver = require('appkit/tests/helpers/resolver')['default'];
+require('ember-qunit').setResolver(resolver);
+
+
 window.startApp          = require('appkit/tests/helpers/start-app')['default'];
-window.isolatedContainer = require('appkit/tests/helpers/isolated-container')['default'];
+window.isolatedContainer = require('ember-qunit/isolated-container')['default'];
 
 function exists(selector) {
   return !!find(selector).length;
