@@ -4,7 +4,7 @@
     "handlebars": "~1.1.2",
     "jquery": "~1.9.1",
     "qunit": "~1.12.0",
-    "ember-qunit": "git@github.com:rpflorence/ember-qunit.git#master",
+    "ember-qunit": "https://github.com/rpflorence/ember-qunit.git#master",
     "ember": "~1.4.0",
     "ember-data": "~1.0.0-beta.7",
     "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
