@@ -1,5 +1,5 @@
-import test from 'ember-qunit/test';
-import moduleForComponent from 'ember-qunit/module-for-component';
+import { test, moduleForComponent } from 'ember-qunit';
+
 
 moduleForComponent('template-less');
 

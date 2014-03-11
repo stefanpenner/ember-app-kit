@@ -1,5 +1,5 @@
-import test from 'ember-qunit/test';
-import moduleFor from 'ember-qunit/module-for';
+import { test, moduleFor } from 'ember-qunit';
+
 
 import Index from 'appkit/routes/index';
 
