@@ -3,6 +3,15 @@ layout: default
 title: "Deploying Your App"
 permalink: "deployment.html"
 ---
+### CDN
+
+We recommend you deploy you assets to a CDN, and serve your index file via your app server, or webserver.
+Serving to production directly from your EAK development environment is not recommended.
+
+
+For project demo's you can consider:
+
+
 ### Heroku
 Ember App Kit can be easily deployed to Heroku using Express. For better
 performance we should be using nginx since we are only serving static files, but
