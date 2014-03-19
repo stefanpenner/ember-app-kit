@@ -4,6 +4,7 @@
   "APIMethod": "stub",
   "proxyURL": "http://localhost:8000",
   "proxyPath": "/api",
+  "docURL": "http://localhost:8000/docs/index.html",
   "version": "0.0.0",
   "private": true,
   "directories": {
@@ -36,6 +37,8 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-cssmin": "~0.6.2",
+    "grunt-contrib-yuidoc": "~0.5.2",
+    "yuidoc-theme-blue": "~0.1.8",
     "grunt-preprocess": "~3.0.1",
     "grunt-es6-module-transpiler": "~0.6.0",
     "grunt-concat-sourcemap": "~0.4.0",

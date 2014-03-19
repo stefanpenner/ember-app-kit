@@ -163,6 +163,14 @@ module.exports = function(grunt) {
                      'htmlmin:dist' // Removes comments and whitespace
                      ]));
 
+  // Documentation
+  // -------
+  grunt.registerTask('docs', "Build YUIDoc documentation.", [
+                     'buildDocs',
+                     'server:debug'
+                     ]);
+
+
   // Parallelize most of the build process
   _.merge(config, {
     concurrent: {
@@ -202,6 +210,7 @@ module.exports = function(grunt) {
                      'emberscript',
                      'copy:javascriptToTmp',
                      'transpile',
+                     'buildDocs',
                      'concat_sourcemap'
                      ]));
 
@@ -214,6 +223,11 @@ module.exports = function(grunt) {
                      'copy:cssToResult',
                      'autoprefixer:app'
                      ]));
+
+  // Documentation
+  grunt.registerTask('buildDocs', [
+                     'yuidoc:debug',
+                     ]);
 
   // Index HTML
   grunt.registerTask('buildIndexHTML:dist', [

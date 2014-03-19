@@ -47,6 +47,10 @@ module.exports = function(grunt) {
         app.use(require("connect-livereload")({port: liveReloadPort}));
       }
 
+      // YUIDoc serves static HTML, so just serve the index.html
+      app.all('/docs', function(req, res) { res.redirect(302, '/docs/index.html'); });
+      app.use(static({ urlRoot: '/docs', directory: 'docs' }));
+
       // These three lines simulate what the `copy:assemble` task does
       app.use(static({ urlRoot: '/config', directory: 'config' }));
       app.use(static({ urlRoot: '/vendor', directory: 'vendor' }));
