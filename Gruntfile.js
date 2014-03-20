@@ -1,3 +1,5 @@
+// jshint node:true
+
 module.exports = function(grunt) {
   // To support Coffeescript, SASS, LESS and others, just install
   // the appropriate grunt package and it will be automatically included
