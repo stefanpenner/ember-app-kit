@@ -28,6 +28,12 @@ module.exports = function(grunt) {
   //
   // * for LiveReload, `npm install --save-dev connect-livereload`
   //
+  // * for YUIDoc support, `npm install --save-dev grunt-contrib-yuidoc`
+  //   It is also nice to use a theme other than default. For example,
+  //   simply do: `npm install yuidoc-theme-blue`
+  //   Currently, only the `app` directory is used for generating docs.
+  //   When installed, visit: http[s]://[host:port]/docs
+  //
   // * for displaying the execution time of the grunt tasks,
   //   `npm install --save-dev time-grunt`
   //
@@ -225,9 +231,9 @@ module.exports = function(grunt) {
                      ]));
 
   // Documentation
-  grunt.registerTask('buildDocs', [
+  grunt.registerTask('buildDocs', filterAvailable([
                      'yuidoc:debug',
-                     ]);
+                     ]));
 
   // Index HTML
   grunt.registerTask('buildIndexHTML:dist', [

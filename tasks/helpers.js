@@ -20,7 +20,7 @@ var taskRequirements = {
   autoprefixer: ['grunt-autoprefixer'],
   rev: ['grunt-rev'],
   'validate-imports': ['grunt-es6-import-validate'],
-  docs: ['grunt-contrib-yuidoc']
+  yuidoc: ['grunt-contrib-yuidoc']
 };
 
 // Task fallbacks
