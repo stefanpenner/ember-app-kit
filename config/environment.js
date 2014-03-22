@@ -8,3 +8,6 @@
 // window.ENV = {FEATURES: {'with-controller': true}};
 
 window.ENV = {};
+window.ENV.ApplicationParams = {
+  modulePrefix: 'appkit'
+}
