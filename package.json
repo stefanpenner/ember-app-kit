@@ -4,6 +4,7 @@
   "APIMethod": "stub",
   "proxyURL": "http://localhost:8000",
   "proxyPath": "/api",
+  "docURL": "http://localhost:8000/docs/index.html",
   "version": "0.0.0",
   "private": true,
   "directories": {
