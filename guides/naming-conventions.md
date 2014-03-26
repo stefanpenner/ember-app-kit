@@ -160,7 +160,7 @@ If your filename has an underscore in it, we can reference it using the followin
 
 {% highlight sh %}
 // controller/posts/comment-thread.js -> controller:posts/comment-thread
-epxport default Ember.Controller.extend();
+export default Ember.Controller.extend();
 {% endhighlight %}
 
 ### Example: Views and Templates
