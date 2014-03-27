@@ -4,7 +4,7 @@ module.exports = {
   options: {
     whitelist: {
       'ember/resolver': ['default'],
-      'ember-qunit': ['moduleForComponent', 'moduleFor', 'test', 'default'],
+      'ember-qunit': ['moduleForComponent', 'moduleForModel', 'moduleFor', 'test', 'default'],
     }
   },
 
