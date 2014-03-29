@@ -77,7 +77,7 @@ Or a customer attribute for our model..
 
 {% highlight js %}
 // app/transforms/time.js
-export default DS.Transforms.extend({ ... });
+export default DS.Transform.extend({ ... });
 {% endhighlight %}
 
 ##### Views
