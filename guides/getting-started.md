@@ -94,7 +94,7 @@ File/Folder                              | Description |
 `app/app.js`                             | Your application's entry point. This is the module that is first executed. |
 `app/index.html`                         | The only actual page of your single-page app! Includes dependencies and kickstarts your Ember application. |
 `app/router.js`                          | Your route configuration. The routes defined here correspond to routes in `app/routes/`. |
-`app/stylesheets/`                       | Contains your stylesheets, whether SASS, LESS, Stylus, Compass, or plain CSS (though only one type is allowed, see [Asset Compilation](asset-compilation.html)). These are all compiled through the into `app.css`. |
+`app/styles/`                            | Contains your stylesheets, whether SASS, LESS, Stylus, Compass, or plain CSS (though only one type is allowed, see [Asset Compilation](asset-compilation.html)). These are all compiled through the into `app.css`. |
 `app/templates/`                         | Your Handlebars templates. These are compiled to `templates.js`. The templates are named the same as their filename, minus the extension (i.e. `templates/foo/bar.hbs` -> `foo/bar`). |
 `app/controllers/`, `app/models/`, `...` | Modules resolved by the Ember App Kit resolver. See [Using Modules &amp; the Resolver](using-modules.html). |
 
