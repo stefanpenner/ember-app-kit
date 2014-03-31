@@ -66,9 +66,9 @@ module.exports = function(grunt) {
       app.use(static({ file: 'dist/index.html', ignoredFileExtensions: /\.\w{1,5}$/ })); // Gotta catch 'em all
     }
 
-    var port = parseInt(process.env.PORT || 8000, 10);
+    var port = parseInt(grunt.config('express-server.options.serverPort') || 8000, 10);
     if (isNaN(port) || port < 1 || port > 65535) {
-      grunt.fail.fatal('The PORT environment variable of ' + process.env.PORT + ' is not valid.');
+      grunt.fail.fatal('The package.json "expressServerPort" variable of ' + port + ' is not valid.');
     }
     app.listen(port);
     grunt.log.ok('Started development server on port %d.', port);
