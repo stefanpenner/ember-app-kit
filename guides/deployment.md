@@ -25,8 +25,8 @@ heroku apps:create ember-app-kit
 heroku ps:scale web=1
 {% endhighlight %}
 
-Next, we need to modify our `package.json` to include necessary dependencies.
-Your dependencies might look something like this
+Next, we need to modify our `package.json` to include necessary dependencies.  By default EAK's `package.json` has `devDependencies` but not `dependencies` so we need to add the `dependencies` hash to the JSON.
+Add the only the dependencies needed for your production application.
 {% highlight sh %}
 "dependencies": {
   "express": "~3.4.2",
