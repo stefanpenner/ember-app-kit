@@ -104,3 +104,46 @@ customizing their behavior.
 If you use Amazon S3 for hosting your assets, you may want to look into
 [grunt-s3](https://github.com/pifantastic/grunt-s3) for deploying your built
 application.
+
+### Rewrite rules for location: history
+
+{% highlight js %}
+var Router = Ember.Router.extend({
+  location: 'history'
+});
+{% endhighlight %}
+
+When using ```location: 'history'``` in your router you may encounter the problem that on a reload you will get a 404. That is because your webserver can not serve the file the URL assumes. You need to tell your webserver that it should always use index.html
+
+#### Nginx vhost
+
+{% highlight bash %}
+server {
+  root /var/www/{Your App Directory Path Here};
+  index index.html index.htm;
+  server_name {Your website URL or IP address here};
+
+  location / {
+          try_files $uri $uri/ /index.html?/$request_uri;
+  }
+}
+{% endhighlight %}
+
+#### Apache .htaccess
+
+{% highlight bash %}
+Options FollowSymLinks
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+{% endhighlight %}
+
+```AllowOverride All``` has to be set for the directory.
+
+
