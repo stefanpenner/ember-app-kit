@@ -23,6 +23,27 @@ Would be declared like so in EAK:
 export default DS.RESTAdapter.extend({ ... });
 {% endhighlight %}
 
+##### Initializers
+
+Add your initializers in ```app/initializers/``` and EAK will autoload them for you. An initializer should export an object like that:
+
+{% highlight js %}
+// app/initializers/session.js
+export default {
+  name: "session",
+  after: "store",
+  
+  initialize: function(container, application) {
+    session = Session.create();
+    application.register('session:main', session, {  instantiate: false, singleton: true });
+    
+    container.typeInjection('controller', 'session', 'session:main');
+    container.typeInjection('route', 'session', 'session:main');
+    container.typeInjection('component', 'session', 'session:main');
+  }
+};
+{% endhighlight %}
+
 ##### Components
 
 {% highlight js %}
