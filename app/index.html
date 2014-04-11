@@ -46,6 +46,7 @@
     <script src="/vendor/loader.js/loader.js"></script>
     <script src="/vendor/ember-resolver/dist/ember-resolver.js"></script>
     <script src="/vendor/ic-ajax/main.js"></script>
+    <script src="/vendor/ember-load-initializers/ember-load-initializers.js"></script>
 
   <!-- endbuild -->
 
@@ -109,7 +110,7 @@
 
   <!-- @if tests=false -->
   <script>
-    window.App = require('appkit/main')['default']('appkit');  
+    window.App = require('appkit/app')['default'].create();
   </script>
   <!-- @endif -->
 
