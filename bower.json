@@ -11,7 +11,7 @@
     "ic-ajax": "~0.3.0",
     "ember-testing-httpRespond": "~0.1.1",
     "loader.js": "git://github.com/stefanpenner/loader.js",
-    "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers"
+    "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers.git#0.0.1"
   },
   "resolutions": {
     "ember": "~1.4.0"
