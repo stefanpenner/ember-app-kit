@@ -148,4 +148,4 @@ you may have to add it to the whitelist in `tasks/options/validate-imports.js`.
 
 ### Vendor Assets
 
-It's important to note that vendor assets managed with bower are not transpiled with the es6 transpiler. When using a 3rd party library (e.g. [moment.js](http://momentjs.com/)), you simply add the dependency to your bower.json and you need to add it to `/app/index.html` within the `<!-- build:js(tmp/result) /assets/vendor.min.js -->` section.
+It's important to note that vendor assets managed with bower are not transpiled with the es6 transpiler. When using a 3rd party library (e.g. [moment.js](http://momentjs.com/)), you simply add the dependency to your bower.json and you need to add it to `/app/index.html` within the `<!-- build:js(tmp/result) /assets/vendor.min.js -->` section. Assets included this way will be globally available without the need to import via the ES6 syntax. Also note that the load order defined within the `build:js(tmp/result)` block will be respected when running the `grunt dist` task.
