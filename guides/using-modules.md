@@ -129,13 +129,6 @@ The file name (`example.js`) and the name of the variable it's been imported
 into (`exampleHelper`) could have been anything.
 
 
-###	Using global variables or external scripts
-
-If you want to use external libraries that write to a global namespace (e.g.
-[moment.js](http://momentjs.com/)), you need to add those to the `predef`
-section of your project's `.jshintrc` file. If you use the lib in tests, need
-to add it to your `tests/.jshintrc` file, too.
-
 ### Module import validation
 
 To prevent errors in import statements from reaching production, this project
@@ -149,3 +142,10 @@ you may have to add it to the whitelist in `tasks/options/validate-imports.js`.
 ### Vendor Assets
 
 It's important to note that vendor assets managed with bower are not transpiled with the es6 transpiler. When using a 3rd party library (e.g. [moment.js](http://momentjs.com/)), you simply add the dependency to your bower.json and you need to add it to `/app/index.html` within the `<!-- build:js(tmp/result) /assets/vendor.min.js -->` section. Assets included this way will be globally available without the need to import via the ES6 syntax. Also note that the load order defined within the `build:js(tmp/result)` block will be respected when running the `grunt dist` task.
+
+### Using global variables or external scripts
+
+If you want to use external libraries that write to a global namespace (e.g.
+[moment.js](http://momentjs.com/)), you need to add those to the `predef`
+section of your project's `.jshintrc` file. If you use the lib in tests, need
+to add it to your `tests/.jshintrc` file, too.
