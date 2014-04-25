@@ -1,6 +1,3 @@
-import { test, moduleFor } from 'ember-qunit';
-
-
 import Index from 'appkit/routes/index';
 
 moduleFor('route:index', "Unit - IndexRoute");
