@@ -180,7 +180,7 @@ export default Ember.Controller.extend({
 If your filename has an underscore in it, we can reference it using the following technique:
 
 {% highlight sh %}
-// controller/posts/comment-thread.js -> controller:posts/comment-thread
+// controller/posts/comment_thread.js -> controller:posts/comment-thread
 export default Ember.Controller.extend();
 {% endhighlight %}
 
