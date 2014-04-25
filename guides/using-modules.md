@@ -145,3 +145,7 @@ that what is being imported is actually exported by the referenced module.
 
 If you are referencing a vendor module that is defined outside of the app folder
 you may have to add it to the whitelist in `tasks/options/validate-imports.js`.
+
+### Vendor Assets
+
+It's important to note that vendor assets managed with bower are not transpiled with the es6 transpiler. When using a 3rd party library (e.g. [moment.js](http://momentjs.com/)), you simply add the dependency to your bower.json and you need to add it to `/app/index.html` within the `<!-- build:js(tmp/result) /assets/vendor.min.js -->` section.
