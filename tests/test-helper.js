@@ -1,7 +1,5 @@
 document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
 
-Ember.testing = true;
-
 var resolver = require('appkit/tests/helpers/resolver')['default'];
 require('ember-qunit').setResolver(resolver);
 
