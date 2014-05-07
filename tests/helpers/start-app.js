@@ -1,4 +1,5 @@
 import Application from 'appkit/app';
+import Router from 'appkit/router';
 
 function startApp(attrs) {
   var App;
@@ -9,6 +10,10 @@ function startApp(attrs) {
     LOG_ACTIVE_GENERATION:false,
     LOG_VIEW_LOOKUPS: false
   }, attrs); // but you can override;
+
+  Router.reopen({
+    location: 'none'
+  });
 
   Ember.run(function(){
     App = Application.create(attributes);
