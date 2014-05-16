@@ -86,7 +86,7 @@ When its done, run ember server, and you're done!
 
 ### Troubleshooting
 
-When you run `ember server, You may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
+When you run `ember server`, you may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
 directory, clearing the cache, and rerunning npm & bower install.
 
 * Import `tests/helpers/start-app` into each acceptance test file.
