@@ -41,25 +41,43 @@ Think anything else is missing? Feel free to open an issue (or, even better, a P
 
 ## Migrating to Ember CLI
 
-First, install ember-cli with `npm install -g ember-cli`. Then, on top of
+First, install ember-cli with `npm install -g ember-cli`. Now, on top of
 your EAK project, run `ember init`. Ember CLI will begin to migrate your
 project. You may diff the files it overwrites as it goes along. A
-detaield list will be provided next to help you along, but first, feel free to remove the
+detailed list will be provided next to help you along, but first, feel free to remove the
 Gruntfile and the tasks directory since we won't be needing them
 anymore.
 
+`rm Gruntfile.js && rm -rf tasks`
+
 
 * tests/.jshintrc
+  * Let ember-cli overwrite this
+* app/index.html
+  * Let ember-cli overwrite this
 * app/app.js
+  * app/app.js
 * app/router.js
   * The only change here is that the Router's location is now handled by
     the config. Change this to ENV.locationType if you need to.
 * app/routes/index.js
   * This will attempt to replace your IndexRoute with a stub. Don't let
     it override this file.
+* Brocfile.js
+  * This essentially replaces your Gruntfile. Let ember-cli add this file.
+* app/templates/application.hbs
+  * This will attempt to replace your application template with a stub.
+    It will also add it if you are using Emblem. You can safely skip
+    this step.
+* app/styles/app.css
+  * This will attempt to replace your app style with a stub. You can
+    safely skip this step.
+* tests/index.html
+  * Let ember-cli add this file.
 
 You may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
 directory, clearing the cache, and rerunning npm & bower install.
+
 
 ### Tests
 
