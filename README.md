@@ -41,7 +41,7 @@ Think anything else is missing? Feel free to open an issue (or, even better, a P
 
 ## Migrating to Ember CLI
 
-First, install ember-cli with `npm install -g ember-cli. Then, on top of
+First, install ember-cli with `npm install -g ember-cli`. Then, on top of
 your EAK project, run `ember init`. Ember CLI will begin to migrate your
 project. You may diff the files it overwrites as it goes along. A
 detaield list will be provided next to help you along, but first, feel free to remove the
