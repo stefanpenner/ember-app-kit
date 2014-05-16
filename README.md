@@ -55,6 +55,9 @@ Think anything else is missing? Feel free to open an issue (or, even better, a P
     * Import it and its dependencies in your Brocfile by using
       `app.import()`
 
+### Unit tests
+
+
 ## Special Thanks
 
 Some ideas in ember-app-kit originated in work by Yapp Labs (@yapplabs) with McGraw-Hill Education Labs (@mhelabs) on [yapplabs/glazier](https://github.com/yapplabs/glazier). Thanks to Yapp and MHE for supporting the Ember ecosystem!
