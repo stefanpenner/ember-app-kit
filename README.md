@@ -41,7 +41,31 @@ Think anything else is missing? Feel free to open an issue (or, even better, a P
 
 ## Migrating to Ember CLI
 
-### Acceptance Tests
+First, install ember-cli with `npm install -g ember-cli. Then, on top of
+your EAK project, run `ember init`. Ember CLI will begin to migrate your
+project. You may diff the files it overwrites as it goes along. A
+detaield list will be provided next to help you along, but first, feel free to remove the
+Gruntfile and the tasks directory since we won't be needing them
+anymore.
+
+
+* tests/.jshintrc
+* app/app.js
+* app/router.js
+  * The only change here is that the Router's location is now handled by
+    the config. Change this to ENV.locationType if you need to.
+* app/routes/index.js
+  * This will attempt to replace your IndexRoute with a stub. Don't let
+    it override this file.
+
+You may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
+directory, clearing the cache, and rerunning npm & bower install.
+
+### Tests
+
+* Tests for JSHint are now auto-generated
+
+#### Acceptance Tests
 
 * Create a `tests/acceptance` directory
 * Import `tests/helpers/start-app` into each test file.
@@ -55,8 +79,9 @@ Think anything else is missing? Feel free to open an issue (or, even better, a P
     * Import it and its dependencies in your Brocfile by using
       `app.import()`
 
-### Unit tests
+#### Unit tests
 
+* Copy your unit tests into the `tests/unit` directory.
 
 ## Special Thanks
 
