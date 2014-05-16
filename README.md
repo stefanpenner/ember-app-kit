@@ -89,15 +89,7 @@ When its done, run ember server, and you're done!
 When you run `ember server, You may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
 directory, clearing the cache, and rerunning npm & bower install.
 
-
-### Tests
-
-* Tests for JSHint are now auto-generated
-
-#### Acceptance Tests
-
-* Create a `tests/acceptance` directory
-* Import `tests/helpers/start-app` into each test file.
+* Import `tests/helpers/start-app` into each acceptance test file.
   * `import startApp from 'your-app/tests/helpers/start-app`
 * Import testing dependencies
   * Instead of using your app/index.html file, these can now be imported
@@ -107,10 +99,6 @@ directory, clearing the cache, and rerunning npm & bower install.
     * This is now patched for 1.4+
     * Import it and its dependencies in your Brocfile by using
       `app.import()`
-
-#### Unit tests
-
-* Copy your unit tests into the `tests/unit` directory.
 
 ## Special Thanks
 
