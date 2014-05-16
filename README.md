@@ -41,6 +41,19 @@ Think anything else is missing? Feel free to open an issue (or, even better, a P
 
 ## Migrating to Ember CLI
 
+### Acceptance Tests
+
+* Create a `tests/acceptance` directory
+* Import `tests/helpers/start-app` into each test file.
+  * `import startApp from 'your-app/tests/helpers/start-app`
+* Import testing dependencies
+  * Instead of using your app/index.html file, these can now be imported
+    from the Brocfile.
+    * For example, `app.import('/vendor/ember-data/ember-data.js')`
+  * If you were using ember-testing-httpRespond
+    * This is now patched for 1.4+
+    * Import it and its dependencies in your Brocfile by using
+      `app.import()`
 
 ## Special Thanks
 
