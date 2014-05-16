@@ -45,11 +45,12 @@ First, install ember-cli with `npm install -g ember-cli`. Now, on top of
 your EAK project, run `ember init`. Ember CLI will begin to migrate your
 project. You may diff the files it overwrites as it goes along. A
 detailed list will be provided next to help you along, but first, feel free to remove the
-Gruntfile and the tasks directory since we won't be needing them
+Gruntfile, the tasks directory, and the api-stub, since we won't be needing them
 anymore.
 
-`rm Gruntfile.js && rm -rf tasks`
+`rm Gruntfile.js && rm -rf tasks && rm -rf api-stub`
 
+### Ember Init Overrides
 
 * tests/.jshintrc
   * Let ember-cli overwrite this
@@ -74,8 +75,18 @@ anymore.
     safely skip this step.
 * tests/index.html
   * Let ember-cli add this file.
+* bower.json
+* package.json
+* server
+  * The express server has been exposed and now lives under this
+    directory.
 
-You may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
+Once this step is done, ember-cli will attempt to upgrade your project.
+When its done, run ember server, and you're done!
+
+### Troubleshooting
+
+When you run `ember server, You may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
 directory, clearing the cache, and rerunning npm & bower install.
 
 
