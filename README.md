@@ -94,7 +94,7 @@ directory, clearing the cache, and rerunning npm & bower install.
 * Import testing dependencies
   * Instead of using your app/index.html file, these can now be imported
     from the Brocfile.
-    * For example, `app.import('/vendor/ember-data/ember-data.js')`
+    * For example, `app.import('vendor/ember-data/ember-data.js')`
   * If you were using ember-testing-httpRespond
     * This is now patched for 1.4+
     * Import it and its dependencies in your Brocfile by using
