@@ -80,6 +80,9 @@ anymore.
 * server
   * The express server has been exposed and now lives under this
     directory.
+  * This essentially replaces the API Stub in favor of a real
+    Express App, so you can now enhnace and customize the static server
+    or develop the API and turn it into a full-stack solution, like MEAN.
 
 Once this step is done, ember-cli will attempt to upgrade your project.
 When its done, run ember server, and you're done!
