@@ -31,50 +31,44 @@ We welcome ideas and experiments.
 - Catch-all `index.html` for easy reloading of pushState router apps
 - Generators via [Loom](https://github.com/cavneb/loom-generators-ember-appkit) (to generate routes, controllers, etc.)
 
-## Future Goals
-
-- Source maps for transpiled modules
-- Easier to install 3rd party packages
-- Faster, more intelligent builds
-
-Think anything else is missing? Feel free to open an issue (or, even better, a PR)! Discussion and feedback is always appreciated.
-
 ## Migrating to Ember CLI
 
-First, install ember-cli with `npm install -g ember-cli`. Now, on top of
-your EAK project, run `ember init`. Ember CLI will begin to migrate your
-project. You may diff the files it overwrites as it goes along. A
-detailed list will be provided next to help you along, but first, feel free to remove the
-Gruntfile, the tasks directory, and the api-stub, since we won't be needing them
-anymore.
-
-`rm Gruntfile.js && rm -rf tasks && rm -rf api-stub`
+First, you'll need to install ember-cli with `npm install -g ember-cli`.
+Now, on top of your existing EAK project, run `ember init`. Ember CLI
+will begin to migrate your project, showing you a diff of its overrides as it
+goes along.
 
 ### Ember Init Overrides
 
 * tests/.jshintrc
-  * Let ember-cli overwrite this
+  * Let ember-cli overwrite this.
 * app/index.html
-  * Let ember-cli overwrite this
+    * Managing 3rd party assets is now handled via the Brocfile. Let
+      ember-cli overwrite this file.
 * app/app.js
-  * app/app.js
+  * Ember Configuration is now handled in config
 * app/router.js
-  * The only change here is that the Router's location is now handled by
-    the config. Change this to ENV.locationType if you need to.
+  * Router's location is now handled via environment configuration.
+    Change this to ENV.locationType.
 * app/routes/index.js
-  * This will attempt to replace your IndexRoute with a stub. Don't let
-    it override this file.
+  * This will attempt to replace your Index Route with a stub. Usually,
+    you wont't want Ember CLI to override this file.
 * Brocfile.js
-  * This essentially replaces your Gruntfile. Let ember-cli add this file.
+  * Ember CLI  manages 3rd party assets from the Brocfile. Move
+    move your dependencies from app/index.html into this file by calling
+    app.import().
+    * Example: app.import('vendor/ember-data/ember-data.js')
 * app/templates/application.hbs
   * This will attempt to replace your application template with a stub.
-    It will also add it if you are using Emblem. You can safely skip
-    this step.
+    It will also add it if you are using Emblem. You can probably ignore
+    this file.
 * app/styles/app.css
   * This will attempt to replace your app style with a stub. You can
-    safely skip this step.
+    safely skip this step. If you are using another preprocessor, you
+    should not let Ember CLi write this file.
+
 * tests/index.html
-  * Let ember-cli add this file.
+  * Let ember-cli add this file. This moves all of you test dependencies
 * bower.json
 * package.json
 * server
@@ -84,20 +78,23 @@ anymore.
     Express App, so you can now enhnace and customize the static server
     or develop the API and turn it into a full-stack solution, like MEAN.
 
-Once this step is done, ember-cli will attempt to upgrade your project.
-When its done, run ember server, and you're done!
+
+## Cleanup
+
+You can optionally remove the Gruntfile, tasks, and the api-stub directory, since we
+won't be needing them anymore.
 
 ### Troubleshooting
 
-When you run `ember server`, you may get errors about files not existing. You'll have to refresh your dependencies by removing the `node_modules`
-directory, clearing the cache, and rerunning npm & bower install.
-
-* Import `tests/helpers/start-app` into each acceptance test file.
-  * `import startApp from 'your-app/tests/helpers/start-app`
-* Import testing dependencies
-  * Instead of using your app/index.html file, these can now be imported
-    from the Brocfile.
-    * For example, `app.import('vendor/ember-data/ember-data.js')`
+1. Index Route doesn't exist
+  * You may need to refresh your dependencies. Run `rm -rf npm_modules && npm install && npm
+    cache clean && bower install`
+2. Can't find appkit/routes/index.
+  * Ember CLI now picks up your app namespace. Change the import to
+    reference the name of your project.
+3. Acceptance Tests
+  * Import `tests/helpers/start-app` into each acceptance test file.
+    * `import startApp from 'your-app/tests/helpers/start-app`
   * If you were using ember-testing-httpRespond
     * This is now patched for 1.4+
     * Import it and its dependencies in your Brocfile by using
