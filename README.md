@@ -33,7 +33,7 @@ We welcome ideas and experiments.
 
 ## Migrating to Ember CLI
 
-First, you'll need to install ember-cli with `npm install -g ember-cli`.
+First, run `npm install -g ember-cli` to install Ember CLI.
 Now, on top of your existing EAK project, run `ember init`. Ember CLI
 will begin to migrate your project, showing you a diff of its overrides as it
 goes along.
@@ -43,10 +43,10 @@ goes along.
 * tests/.jshintrc
   * Let ember-cli overwrite this.
 * app/index.html
-    * Managing 3rd party assets is now handled via the Brocfile. Let
+    * Managing vendor assets is now handled via the Brocfile. Let
       ember-cli overwrite this file.
 * app/app.js
-  * Ember Configuration is now handled in config
+  * Ember Configuration is now handled in `config/`
 * app/router.js
   * Router's location is now handled via environment configuration.
     Change this to ENV.locationType.
@@ -54,20 +54,16 @@ goes along.
   * This will attempt to replace your Index Route with a stub. Usually,
     you wont't want Ember CLI to override this file.
 * Brocfile.js
-  * Ember CLI  manages 3rd party assets from the Brocfile. Move
-    move your dependencies from app/index.html into this file by calling
+  * Move your dependencies from app/index.html into this file by calling
     app.import().
     * Example: app.import('vendor/ember-data/ember-data.js')
 * app/templates/application.hbs
   * This will attempt to replace your application template with a stub.
-    It will also add it if you are using Emblem. You can probably ignore
-    this file.
 * app/styles/app.css
-  * This will attempt to replace your app style with a stub. You can
-    safely skip this step. If you are using another preprocessor, you
-    should not let Ember CLi write this file.
+  * Another stub.
 * tests/index.html
-  * Let ember-cli add this file. This moves all of you test dependencies
+  * Let ember-cli add this file. This is where the test dependencies
+    from `app/index.html` now live.
 * bower.json
 * package.json
 * server
@@ -94,7 +90,7 @@ won't be needing them anymore.
   * You may need to refresh your dependencies. Run `rm -rf npm_modules && npm install && npm
     cache clean && bower install`
 
-3. Tests
+* Tests
   * Import `tests/helpers/start-app` into each acceptance test file.
     * `import startApp from 'your-app/tests/helpers/start-app`
   * `resolver` and `startApp` still live in `test/helpers/` but
