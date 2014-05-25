@@ -66,7 +66,6 @@ goes along.
   * This will attempt to replace your app style with a stub. You can
     safely skip this step. If you are using another preprocessor, you
     should not let Ember CLi write this file.
-
 * tests/index.html
   * Let ember-cli add this file. This moves all of you test dependencies
 * bower.json
@@ -75,26 +74,31 @@ goes along.
   * The express server has been exposed and now lives under this
     directory.
   * This essentially replaces the API Stub in favor of a real
-    Express App, so you can now enhnace and customize the static server
-    or develop the API and turn it into a full-stack solution, like MEAN.
-
+    Express App, so you can now enhance and customize the static server
+    or develop the API and turn it into a full MEAN-like solution.
 
 ## Cleanup
 
-You can optionally remove the Gruntfile, tasks, and the api-stub directory, since we
+You can remove the Gruntfile, tasks, and the api-stub directory, since we
 won't be needing them anymore.
 
 ### Troubleshooting
 
-1. Index Route doesn't exist
+* Ember CLI now picks up your app namespace. Change the import to
+  reference the name of your project.
+  * If you never changed your application namespace from the default
+    `appkit` then running `ember init` will break any import statements
+     you already have
+
+* Index Route doesn't exist
   * You may need to refresh your dependencies. Run `rm -rf npm_modules && npm install && npm
     cache clean && bower install`
-2. Can't find appkit/routes/index.
-  * Ember CLI now picks up your app namespace. Change the import to
-    reference the name of your project.
-3. Acceptance Tests
+
+3. Tests
   * Import `tests/helpers/start-app` into each acceptance test file.
     * `import startApp from 'your-app/tests/helpers/start-app`
+  * `resolver` and `startApp` still live in `test/helpers/` but
+    `module-for` is now its own package.
   * If you were using ember-testing-httpRespond
     * This is now patched for 1.4+
     * Import it and its dependencies in your Brocfile by using
