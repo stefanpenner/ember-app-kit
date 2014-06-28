@@ -1,3 +1,15 @@
+# Deprecated
+
+this project has been deprecated in-favour of the ember-cli project: 
+
+* https://github.com/stefanpenner/ember-cli
+* https://iamstef.net/ember-cli
+
+
+
+
+
+
 # Ember App Kit [![Build Status](https://travis-ci.org/stefanpenner/ember-app-kit.png?branch=master)](https://travis-ci.org/stefanpenner/ember-app-kit)
 
 Ember App Kit aims to be the foundation for ambitious web applications built with Ember. It will soon be replaced by an executable [ember-cli](https://github.com/stefanpenner/ember-cli) which dramatically improves buildtimes (via broccoli) and provides sane-upgrade paths, feel free to check that project out. We intend to provide a sensible upgrade path.
