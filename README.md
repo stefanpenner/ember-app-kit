@@ -3,7 +3,7 @@
 this project has been deprecated in-favour of the ember-cli project: 
 
 * https://github.com/stefanpenner/ember-cli
-* https://iamstef.net/ember-cli
+* http://iamstef.net/ember-cli
 
 
 
