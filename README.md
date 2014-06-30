@@ -81,14 +81,16 @@ goes along.
 * server
   * The express server has been exposed and now lives under this
     directory.
-  * This essentially replaces the API Stub in favor of a real
-    Express App, so you can now enhance and customize the static server
-    or develop the API and turn it into a full MEAN-like solution.
+
+
+## API-Stub
+
+* api-stub
+  * Run `ember generate api-stub` to wire this up again
 
 ## Cleanup
 
-You can remove the Gruntfile, tasks, and the api-stub directory, since we
-won't be needing them anymore.
+You can remove the Gruntfile, tasks, since we won't be needing them anymore.
 
 ### Troubleshooting
 
