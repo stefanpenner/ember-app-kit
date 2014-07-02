@@ -1,6 +1,6 @@
 # Deprecated
 
-this project has been deprecated in-favour of the ember-cli project: 
+this project has been deprecated in-favour of the ember-cli project:
 
 * https://github.com/stefanpenner/ember-cli
 * http://iamstef.net/ember-cli
@@ -24,10 +24,10 @@ We welcome ideas and experiments.
 
 * [Project Documentation Site](http://stefanpenner.github.io/ember-app-kit/)
 * [Getting Started Guide](http://stefanpenner.github.io/ember-app-kit/guides/getting-started.html)
-* [ember-app-kit-todos](https://github.com/stefanpenner/ember-app-kit-todos) - the Emberjs [todos](http://emberjs.com/guides/getting-started/) using Ember App Kit 
+* [ember-app-kit-todos](https://github.com/stefanpenner/ember-app-kit-todos) - the Emberjs [todos](http://emberjs.com/guides/getting-started/) using Ember App Kit
 * [ember-app-kit-bloggr](https://github.com/pixelhandler/ember-app-kit-example-with-bloggr-client) - bloggr demo
 * *Safari Books Online Blog* - [Introduction to Ember App Kit](http://blog.safaribooksonline.com/2013/09/18/ember-app-kit/) for more experienced Ember developers by @mixonic
-* *Ember Sherpa* - [Introduction to Ember App Kit](http://embersherpa.com/articles/introduction-to-ember-app-kit/) for those who are new to the Grunt workflow by @taras 
+* *Ember Sherpa* - [Introduction to Ember App Kit](http://embersherpa.com/articles/introduction-to-ember-app-kit/) for those who are new to the Grunt workflow by @taras
 
 
 ## Features
@@ -78,15 +78,21 @@ goes along.
     from `app/index.html` now live.
 * bower.json
 * package.json
-* server
-  * The express server has been exposed and now lives under this
-    directory.
 
 
-## API-Stub
+### Migrating your API Stub
 
-* api-stub
-  * Run `ember generate api-stub` to wire this up again
+To wire this up again, run `ember generate api-stub` followed by your app's name.
+This command will generate a server folder where you can use the express app and migrate routes accordingly.
+
+@manuelmitasch just released [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
+which generates DS.RESTAdapter compatible express routes for a given modelname.
+
+### Using The Express Server
+
+The Express server has been exposed and now lives under this directory.
+This gives you maximum flexibility, allowing you to either customize the static
+file server or develop the API and turn it into a full-stack solution.
 
 ## Cleanup
 
