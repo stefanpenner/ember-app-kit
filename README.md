@@ -48,7 +48,7 @@ We welcome ideas and experiments.
 First, run `npm install -g ember-cli` to install Ember CLI.
 Now, on top of your existing EAK project, run `ember init`. Ember CLI
 will begin to migrate your project, showing you a diff of its overrides as it
-goes along.
+goes along. If you need to edit one, press the 'e' key.
 
 ### Ember Init Overrides
 
@@ -80,13 +80,18 @@ goes along.
 * package.json
 
 
+### Importing Ember and Ember Data
+
+You now have to import ember and ember-data, so you will have to add `import Ember from "ember` and
+`import DS from "ember-data"` anywhere you explicitly declared a route, controller, model, and so on.
+
 ### Migrating your API Stub
 
 To wire this up again, run `ember generate api-stub` followed by your app's name.
-This command will generate a server folder where you can use the express app and migrate routes accordingly.
+This generates a server directory where you can then migrate your routes accordingly.
 
-@manuelmitasch just released [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
-which generates DS.RESTAdapter compatible express routes for a given modelname.
+You may also want to look into [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
+which generates DS.RESTAdapter compatible express routes for a given Model.
 
 ### Using The Express Server
 
@@ -96,7 +101,7 @@ file server or develop the API and turn it into a full-stack solution.
 
 ## Cleanup
 
-You can remove the Gruntfile, tasks, since we won't be needing them anymore.
+You can remove the Gruntfile and tasks folder since we won't be needing them anymore.
 
 ### Troubleshooting
 
