@@ -96,12 +96,13 @@ which generates DS.RESTAdapter compatible express routes for a given Model.
 ### Using The Express Server
 
 The Express server has been exposed and now lives under this directory.
-This gives you maximum flexibility, allowing you to either customize the static
-file server or develop the API and turn it into a full-stack solution.
+You can then customize the static file server or develop the API and turn it into a full-stack solution.
 
 ## Cleanup
 
 You can remove the Gruntfile and tasks folder since we won't be needing them anymore.
+For now, you can check the [app blueprint](https://github.com/stefanpenner/ember-cli/tree/master/blueprints/app/files)
+to see what other files you no longer need.
 
 ### Troubleshooting
 
