@@ -47,20 +47,19 @@ We welcome ideas and experiments.
 
 First, run `npm install -g ember-cli` to install Ember CLI.
 Now, on top of your existing EAK project, run `ember init`. Ember CLI
-will begin to migrate your project, showing you a diff of its overrides as it
-goes along. If you need to edit one, press the 'e' key.
+will then migrate your project, showing you a diff of its overrides,
+and letting you edit them, as it goes along.
 
 ### Ember Init Overrides
 
 * tests/.jshintrc
   * Let ember-cli overwrite this.
 * app/index.html
-    * Managing vendor assets is now handled via the Brocfile. Let
-      ember-cli overwrite this file.
+    * Since managing vendor assets is now handled via the Brocfile, you should let ember-cli overwrite this file.
 * app/app.js
-  * Ember Configuration is now handled in `config/`
+  * Ember Configuration is now handled in the `config` directory.
 * app/router.js
-  * Router's location is now handled via environment configuration.
+  * The Router's location is now handled via environment configuration.
     Change this to ENV.locationType.
 * app/routes/index.js
   * This will attempt to replace your Index Route with a stub. Usually,
@@ -74,21 +73,20 @@ goes along. If you need to edit one, press the 'e' key.
 * app/styles/app.css
   * Another stub.
 * tests/index.html
-  * Let ember-cli add this file. This is where the test dependencies
-    from `app/index.html` now live.
+  * Let ember-cli add this file. Include any test depencies you had in `app/index.html'.
 * bower.json
 * package.json
 
 
 ### Importing Ember and Ember Data
 
-You now have to import ember and ember-data, so you will have to add `import Ember from "ember` and
-`import DS from "ember-data"` anywhere you explicitly declared a route, controller, model, and so on.
+You now have to explicitly import Ember and Ember Data. Add `import Ember from "ember` and
+`import DS from "ember-data"` anywhere you declared a route, controller, model, and so on.
 
 ### Migrating your API Stub
 
-To wire this up again, run `ember generate api-stub` followed by your app's name.
-This generates a server directory where you can then migrate your routes accordingly.
+To work with the API stub again, run `ember generate api-stub`.
+This command generates a server directory where you can then migrate your routes accordingly.
 
 You may also want to look into [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
 which generates DS.RESTAdapter compatible express routes for a given Model.
@@ -96,11 +94,13 @@ which generates DS.RESTAdapter compatible express routes for a given Model.
 ### Using The Express Server
 
 The Express server has been exposed and now lives under this directory.
-You can then customize the static file server or develop the API and turn it into a full-stack solution.
+You can now customize it any way you want, from enhancing the static file server,
+to simply using it as an API stub. You may even develop it further and turn it into a full-stack solution.
 
-## Cleanup
+### Cleanup
 
 You can remove the Gruntfile and tasks folder since we won't be needing them anymore.
+
 For now, you can check the [app blueprint](https://github.com/stefanpenner/ember-cli/tree/master/blueprints/app/files)
 to see what other files you no longer need.
 
