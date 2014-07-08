@@ -1,6 +1,6 @@
 # Deprecated
 
-this project has been deprecated in-favour of the ember-cli project: 
+this project has been deprecated in-favour of the ember-cli project:
 
 * https://github.com/stefanpenner/ember-cli
 * http://iamstef.net/ember-cli
@@ -24,10 +24,10 @@ We welcome ideas and experiments.
 
 * [Project Documentation Site](http://stefanpenner.github.io/ember-app-kit/)
 * [Getting Started Guide](http://stefanpenner.github.io/ember-app-kit/guides/getting-started.html)
-* [ember-app-kit-todos](https://github.com/stefanpenner/ember-app-kit-todos) - the Emberjs [todos](http://emberjs.com/guides/getting-started/) using Ember App Kit 
+* [ember-app-kit-todos](https://github.com/stefanpenner/ember-app-kit-todos) - the Emberjs [todos](http://emberjs.com/guides/getting-started/) using Ember App Kit
 * [ember-app-kit-bloggr](https://github.com/pixelhandler/ember-app-kit-example-with-bloggr-client) - bloggr demo
 * *Safari Books Online Blog* - [Introduction to Ember App Kit](http://blog.safaribooksonline.com/2013/09/18/ember-app-kit/) for more experienced Ember developers by @mixonic
-* *Ember Sherpa* - [Introduction to Ember App Kit](http://embersherpa.com/articles/introduction-to-ember-app-kit/) for those who are new to the Grunt workflow by @taras 
+* *Ember Sherpa* - [Introduction to Ember App Kit](http://embersherpa.com/articles/introduction-to-ember-app-kit/) for those who are new to the Grunt workflow by @taras
 
 
 ## Features
@@ -47,20 +47,19 @@ We welcome ideas and experiments.
 
 First, run `npm install -g ember-cli` to install Ember CLI.
 Now, on top of your existing EAK project, run `ember init`. Ember CLI
-will begin to migrate your project, showing you a diff of its overrides as it
-goes along.
+will then migrate your project, showing you a diff of its overrides,
+and letting you edit them, as it goes along.
 
 ### Ember Init Overrides
 
 * tests/.jshintrc
   * Let ember-cli overwrite this.
 * app/index.html
-    * Managing vendor assets is now handled via the Brocfile. Let
-      ember-cli overwrite this file.
+    * Since managing vendor assets is now handled via the Brocfile, you should let ember-cli overwrite this file.
 * app/app.js
-  * Ember Configuration is now handled in `config/`
+  * Ember Configuration is now handled in the `config` directory.
 * app/router.js
-  * Router's location is now handled via environment configuration.
+  * The Router's location is now handled via environment configuration.
     Change this to ENV.locationType.
 * app/routes/index.js
   * This will attempt to replace your Index Route with a stub. Usually,
@@ -74,21 +73,36 @@ goes along.
 * app/styles/app.css
   * Another stub.
 * tests/index.html
-  * Let ember-cli add this file. This is where the test dependencies
-    from `app/index.html` now live.
+  * Let ember-cli add this file. Include any test depencies you had in `app/index.html'.
 * bower.json
 * package.json
-* server
-  * The express server has been exposed and now lives under this
-    directory.
-  * This essentially replaces the API Stub in favor of a real
-    Express App, so you can now enhance and customize the static server
-    or develop the API and turn it into a full MEAN-like solution.
 
-## Cleanup
 
-You can remove the Gruntfile, tasks, and the api-stub directory, since we
-won't be needing them anymore.
+### Importing Ember and Ember Data
+
+You now have to explicitly import Ember and Ember Data. Add `import Ember from "ember` and
+`import DS from "ember-data"` anywhere you declared a route, controller, model, and so on.
+
+### Migrating your API Stub
+
+To work with the API stub again, run `ember generate api-stub`.
+This command generates a server directory where you can then migrate your routes accordingly.
+
+You may also want to look into [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
+which generates DS.RESTAdapter compatible express routes for a given Model.
+
+### Using The Express Server
+
+The Express server has been exposed and now lives under this directory.
+You can now customize it any way you want, from enhancing the static file server,
+to simply using it as an API stub. You may even develop it further and turn it into a full-stack solution.
+
+### Cleanup
+
+You can remove the Gruntfile and tasks folder since we won't be needing them anymore.
+
+For now, you can check the [app blueprint](https://github.com/stefanpenner/ember-cli/tree/master/blueprints/app/files)
+to see what other files you no longer need.
 
 ### Troubleshooting
 
