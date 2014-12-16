@@ -3,12 +3,7 @@
 this project has been deprecated in-favour of the ember-cli project:
 
 * https://github.com/stefanpenner/ember-cli
-* http://iamstef.net/ember-cli
-
-
-
-
-
+* http://ember-cli.com
 
 # Ember App Kit [![Build Status](https://travis-ci.org/stefanpenner/ember-app-kit.png?branch=master)](https://travis-ci.org/stefanpenner/ember-app-kit)
 
