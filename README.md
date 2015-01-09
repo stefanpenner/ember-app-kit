@@ -80,8 +80,7 @@ You now have to explicitly import Ember and Ember Data. Add `import Ember from "
 
 ### Migrating your API Stub
 
-To work with the API stub again, run `ember generate api-stub`.
-This command generates a server directory where you can then migrate your routes accordingly.
+To work with the API stub again, run `ember generate server`. This command generates a server directory for your mocks and proxies where you can then migrate your routes accordingly.
 
 You may also want to look into [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
 which generates DS.RESTAdapter compatible express routes for a given Model.
@@ -91,6 +90,10 @@ which generates DS.RESTAdapter compatible express routes for a given Model.
 The Express server has been exposed and now lives under this directory.
 You can now customize it any way you want, from enhancing the static file server,
 to simply using it as an API stub. You may even develop it further and turn it into a full-stack solution.
+
+### Custom Environments
+
+Support for custom environments like staging is currently still in progress, see Ember CLI Issue [#150](https://github.com/ember-cli/ember-cli/issues/660)
 
 ### Cleanup
 
