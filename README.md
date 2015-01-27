@@ -55,6 +55,10 @@ To work with the API stub again, run ember generate server. This command generat
 You may also want to look into [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
 which generates DS.RESTAdapter compatible express routes for a given Model.
 
+### Custom Environments
+
+Support for custom environments like staging is currently still in progress, see [Ember CLI PR #1520](https://github.com/ember-cli/ember-cli/pull/1520)
+
 ### Using The Express Server
 
 The Express server has been exposed and now lives under this directory.
