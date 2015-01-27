@@ -39,6 +39,9 @@ app.import().
 * bower.json
 * package.json
 
+### Ember CLI Migrator
+
+The [Ember CLI Migrator](https://github.com/fivetanley/ember-cli-migrator) can help you migrate your files to the standard ember-cli structure, while preserving your Git history. This tool can help you get 90% of the way there when working with EAK.
 
 ### Importing Ember and Ember Data
 
