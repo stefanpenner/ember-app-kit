@@ -5,6 +5,7 @@ this project has been deprecated in-favour of the ember-cli project:
 * https://github.com/stefanpenner/ember-cli
 * http://iamstef.net/ember-cli
 
+
 ## Migrating to Ember CLI
 
 First, run `npm install -g ember-cli` to install Ember CLI.
@@ -38,6 +39,11 @@ app.import().
 * Let ember-cli add this file. Include any test depencies you had in `app/index.html'.
 * bower.json
 * package.json
+
+
+## Ember CLI Migrator
+
+The [Ember CLI Migrator](https://github.com/fivetanley/ember-cli-migrator) will help you migrate your files to the standard ember-cli structure while preserving your Git history. This tool will help get you 90% of the way there when working with an EAK app.
 
 ### Importing Ember and Ember Data
 
