@@ -58,6 +58,10 @@ This command generates a server directory where you can then migrate your routes
 You may also want to look into [Ember CLI Rest API Blueprint](https://github.com/manuelmitasch/ember-cli-rest-api-blueprint)
 which generates DS.RESTAdapter compatible express routes for a given Model.
 
+### Custom Environments
++
++Support for custom environments like staging is currently still in progress, see Ember CLI Issue [#150](https://github.com/ember-cli/ember-cli/issues/660)
+
 ### Using The Express Server
 
 The Express server has been exposed and now lives under this directory.
