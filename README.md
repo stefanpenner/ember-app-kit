@@ -22,13 +22,13 @@ and letting you edit them, as it goes along.
 * Ember Configuration is now handled in the `config` directory.
 * app/router.js
 * The Router's location is now handled via environment configuration.
-Change this to ENV.locationType.
+Change this to config.locationType.
 * app/routes/index.js
 * This will attempt to replace your Index Route with a stub. Usually,
 you wont't want Ember CLI to override this file.
 * Brocfile.js
 * Move your dependencies from app/index.html into this file by calling
-app.import().
+`app.import()`.
 * Example: app.import('vendor/ember-data/ember-data.js')
 * app/templates/application.hbs
 * This will attempt to replace your application template with a stub.
@@ -90,7 +90,8 @@ cache clean && bower install`
 * `resolver` and `startApp` still live in `test/helpers/` but
 `module-for` is now its own package.
 * If you were using ember-testing-httpRespond
-* This is now patched for 1.4+
+* This has now been replaced by [Pretender](https://github.com/trek/pretender).
+  * You can use it in your project with [ember-cli-pretender](https://github.com/rwjblue/ember-cli-pretender)
 * Import it and its dependencies in your Brocfile by using
 `app.import()`
 
