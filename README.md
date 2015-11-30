@@ -2,8 +2,8 @@
 
 this project has been deprecated in-favour of the ember-cli project:
 
-* https://github.com/stefanpenner/ember-cli
-* http://ember-cli.com
+* https://github.com/ember-cli/ember-cli
+* http://www.ember-cli.com/
 
 ## Migrating to Ember CLI
 
@@ -69,7 +69,7 @@ to simply using it as an API stub. You may even develop it further and turn it i
 
 You can remove the Gruntfile and tasks folder since we won't be needing them anymore.
 
-For now, you can check the [app blueprint](https://github.com/stefanpenner/ember-cli/tree/master/blueprints/app/files)
+For now, you can check the [app blueprint](https://github.com/ember-cli/ember-cli/tree/master/blueprints/app/files)
 to see what other files you no longer need.
 
 ### Troubleshooting
@@ -90,7 +90,7 @@ cache clean && bower install`
 * `resolver` and `startApp` still live in `test/helpers/` but
 `module-for` is now its own package.
 * If you were using ember-testing-httpRespond
-* This has now been replaced by [Pretender](https://github.com/trek/pretender).
+* This has now been replaced by [Pretender](https://github.com/pretenderjs/pretender).
   * You can use it in your project with [ember-cli-pretender](https://github.com/rwjblue/ember-cli-pretender)
 * Import it and its dependencies in your Brocfile by using
 `app.import()`
@@ -115,7 +115,7 @@ We welcome ideas and experiments.
 * [Getting Started Guide](http://stefanpenner.github.io/ember-app-kit/guides/getting-started.html)
 * [ember-app-kit-todos](https://github.com/stefanpenner/ember-app-kit-todos) - the Emberjs [todos](http://emberjs.com/guides/getting-started/) using Ember App Kit
 * [ember-app-kit-bloggr](https://github.com/pixelhandler/ember-app-kit-example-with-bloggr-client) - bloggr demo
-* *Safari Books Online Blog* - [Introduction to Ember App Kit](http://blog.safaribooksonline.com/2013/09/18/ember-app-kit/) for more experienced Ember developers by @mixonic
+* *Safari Books Online Blog* - [Introduction to Ember App Kit](https://www.safaribooksonline.com/blog/2013/09/18/ember-app-kit/) for more experienced Ember developers by @mixonic
 * *Ember Sherpa* - [Introduction to Ember App Kit](http://embersherpa.com/articles/introduction-to-ember-app-kit/) for those who are new to the Grunt workflow by @taras
 
 
