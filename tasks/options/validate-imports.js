@@ -3,7 +3,7 @@ var grunt = require('grunt');
 module.exports = {
   options: {
     whitelist: {
-      'ember/resolver': ['default'],
+      'resolver': ['default'],
       'ember/load-initializers': ['default'],
       'ember-qunit': ['moduleForComponent', 'moduleForModel', 'moduleFor', 'test', 'default'],
       'ic-ajax': ['default', 'request', 'raw', 'defineFixture', 'lookupFixture'],

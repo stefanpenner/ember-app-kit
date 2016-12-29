@@ -1,4 +1,4 @@
-import Resolver from 'ember/resolver';
+import Resolver from 'resolver';
 
 var resolver = Resolver.create();
 

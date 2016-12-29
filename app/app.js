@@ -1,4 +1,4 @@
-import Resolver from 'ember/resolver';
+import Resolver from 'resolver';
 import loadInitializers from 'ember/load-initializers';
 
 var App = Ember.Application.extend({
