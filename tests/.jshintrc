@@ -27,6 +27,8 @@
     "ok",
     "strictEqual",
     "module",
+    "moduleFor",
+    "moduleForComponent",
     "process",
     "expect",
     "visit",
