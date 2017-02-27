@@ -3,7 +3,7 @@ import loadInitializers from 'ember/load-initializers';
 
 var App = Ember.Application.extend({
   modulePrefix: 'appkit', // TODO: loaded via config
-  Resolver: Resolver
+  Resolver: Resolver.default
 });
 
 loadInitializers(App, 'appkit');
