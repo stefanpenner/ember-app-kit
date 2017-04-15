@@ -59,7 +59,10 @@ module.exports = function(grunt) {
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
       _ = grunt.util._,
-      path = require('path');
+      path = require('path'),
+      // optionally skip file name hashing: if noRevHash is included as a field in package.json and has a truthy value, skip
+      // file name hashing during dist builds
+      revStepName  = !!grunt.file.readJSON('package.json').noRevHash ? '' : 'rev';
 
   Helpers.pkg = require("./package.json");
 
@@ -166,7 +169,7 @@ module.exports = function(grunt) {
                      // 'svgmin',
                      'copy:dist', // Copies files not covered by concat and imagemin
 
-                     'rev', // Appends 8 char hash value to filenames
+                     revStepName, // Prepends 8 char hash value to filenames (optional, see above)
                      'usemin', // Replaces file references
                      'htmlmin:dist' // Removes comments and whitespace
                      ]));
