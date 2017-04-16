@@ -1,7 +1,7 @@
 var Helpers = require('../helpers'),
     filterAvailable = Helpers.filterAvailableTasks,
     LIVERELOAD_PORT = 35729,
-    liveReloadPort = (parseInt(process.env.PORT || 8000, 10) - 8000) + LIVERELOAD_PORT;
+    liveReloadPort = (parseInt("<%= package.expressServerPort %>" || 8000, 10) - 8000) + LIVERELOAD_PORT;
 
 var docs = '{app}/**/*.{js,coffee,em}',
     scripts = '{app,tests,config}/**/*.{js,coffee,em}',
